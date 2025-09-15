@@ -39,10 +39,12 @@
 	set category = "IC"
 	set hidden = 1
 
+	#ifdef USES_PQ
 	if(client)
 		if(get_playerquality(client.ckey) <= -20)
 			to_chat(usr, "<span class='warning'>I can't use custom emotes. (LOW PQ)</span>")
 			return
+		#endif
 	var/message = input(usr, "", "me") as text|null
 	// If they don't type anything just drop the message.
 	set_typing_indicator(FALSE)
@@ -61,10 +63,18 @@
 	set category = "IC"
 	set hidden = TRUE
 
+<<<<<<< HEAD
+=======
+	#ifdef USES_PQ
+>>>>>>> vanderlin/main
 	if(client)
 		if(get_playerquality(client.ckey) <= -20)
 			to_chat(usr, "<span class='warning'>I can't use custom emotes. (LOW PQ)</span>")
 			return
+<<<<<<< HEAD
+=======
+		#endif
+>>>>>>> vanderlin/main
 	var/message = input(usr, "", "me") as message|null
 	// If they don't type anything just drop the message.
 	set_typing_indicator(FALSE)
@@ -134,7 +144,11 @@
 
 /mob/proc/check_whisper(message, forced)
 	if(copytext(message, 1, 2) == "+")
+<<<<<<< HEAD
 		var/text = copytext_char(message, 2)
+=======
+		var/text = copytext(message, 2)
+>>>>>>> vanderlin/main
 		var/boldcheck = findtext_char(text, "+")	//Check for a *second* + in the text, implying the message is meant to have something formatted as bold (+text+)
 		whisper(copytext_char(message, boldcheck ? 1 : 2),sanitize = FALSE)//already sani'd
 		return 1

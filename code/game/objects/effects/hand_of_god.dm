@@ -9,8 +9,11 @@
 	layer = GOD_HAND_LAYER
 	plane = GAME_PLANE_UPPER
 	pixel_z = DISPLACEMENT_AMOUNT
+<<<<<<< HEAD
 	//icon_w = ANIMATION_W
 	//icon_z = ANIMATION_Z
+=======
+>>>>>>> vanderlin/main
 
 	var/atom/movable/thing_to_take
 
@@ -19,6 +22,11 @@
 
 /obj/effect/god_hand/Initialize(mapload, atom/movable/thing_to_take)
 	. = ..()
+<<<<<<< HEAD
+=======
+	icon_w = ANIMATION_W
+	icon_z = ANIMATION_Z
+>>>>>>> vanderlin/main
 
 	pixel_z = DISPLACEMENT_AMOUNT
 

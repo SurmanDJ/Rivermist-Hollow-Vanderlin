@@ -69,6 +69,9 @@
 /obj/item
 	var/genitalaccess = FALSE
 
+/obj/item/organ/genitals
+	var/visible_through_clothes = FALSE
+
 //we handle all of this here because cant timer another goddamn thing from here correctly.
 /obj/item/organ/genitals/filling_organ/vagina/proc/be_impregnated()
 	if(!owner)

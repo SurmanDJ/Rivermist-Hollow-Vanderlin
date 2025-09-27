@@ -357,6 +357,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Load flavor text
 	S["flavortext"] >> flavortext
+	S["nsfw_headshot_link"]		>> nsfw_headshot_link
+	if(!is_valid_nsfw_headshot_link(null, nsfw_headshot_link, TRUE))
+		nsfw_headshot_link = null
 
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
@@ -476,6 +479,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["body_markings"] , body_markings)
 	// headshot link
 	WRITE_FILE(S["headshot_link"] , headshot_link)
+	// nsfw headshot link
+	WRITE_FILE(S["nsfw_headshot_link"] , nsfw_headshot_link)
 	// flavor text
 	WRITE_FILE(S["flavortext"] , flavortext)
 	// Descriptor entries

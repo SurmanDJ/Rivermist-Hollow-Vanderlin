@@ -12,6 +12,7 @@
 	reagent_generate_rate = 0.5
 	max_femcum = 9
 	max_reagents = 40 //big cap, ordinary absorbtion.
+	altnames = list("vagina", "cunt", "womb", "pussy", "slit", "kitty", "snatch") //used in thought messages.
 	absorbing = TRUE
 	fertility = TRUE
 	spiller = TRUE

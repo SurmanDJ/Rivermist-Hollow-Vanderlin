@@ -5,6 +5,7 @@
 	zone = BODY_ZONE_PRECISE_GROIN
 	slot = ORGAN_SLOT_TESTICLES
 	accessory_type = /datum/sprite_accessory/genitals/testicles/pair
+	altnames = list("balls", "testicles", "testes", "orbs", "cum tanks", "seed tanks") //used in thought messages.
 	organ_size = DEFAULT_TESTICLES_SIZE
 	var/virility = TRUE
 

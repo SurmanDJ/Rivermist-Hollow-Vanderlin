@@ -120,6 +120,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 	/// link to a page containing your headshot image
 	var/headshot_link
+	var/nsfw_headshot_link //Twilight Axis edit далее TA
 
 	/// text of your flavor
 	var/flavortext
@@ -215,7 +216,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	///our selected accent
 	var/selected_accent = ACCENT_DEFAULT
 	/// If our owner has patreon access
-	var/patreon = FALSE
+	var/patreon = TRUE
 	/// If our owner is from a race that has more than one accent
 	var/change_accent = FALSE
 
@@ -239,8 +240,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	headshot_link = null
 
 	// C/parent can be a client_interface
-	if(isclient(parent))
-		patreon = parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK)
+	//if(isclient(parent))
+	//	patreon = parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK)
 
 	for(var/custom_name_id in GLOB.preferences_custom_names)
 		custom_names[custom_name_id] = get_default_name(custom_name_id)
@@ -436,8 +437,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<br><b>Voice Color:</b> <a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
 	dat += "<br>"
 	dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=selected_accent;task=input'>[selected_accent]</a>"
-	dat += "<br>"
 	dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
+	dat += "<br><b>Markings:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
 	dat += "<br><b>ERP:</b> <a href='?_src_=prefs;preference=erp;task=menu'>Change</a>"
 	if(length(pref_species.descriptor_choices))
 		dat += "<br><b>Descriptors:</b> <a href='?_src_=prefs;preference=descriptors;task=menu'>Change</a>"
@@ -446,7 +447,12 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
 	if(headshot_link != null)
 		dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+	dat += "<br><b>NSFW Headshot:</b> <a href='?_src_=prefs;preference=nsfw_headshot;task=input'>Change</a>"
+	if(nsfw_headshot_link != null)
+		dat += "<br><img src='[nsfw_headshot_link]' width='125px' height='175px'>"
 	dat += "<br><b>Flavortext:</b> <a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
+	dat += "<br>"
+	dat += "<br><a href='?_src_=prefs;preference=ooc_preview;task=input'><b>Preview Examine</b></a>"
 	dat += "<br></td>"
 
 	dat += "</tr></table>"
@@ -1376,7 +1382,35 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					flavortext = new_flavortext
 					to_chat(user, "<span class='notice'>Successfully updated flavortext</span>")
 					log_game("[user] has set their flavortext'.")
-
+				if("nsfw_headshot")
+					to_chat(user, "<span class='notice'>Finally a place to show it all.</span>")
+					var/new_nsfw_headshot_link = input(user, "Input the nsfw headshot link (https, hosts: gyazo, lensdump, imgbox, catbox):", "NSFW Headshot", nsfw_headshot_link) as text|null
+					if(new_nsfw_headshot_link == null)
+						return
+					if(new_nsfw_headshot_link == "")
+						nsfw_headshot_link = null
+						ShowChoices(user)
+						return
+					if(!is_valid_nsfw_headshot_link(user, new_nsfw_headshot_link))
+						nsfw_headshot_link = null
+						ShowChoices(user)
+						return
+					nsfw_headshot_link = new_nsfw_headshot_link
+					to_chat(user, "<span class='notice'>Successfully updated NSFW Headshot picture</span>")
+					log_game("[user] has set their NSFW Headshot image to '[nsfw_headshot_link]'.") //TA edit end
+				if("ooc_preview")	//Unashamedly copy pasted from human_topic.dm L:7. Sorry!
+					var/list/dat = list()
+					dat += "<div align='center'><font size = 5; font color = '#dddddd'><b>[real_name]</b></font></div>"
+					if(is_valid_headshot_link(null, headshot_link, TRUE))
+						dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='325px'></div>")
+					if(flavortext)
+						dat += "<div align='left'>[flavortext]</div>"
+					if(nsfw_headshot_link)
+						dat += "<br><div align='center'><b>NSFW</b></div>"
+						dat += ("<br><div align='center'><img src='[nsfw_headshot_link]' width='600px'></div>")//TA edit end
+					var/datum/browser/popup = new(user, "[real_name]", 700, 800)
+					popup.set_content(dat.Join())
+					popup.open(FALSE)
 				if("s_tone")
 					var/listy = pref_species.get_skin_list()
 					var/new_s_tone = browser_input_list(user, "CHOOSE YOUR HERO'S [uppertext(pref_species.skin_tone_wording)]", "THE SUN", listy)
@@ -1720,9 +1754,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 /// Sanitization checks to be performed before using these preferences.
 /datum/preferences/proc/sanitize_chosen_prefs()
-	if(!(pref_species.name in get_selectable_species(patreon)))
-		pref_species = new /datum/species/human/northern
-		save_character()
+	//if(!(pref_species.name in get_selectable_species(patreon)))
+	//	pref_species = new /datum/species/human/northern
+	//	save_character()
 
 	if(CONFIG_GET(flag/humans_need_surnames) && (pref_species.id == SPEC_ID_HUMEN))
 		var/firstspace = findtext(real_name, " ")
@@ -1770,6 +1804,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	/* V: */
 
 	character.headshot_link = headshot_link
+
+	character.nsfw_headshot_link = nsfw_headshot_link
+
 	character.flavortext = flavortext
 	character.pronouns = pronouns
 	character.voice_type = voice_type
@@ -1964,4 +2001,37 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		return FALSE
 
 	return TRUE
+
+/proc/is_valid_nsfw_headshot_link(mob/user, value, silent = FALSE) //TA edit
+	var/static/link_regex = regex("i.gyazo.com|a.l3n.co|b.l3n.co|c.l3n.co|images2.imgbox.com|thumbs2.imgbox.com|files.catbox.moe") //gyazo, discord, lensdump, imgbox, catbox
+	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
+
+	if(!length(value))
+		return FALSE
+
+	var/find_index = findtext(value, "https://")
+	if(find_index != 1)
+		if(!silent)
+			to_chat(user, "<span class='warning'>Your link must be https!</span>")
+		return FALSE
+
+	if(!findtext(value, "."))
+		if(!silent)
+			to_chat(user, "<span class='warning'>Invalid link!</span>")
+		return FALSE
+	var/list/value_split = splittext(value, ".")
+
+	// extension will always be the last entry
+	var/extension = value_split[length(value_split)]
+	if(!(extension in valid_extensions))
+		if(!silent)
+			to_chat(usr, "<span class='warning'>The image must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
+		return FALSE
+
+	find_index = findtext(value, link_regex)
+	if(find_index != 9)
+		if(!silent)
+			to_chat(usr, "<span class='warning'>The image must be hosted on one of the following sites: 'Gyazo, Lensdump, Imgbox, Catbox'</span>")
+		return FALSE
+	return TRUE //TA edit end
 

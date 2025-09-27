@@ -2,8 +2,8 @@
 	abstract_type = /datum/sprite_accessory/piercing
 	icon = 'modular_rmh/icons/mob/sprite_accessory/piercings/rings.dmi'
 	color_key_name = "Piercings"
-	layer = BODY_FRONT_FRONT_FRONT_LAYER
-	color_disabled = TRUE
+	layer = BODY_FRONT_LAYER
+	//color_disabled = TRUE
 	var/piercing_type
 
 /datum/sprite_accessory/piercing/get_icon_state(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
@@ -33,10 +33,11 @@
 	if(breasts)
 		if(breasts.visible_through_clothes)
 			return TRUE
-	if(isnull(owner.underwear))
-		return is_human_part_visible(owner, HIDEBOOB)
-	else
-		return is_human_part_visible(owner, HIDEBOOB) && !owner.underwear.covers_breasts
+	return is_human_part_visible(owner, HIDEBOOB)
+	//if(isnull(owner.underwear))
+	//	return is_human_part_visible(owner, HIDEBOOB)
+	//else
+	//	return is_human_part_visible(owner, HIDEBOOB) && !owner.underwear.covers_breasts
 
 /datum/sprite_accessory/piercing/rings
 	icon = 'modular_rmh/icons/mob/sprite_accessory/piercings/rings.dmi'

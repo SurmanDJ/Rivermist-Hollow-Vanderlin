@@ -41,7 +41,7 @@
 	UnregisterSignal(parent, COMSIG_SEX_RECEIVE_ACTION)
 
 /datum/component/arousal/process()
-	handle_charge(1)
+	handle_charge(10)
 	if(!can_lose_arousal())
 		return
 	adjust_arousal(parent, -1)
@@ -57,7 +57,8 @@
 	arousal = clamp(amount, 0, MAX_AROUSAL)
 	update_arousal_effects()
 	try_ejaculate()
-	SEND_SIGNAL(parent, COMSIG_SEX_AROUSAL_CHANGED)
+	if(iscarbon(parent))
+		SEND_SIGNAL(parent, COMSIG_SEX_AROUSAL_CHANGED)
 	return arousal
 
 /datum/component/arousal/proc/adjust_arousal(datum/source, amount)
@@ -79,7 +80,9 @@
 		"arousal" = arousal,
 		"frozen" = arousal_frozen,
 		"last_increase" = last_arousal_increase_time,
-		"arousal_multiplier" = arousal_multiplier
+		"arousal_multiplier" = arousal_multiplier,
+		"last_ejaculation_time" = last_ejaculation_time,
+		"is_spent" = is_spent()
 	)
 
 /datum/component/arousal/proc/receive_sex_action(datum/source, arousal_amt, pain_amt, giving, applied_force, applied_speed)

@@ -21,9 +21,11 @@
 	var/last_climax_reset_time = 0
 	/// Our edging charge
 	var/edging_charge = 0
-	/// 40% arousal loss after each orgasm
-	var/arousal_falloff_coeff = 0.6
-
+	/// 60% arousal loss after each orgasm
+	var/arousal_falloff_coeff = 0.4
+	/// Level of pleasure resistance
+	var/resistance_to_pleasure = RESIST_NONE
+	/// Recent orgasm count
 	var/recent_orgasm_count = 0
 
 /datum/component/arousal/Initialize(...)
@@ -43,6 +45,7 @@
 	RegisterSignal(parent, COMSIG_SEX_RECEIVE_ACTION, PROC_REF(receive_sex_action))
 	RegisterSignal(parent, COMSIG_SEX_ADJUST_EDGING, PROC_REF(adjust_edging))
 	RegisterSignal(parent, COMSIG_SEX_SET_EDGING, PROC_REF(set_edging))
+	RegisterSignal(parent, COMSIG_SEX_SET_HOLDING, PROC_REF(set_holding_pleasure))
 
 /datum/component/arousal/UnregisterFromParent()
 	. = ..()
@@ -53,9 +56,10 @@
 	UnregisterSignal(parent, COMSIG_SEX_RECEIVE_ACTION)
 	UnregisterSignal(parent, COMSIG_SEX_ADJUST_EDGING)
 	UnregisterSignal(parent, COMSIG_SEX_SET_EDGING)
+	UnregisterSignal(parent, COMSIG_SEX_SET_HOLDING)
 
 /datum/component/arousal/process()
-	handle_charge(10)
+	handle_charge()
 	handle_aroousal_cooling()
 	handle_orgasm_count()
 	handle_statuses()
@@ -63,8 +67,6 @@
 
 
 /datum/component/arousal/proc/handle_orgasm_count()
-	//if(user.has_status_effect(/datum/status_effect/debuff/orgasmbroken))
-	//	adjust_arousal(AROUSAL_HIGH_UNHORNY_RATE - 0.1) //too many orgasms keeps arousal at the edge //maybe a little bit hacky, we'll see
 	if(!recent_orgasm_count)
 		return
 	if(last_climax_reset_time + ORGASM_RESET_TIME < world.time)
@@ -93,20 +95,15 @@
 	adjust_edging(parent, -1 * ARO_LOSS_COEFFICIENT * 0.01)
 
 /datum/component/arousal/proc/handle_passive_orgasm()
-	var/mob/user = parent
 	if(arousal < PASSIVE_EJAC_THRESHOLD)
 		return
-	if(is_spent() && !issimple(user))
-		return
-	if(last_climax_reset_time + ORGASM_COOLDOWN_TIME - clamp(edging_charge, 0, ORGASM_COOLDOWN_TIME - 10) >= world.time)
+	if(!can_climax())
 		return FALSE
 	ejaculate()
 
 /datum/component/arousal/proc/can_climax()
-	//var/mob/user = parent
-	//if(!user.getorganslot(ORGAN_SLOT_TESTICLES) && !user.getorganslot(ORGAN_SLOT_VAGINA))
-	//	return FALSE
-	if(is_spent())
+	// Add some checks for like curses or something here.
+	if(last_ejaculation_time + ORGASM_COOLDOWN_TIME - clamp(edging_charge, 0, ORGASM_COOLDOWN_TIME - 10) >= world.time)
 		return FALSE
 	return TRUE
 
@@ -115,12 +112,15 @@
 		return FALSE
 	return TRUE
 
+/datum/component/arousal/proc/set_holding_pleasure(datum/source, level)
+	resistance_to_pleasure = level
+	return resistance_to_pleasure
+
 /datum/component/arousal/proc/set_arousal(datum/source, amount)
 	if(amount > arousal)
 		last_arousal_increase_time = world.time
 	arousal = clamp(amount, 0, MAX_AROUSAL)
 	update_arousal_effects()
-	try_ejaculate()
 	if(iscarbon(parent))
 		SEND_SIGNAL(parent, COMSIG_SEX_AROUSAL_CHANGED)
 	return arousal
@@ -147,7 +147,8 @@
 		"arousal_multiplier" = arousal_multiplier,
 		"last_ejaculation_time" = last_ejaculation_time,
 		"is_spent" = is_spent(),
-		"edging" = edging_charge
+		"edging" = edging_charge,
+		"resistance_to_pleasure" = resistance_to_pleasure
 	)
 
 /datum/component/arousal/proc/adjust_edging(datum/source, amount)
@@ -218,12 +219,12 @@
 			arousal_amt *= 2
 		else
 			arousal_amt *= 1.5
-		update_aching(1)
+		update_aching(1, giving)
 		var/lovermessage = pick("This feels too good!", "I must never stop!", "I want MORE!", "I need this!")
 		if(prob(15))
 			to_chat(user, span_love(lovermessage))
 	else if(user.has_status_effect(/datum/status_effect/debuff/cumbrained))
-		update_aching(5)
+		update_aching(5, giving)
 		var/lovermessage
 		if(!isnymph)
 			arousal_amt *= 0.5
@@ -233,7 +234,7 @@
 		if(prob(15))
 			to_chat(user, span_love(lovermessage))
 	else if(user.has_status_effect(/datum/status_effect/debuff/loinspent))
-		update_aching(2)
+		update_aching(2, giving)
 		var/lovermessage
 		if(!isnymph)
 			arousal_amt *= 0.8
@@ -266,23 +267,30 @@
 			if(prob(15))
 				var/edgemessage = pick("They are not letting me cum!", "Please, let me cum!", "I need to cum already!")
 				to_chat(user, span_love(edgemessage))
+	if(is_spent() || is_manhood_overstimulated())
+		arousal_amt *= 0.8
+		update_aching(8, giving)
+		if(prob(15))
+			var/spentmessage = pick("I need to let my loins rest!", "I came too much too quickly!")
+			to_chat(user, span_warn(spentmessage))
 
 	if(!arousal_frozen)
 		adjust_arousal(source, arousal_amt)
 
 	damage_from_pain(pain_amt, giving)
+	try_ejaculate()
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
 	try_do_pain_effect(pain_amt, giving)
 
 /datum/component/arousal/proc/update_arousal_effects()
 	update_pink_screen()
-	update_blueballs()
+	handle_statuses()
 	update_erect_state()
 
 /datum/component/arousal/proc/try_ejaculate()
 	if(arousal < PASSIVE_EJAC_THRESHOLD)
 		return
-	if(is_spent())
+	if(!can_climax())
 		return
 	ejaculate()
 
@@ -291,8 +299,8 @@
 	var/list/parent_sessions = return_sessions_with_user(parent)
 	var/datum/sex_session/highest_priority = return_highest_priority_action(parent_sessions, parent)
 	playsound(parent, 'sound/misc/mat/endout.ogg', 50, TRUE, ignore_walls = FALSE)
-	// Special case for when the user has a penis but no testicles
-	if(!mob.getorganslot(ORGAN_SLOT_TESTICLES) && mob.getorganslot(ORGAN_SLOT_PENIS))
+	// Special cases for when the user has a penis but no testicles & for eunuchs
+	if((!mob.getorganslot(ORGAN_SLOT_TESTICLES) && mob.getorganslot(ORGAN_SLOT_PENIS)) || (!mob.getorganslot(ORGAN_SLOT_TESTICLES) && !mob.getorganslot(ORGAN_SLOT_VAGINA)))
 		mob.visible_message(span_love("[mob] climaxes, yet nothing is released!"))
 		after_ejaculation(FALSE, parent)
 		return
@@ -302,16 +310,16 @@
 		if(mob.getorganslot(ORGAN_SLOT_TESTICLES) && mob.getorganslot(ORGAN_SLOT_PENIS))
 			var/obj/item/organ/genitals/filling_organ/testicles/testes = mob.getorganslot(ORGAN_SLOT_TESTICLES)
 			if(testes)
-				var/cum_to_take = CLAMP((testes.reagents.maximum_volume/2), 1, testes.reagents.total_volume)
+				var/cum_to_take = min(3, testes.reagents.total_volume)
 				if(testes.reagents)
 					turf.add_liquid_from_reagents(testes.reagents, amount = cum_to_take)
 		if(mob.getorganslot(ORGAN_SLOT_VAGINA))
 			var/obj/item/organ/genitals/filling_organ/vagina/vag = mob.getorganslot(ORGAN_SLOT_VAGINA)
 			if(vag)
-				var/femcum_to_take = min(8, vag.reagents.total_volume)
+				var/femcum_to_take = min(3, vag.reagents.total_volume)
 				if(vag.reagents)
 					turf.add_liquid_from_reagents(vag.reagents, amount = femcum_to_take)
-		after_ejaculation(FALSE, parent, highest_priority.target)
+		after_ejaculation(FALSE, parent, null)
 	else
 		var/datum/sex_action/action = SEX_ACTION(highest_priority.current_action)
 		var/return_type = action.handle_climax_message(highest_priority.user, highest_priority.target)
@@ -320,13 +328,13 @@
 			if(mob.getorganslot(ORGAN_SLOT_TESTICLES) && mob.getorganslot(ORGAN_SLOT_PENIS))
 				var/obj/item/organ/genitals/filling_organ/testicles/testes = mob.getorganslot(ORGAN_SLOT_TESTICLES)
 				if(testes)
-					var/cum_to_take = CLAMP((testes.reagents.maximum_volume/2), 1, testes.reagents.total_volume)
+					var/cum_to_take = min(3, testes.reagents.total_volume)
 					if(testes.reagents)
 						turf.add_liquid_from_reagents(testes.reagents, amount = cum_to_take)
 			if(mob.getorganslot(ORGAN_SLOT_VAGINA))
 				var/obj/item/organ/genitals/filling_organ/vagina/vag = mob.getorganslot(ORGAN_SLOT_VAGINA)
 				if(vag)
-					var/femcum_to_take = min(8, vag.reagents.total_volume)
+					var/femcum_to_take = min(3, vag.reagents.total_volume)
 					if(vag.reagents)
 						turf.add_liquid_from_reagents(vag.reagents, amount = femcum_to_take)
 			after_ejaculation(FALSE, parent, highest_priority.target)
@@ -411,6 +419,10 @@
 				var/femcum_to_take = min(8, vag.reagents.total_volume)
 				if(vag.reagents)
 					turf.add_liquid_from_reagents(testes.reagents, amount = femcum_to_take)
+	if(testes)
+		if(testes.reagents)
+			if(testes.reagents.total_volume <= testes.reagents.maximum_volume / 4)
+				to_chat(user, span_info("Damn, my [pick(testes.altnames)] are pretty dry now."))
 	after_ejaculation(climax_type == "into" || climax_type == "oral", user, target)
 
 /datum/component/arousal/proc/after_ejaculation(intimate = FALSE, mob/living/carbon/human/user, mob/living/carbon/human/target)
@@ -421,15 +433,24 @@
 			to_chat(user, span_love("Oh gods, I came!"))
 		if(51 to MAX_EDGING)
 			to_chat(user, span_love("Finally finally finally!"))
+
 	if(user.has_penis())
-		user.apply_status_effect(/datum/status_effect/edged_penis_cooldown)
-		SEND_SIGNAL(user, COMSIG_SEX_SET_EDGING, 0)
+		if(is_spent())
+			to_chat(user, span_warn("This is really starting to hurt my dick!"))
+			user.apply_status_effect(/datum/status_effect/edged_penis_cooldown)
+			SEND_SIGNAL(user, COMSIG_SEX_SET_EDGING, edging_charge * 0.40)
+		else
+			SEND_SIGNAL(user, COMSIG_SEX_SET_EDGING, 0)
+
 	else
 		SEND_SIGNAL(user, COMSIG_SEX_SET_EDGING, edging_charge * 0.70)
+
 	SEND_SIGNAL(user, COMSIG_SEX_SET_AROUSAL, arousal * (arousal_falloff_coeff + edging_charge / MAX_EDGING))
 	SEND_SIGNAL(user, COMSIG_SEX_CLIMAX)
+
 	if(user.has_flaw(/datum/charflaw/addiction/lovefiend))
 		user.sate_addiction()
+
 	if(!user.rogue_sneaking && user.alpha > 100) //stealth sex, keep your voice down.
 		if(!user.can_speak())
 			user.emote("sexmoangag_org", forced = TRUE)
@@ -443,7 +464,8 @@
 	last_ejaculation_time = world.time
 	recent_orgasm_count += 1
 	if(intimate)
-		after_intimate_climax(user, target)
+		if(target)
+			after_intimate_climax(user, target)
 
 /datum/component/arousal/proc/after_intimate_climax(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
@@ -477,36 +499,66 @@
 /datum/component/arousal/proc/adjust_charge(amount)
 	set_charge(charge + amount)
 
-/datum/component/arousal/proc/handle_charge(dt)
-	adjust_charge(dt * CHARGE_RECHARGE_RATE)
+/datum/component/arousal/proc/handle_charge()
+	var/mob/living/user = parent
+	adjust_charge(ARO_LOSS_COEFFICIENT * CHARGE_RECHARGE_RATE)
 	if(is_spent())
 		if(arousal > 60)
-			to_chat(parent, span_warning("I'm too spent!"))
-			adjust_arousal(-20)
+			if(!MOBTIMER_FINISHED(user, "sex_charge_msg", rand(20,40)SECONDS))
+				return
+			MOBTIMER_SET(user, "sex_charge_msg")
+			to_chat(parent, span_warning("I've came too much recently."))
 			return
-		adjust_arousal(-dt * SPENT_AROUSAL_RATE)
+		adjust_arousal(parent, -1 * ARO_LOSS_COEFFICIENT * SPENT_AROUSAL_RATE)
 
 /datum/component/arousal/proc/is_spent()
 	if(charge < CHARGE_FOR_CLIMAX)
 		return TRUE
 	return FALSE
 
+/datum/component/arousal/proc/is_manhood_overstimulated()
+	var/mob/living/user = parent
+	if(user.has_status_effect(/datum/status_effect/edged_penis_cooldown))
+		return TRUE
+	return FALSE
+
 /datum/component/arousal/proc/update_pink_screen()
 	var/mob/user = parent
-	var/severity = min(10, CEILING(arousal * 0.1, 1))
+	var/severity = 0
+	switch(arousal)
+		if(1 to 20)
+			severity = 1
+		if(20 to 40)
+			severity = 2
+		if(40 to 60)
+			severity = 3
+		if(60 to 80)
+			severity = 4
+		if(80 to 100)
+			severity = 5
+		if(100 to 120)
+			severity = 6
+		if(120 to 140)
+			severity = 7
+		if(140 to 160)
+			severity = 8
+		if(160 to 180)
+			severity = 9
+		if(180 to INFINITY)
+			severity = 10
 	if(severity > 0)
 		user.overlay_fullscreen("horny", /atom/movable/screen/fullscreen/love, severity)
 	else
 		user.clear_fullscreen("horny")
 
-/datum/component/arousal/proc/update_blueballs()
+/*/datum/component/arousal/proc/update_blueballs()
 	var/mob/user = parent
 	if(last_arousal_increase_time + 30 SECONDS > world.time)
 		return
 	if(arousal >= BLUEBALLS_GAIN_THRESHOLD)
 		user.add_stress(/datum/stress_event/blue_balls)
 	else if(arousal <= BLUEBALLS_LOOSE_THRESHOLD)
-		user.remove_stress(/datum/stress_event/blue_balls)
+		user.remove_stress(/datum/stress_event/blue_balls)*/
 
 /datum/component/arousal/proc/update_erect_state()
 	var/mob/user = parent
@@ -760,6 +812,11 @@
 		user.apply_status_effect(/datum/status_effect/edging_overstimulation)
 
 /datum/stress_event/blue_balls
+	timer = 1.5 MINUTES
+	stress_change = 2
+	desc = span_red("My manhood aches!")
+
+/datum/stress_event/blue_bean
 	timer = 1 MINUTES
 	stress_change = 2
 	desc = span_red("My loins ache!")

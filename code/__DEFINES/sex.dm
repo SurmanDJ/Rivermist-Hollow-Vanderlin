@@ -26,6 +26,7 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define COMSIG_SEX_ADJUST_EDGING "sex_adjust_edging"                 	// (amount) - Adjust edging level
 #define COMSIG_SEX_SET_EDGING "sex_set_edging"                        	// (amount) - Set edging to specific value
 #define COMSIG_SEX_EDGING_CHANGED "sex_edging_change"					// fires to the parent about a change
+#define COMSIG_SEX_SET_HOLDING "sex_set_holding"						// (level) - Sets the holding/resisting pleasure level
 
 // Knotting Component Signals
 /// Attempts to knot a target. Args: (target, force_level)
@@ -78,15 +79,15 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define PAIN_MINIMUM_FOR_DAMAGE PAIN_MED_EFFECT
 #define PAIN_DAMAGE_DIVISOR 50
 
-#define MAX_AROUSAL 150
+#define MAX_AROUSAL 500
 #define PASSIVE_EJAC_THRESHOLD 108
 #define ACTIVE_EJAC_THRESHOLD 100
-#define SEX_MAX_CHARGE 300
+#define SEX_MAX_CHARGE 400
 #define CHARGE_FOR_CLIMAX 100
 #define AROUSAL_HARD_ON_THRESHOLD 20
-#define CHARGE_RECHARGE_RATE (CHARGE_FOR_CLIMAX / (2 MINUTES))
+#define CHARGE_RECHARGE_RATE (CHARGE_FOR_CLIMAX / (1 MINUTES))
 #define AROUSAL_TIME_TO_UNHORNY (5 SECONDS)
-#define SPENT_AROUSAL_RATE (3 / (1 SECONDS))
+#define SPENT_AROUSAL_RATE (0.5 / (1 SECONDS))
 #define IMPOTENT_AROUSAL_LOSS_RATE (3 / (1 SECONDS))
 
 #define MOAN_COOLDOWN 3 SECONDS

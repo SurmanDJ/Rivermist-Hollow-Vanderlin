@@ -34,10 +34,26 @@
 	alert_type = null
 	duration = -1
 
+/datum/status_effect/blue_bean/on_apply()
+	. = ..()
+	owner.add_stress(/datum/stress_event/blue_bean)
+
+/datum/status_effect/blue_bean/on_remove()
+	. = ..()
+	owner.remove_stress(/datum/stress_event/blue_bean)
+
 /datum/status_effect/blue_balls
 	id = "blue_balls"
 	alert_type = null
 	duration = -1
+
+/datum/status_effect/blue_balls/on_apply()
+	. = ..()
+	owner.add_stress(/datum/stress_event/blue_balls)
+
+/datum/status_effect/blue_balls/on_remove()
+	. = ..()
+	owner.remove_stress(/datum/stress_event/blue_balls)
 
 /datum/status_effect/edging_overstimulation
 	id = "edging_overstimulation"
@@ -66,7 +82,7 @@
 /atom/movable/screen/alert/status_effect/debuff/orgasmbroken
 	name = "Orgasm Broken"
 	desc = "My legs are shaking, but I need more."
-	icon_state = "fentanyl"
+	icon_state = "debuff"
 
 /datum/status_effect/debuff/nympho_addiction
 	id = "nympho_addiction"
@@ -97,12 +113,13 @@
 
 /datum/status_effect/debuff/cumbrained/tick()
 	. = ..()
-	if(owner.mob_timers["cumbrained_ticker"])
-		if(world.time < owner.mob_timers["cumbrained_ticker"] + rand(30,90)SECONDS)
-			return
-	owner.mob_timers["cumbrained_ticker"] = world.time
 	if(!owner)
 		return
+
+	if(!MOBTIMER_FINISHED(owner, "cumbrained_ticker", rand(30,90)SECONDS))
+		return
+
+	MOBTIMER_SET(owner, "cumbrained_ticker")
 
 	var/list/arousal_data = list()
 	SEND_SIGNAL(owner, COMSIG_SEX_GET_AROUSAL, arousal_data)
@@ -115,12 +132,14 @@
 
 /datum/status_effect/debuff/loinspent/tick()
 	. = ..()
-	if(owner.mob_timers["chafing_loins"])
-		if(world.time < owner.mob_timers["chafing_loins"] + rand(20,90)SECONDS)
-			return
-	owner.mob_timers["chafing_loins"] = world.time
 	if(!owner)
 		return
+
+	if(!MOBTIMER_FINISHED(owner, "chafing_loins", rand(20,90)SECONDS))
+		return
+
+	MOBTIMER_SET(owner, "chafing_loins")
+
 	var/mob/living/carbon/human/human = owner
 	if(human.underwear)
 		if(rand(5))
@@ -133,9 +152,6 @@
 			SEND_SIGNAL(owner, COMSIG_SEX_ADJUST_AROUSAL, rand(5,10))
 
 
-//By DREAMKEEP, Vide Noir https://github.com/EaglePhntm.
-//Bloat
-//added and removed by filling_organs
 /datum/status_effect/debuff/bloatone
 	id = "bloatone"
 	duration = 5 MINUTES
@@ -146,7 +162,6 @@
 /atom/movable/screen/alert/status_effect/bloatone
 	name = "Bloated"
 	desc = "Bit full..."
-	//icon = 'modular_stonehedge/licensed-eaglephntm/icons/mob/screen_alert.dmi'
 	icon_state = "status"
 
 /datum/status_effect/debuff/bloattwo
@@ -158,14 +173,12 @@
 
 /datum/status_effect/debuff/bloattwo/on_apply()
 	. = ..()
-	//upgrades people, upgrades.
 	if(owner.has_status_effect(/datum/status_effect/debuff/bloatone))
 		owner.remove_status_effect(/datum/status_effect/debuff/bloatone)
 
 /atom/movable/screen/alert/status_effect/bloattwo
 	name = "Bloated"
 	desc = "So full..."
-	//icon = 'modular_stonehedge/licensed-eaglephntm/icons/mob/screen_alert.dmi'
 	icon_state = "status"
 
 /datum/stress_event/loinache

@@ -228,9 +228,10 @@
 	return TRUE
 
 /datum/sex_session/proc/perform_sex_action(mob/living/carbon/human/action_target, arousal_amt, pain_amt, giving)
-	var/datum/sex_session/target_session = get_sex_session(action_target, user)
-	var/list/arousal_data = list()
-	SEND_SIGNAL(action_target, COMSIG_SEX_GET_AROUSAL, arousal_data)
+	var/list/arousal_data_user = list()
+	SEND_SIGNAL(user, COMSIG_SEX_GET_AROUSAL, arousal_data_user)
+	var/list/arousal_data_target = list()
+	SEND_SIGNAL(action_target, COMSIG_SEX_GET_AROUSAL, arousal_data_target)
 
 	if(HAS_TRAIT(user, TRAIT_GOODLOVER))
 		arousal_amt *= 1.5
@@ -239,13 +240,13 @@
 			to_chat(action_target, span_love(lovermessage))
 	var/res_send = RESIST_NONE
 	if(action_target == user)
-		res_send = resistance_to_pleasure
+		res_send = arousal_data_user["resistance_to_pleasure"]
 	else
-		res_send = target_session.resistance_to_pleasure
+		res_send = arousal_data_target["resistance_to_pleasure"]
 
 	var/edge_other = FALSE
 	if(action_target != user && edging_other)
-		if(arousal_data["arousal"] >= AROUSAL_EDGING_THRESHOLD + 15)
+		if(arousal_data_target["arousal"] >= AROUSAL_EDGING_THRESHOLD + 15)
 			var/succes_chance = 100
 			if(prob(5))
 				to_chat(user, span_love("I try to match my movements so that they don't climax too soon..."))
@@ -702,6 +703,7 @@
 	dat += "<a href='?src=[REF(src)];task=set_arousal;tab=[selected_tab]' class='toggle-btn'>SET AROUSAL</a>"
 	dat += "<a href='?src=[REF(src)];task=freeze_arousal;tab=[selected_tab]' class='toggle-btn'>[arousal_data["frozen"] ? "UNFREEZE AROUSAL" : "FREEZE AROUSAL"]</a>"
 	dat += "</div>"*/
+
 	dat += "</div>"
 	dat += "</div>"
 
@@ -1273,6 +1275,7 @@
 
 /datum/sex_session/proc/set_current_resist(new_resist)
 	resistance_to_pleasure = clamp(new_resist, RESIST_NONE, RESIST_HIGH)
+	SEND_SIGNAL(user, COMSIG_SEX_SET_HOLDING, resistance_to_pleasure)
 
 /datum/sex_session/proc/get_character_slot(mob/target_mob)
 	return target_mob?.client?.prefs.current_slot || 1

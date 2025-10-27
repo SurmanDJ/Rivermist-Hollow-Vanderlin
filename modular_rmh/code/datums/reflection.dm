@@ -192,13 +192,19 @@
 
 	else if(reflected_dir & SOUTH)
 		// east/west is the same, makes it easy on us
-		reflection.dir = (target.dir & (EAST|WEST)) ? target.dir : REVERSE_DIR(target.dir)
+		reflection.dir = (target.dir & (NORTH|SOUTH)) ? target.dir : REVERSE_DIR(target.dir)
+		//reflection.dir = (target.dir & (EAST|WEST)) ? target.dir : REVERSE_DIR(target.dir)
 
 	else if(reflected_dir & NORTH)
-		reflection.dir = (target.dir & (NORTH|SOUTH)) ? target.dir : REVERSE_DIR(target.dir)
+		reflection.dir = (target.dir & (EAST|WEST)) ? target.dir : REVERSE_DIR(target.dir)
+		//reflection.dir = (target.dir & (NORTH|SOUTH)) ? target.dir : REVERSE_DIR(target.dir)
 		// north needs snowflake handling to make a more... "understandable" reflection
-		reflection.transform = reflection.transform.Turn(180)
-		reflection.pixel_y += 5
+		//reflection.transform = reflection.transform.Turn(180)
+		reflection.pixel_y -= 3
+		if(isliving(target))
+			var/mob/living/l_target = target
+			if(l_target.body_position == LYING_DOWN)
+				reflection.transform = reflection.transform.Turn(90)
 
 	// purely for vv
 	reflection.name = "[target.name]'s reflection"

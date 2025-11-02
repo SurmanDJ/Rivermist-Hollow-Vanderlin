@@ -119,6 +119,7 @@
 	if(pref_species.default_features["ears"])
 		features["ears"] = pref_species.default_features["ears"]
 	accessory = "Nothing"
+	body_markings = pref_species.get_random_body_markings(features)
 
 /datum/preferences/proc/random_species()
 	var/random_species_type = GLOB.species_list[pick(get_selectable_species(patreon))]

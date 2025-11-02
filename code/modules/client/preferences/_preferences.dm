@@ -1952,15 +1952,15 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		return
 	character.age = age
 	character.gender = gender
+	character.dna.features = features.Copy()
+	character.dna.real_name = character.real_name
+	character.dna.body_markings = deepCopyList(body_markings)
 	character.set_species(pref_species.type, icon_update = FALSE, pref_load = src)
 	if(real_name in GLOB.chosen_names)
 		character.real_name = pref_species.random_name(gender)
 	else
 		character.real_name = real_name
 	character.name = character.real_name
-
-	character.dna.features = features.Copy()
-	character.dna.real_name = character.real_name
 
 	var/obj/item/organ/eyes/organ_eyes = character.getorgan(/obj/item/organ/eyes)
 	if(organ_eyes)

@@ -23,7 +23,8 @@
 
 	innate_traits = list(
 		TRAIT_STRONGBITE,
-		TRAIT_BESTIALSENSE
+		TRAIT_BESTIALSENSE,
+		TRAIT_BRUSHWALK
 	)
 	var/forced_transform = FALSE
 
@@ -104,6 +105,8 @@
 	if(mind.has_antag_datum(/datum/antagonist/werewolf))
 		return FALSE
 	if(mind.has_antag_datum(/datum/antagonist/skeleton))
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_SILVER_BLESSED))
 		return FALSE
 	return TRUE
 

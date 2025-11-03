@@ -35,5 +35,5 @@ GLOBAL_LIST_INIT(customizers, build_customizers())
 		good = FALSE
 	if(!good)
 		var/list/rgb = hsl2rgb(arglist(hsl))
-		color = sanitize_hexcolor("[num2hex(rgb[1])][num2hex(rgb[2])][num2hex(rgb[3])]")
+		color = sanitize_hexcolor("[num2hex(rgb[1], 2)][num2hex(rgb[2], 2)][num2hex(rgb[3], 2)]")
 	return color

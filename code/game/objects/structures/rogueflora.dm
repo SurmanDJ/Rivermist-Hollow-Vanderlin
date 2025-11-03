@@ -655,7 +655,7 @@
 /obj/structure/flora/tinymushrooms
 	name = "small mushroom cluster"
 	desc = "A cluster of tiny mushrooms native to the underdark."
-	icon = 'icons/roguetown/misc/foliage.dmi'
+	icon = 'modular_rmh/icons/obj/flora/foliage.dmi'
 	icon_state = "tinymushrooms"
 
 /obj/structure/table/wood/treestump/shroomstump
@@ -816,8 +816,10 @@
 // bush crossing
 /obj/structure/flora/grass/bush_meagre/Crossed(atom/movable/AM)
 	..()
-	if(isliving(AM))
+	if(isliving(AM) && !HAS_TRAIT(AM, TRAIT_BRUSHWALK))
 		var/mob/living/L = AM
+		if(L.pulledby)
+			return
 		L.Immobilize(5)
 		if(L.m_intent == MOVE_INTENT_WALK)
 			L.Immobilize(5)
@@ -900,6 +902,35 @@
 	SET_BASE_PIXEL(-16, -1)
 	num_random_icons = 0
 	silky = TRUE
+
+
+/obj/structure/flora/grass/mushroom
+	name = "leafy mushrooms"
+	desc = "A number of mushrooms, each of which surrounds a greenish sporangium with a number of leaf-like structures."
+	icon_state = "l_mushroom_red1"
+
+/obj/structure/flora/grass/mushroom/Initialize()
+	. = ..()
+	var/shroom_color = pick("red", "green", "blue")
+	var/turf/open/floor/mushroom/turf = get_turf(src)
+	if(istype(turf))
+		shroom_color = turf.mushroom_color
+
+	icon_state = "[pick(list("l", "r", "t"))]_mushroom_[shroom_color]1"
+
+/obj/structure/flora/tree/dead_bush
+	name = "dead brush"
+	desc = "The blazing sun has killed this brush."
+	icon_state = "deadbush_1"
+	base_icon_state = "deadbush_"
+	num_random_icons = 3
+
+/obj/structure/flora/tree/dying_bush
+	name = "dying brush"
+	desc = "The blazing sun is killing this brush."
+	icon_state = "livebush_1"
+	base_icon_state = "livebush_"
+	num_random_icons = 3
 
 /obj/structure/flora/grass/brown
 	icon_state = "snowgrass1bb"

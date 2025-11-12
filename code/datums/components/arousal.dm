@@ -46,6 +46,10 @@
 	RegisterSignal(parent, COMSIG_SEX_ADJUST_EDGING, PROC_REF(adjust_edging))
 	RegisterSignal(parent, COMSIG_SEX_SET_EDGING, PROC_REF(set_edging))
 	RegisterSignal(parent, COMSIG_SEX_SET_HOLDING, PROC_REF(set_holding_pleasure))
+	RegisterSignal(parent, COMSIG_SEX_HOLE_BEFORE_INSERT, PROC_REF(hole_before_insert_handle))
+	RegisterSignal(parent, COMSIG_SEX_HOLE_AFTER_INSERT, PROC_REF(hole_after_insert_handle))
+	RegisterSignal(parent, COMSIG_SEX_HOLE_BEFORE_REMOVE, PROC_REF(hole_before_remove_handle))
+	RegisterSignal(parent, COMSIG_SEX_HOLE_AFTER_REMOVE, PROC_REF(hole_after_remove_handle))
 
 /datum/component/arousal/UnregisterFromParent()
 	. = ..()
@@ -57,6 +61,10 @@
 	UnregisterSignal(parent, COMSIG_SEX_ADJUST_EDGING)
 	UnregisterSignal(parent, COMSIG_SEX_SET_EDGING)
 	UnregisterSignal(parent, COMSIG_SEX_SET_HOLDING)
+	UnregisterSignal(parent, COMSIG_SEX_HOLE_BEFORE_INSERT)
+	UnregisterSignal(parent, COMSIG_SEX_HOLE_AFTER_INSERT)
+	UnregisterSignal(parent, COMSIG_SEX_HOLE_BEFORE_REMOVE)
+	UnregisterSignal(parent, COMSIG_SEX_HOLE_AFTER_REMOVE)
 
 /datum/component/arousal/process()
 	handle_charge()
@@ -99,7 +107,7 @@
 		return
 	if(!can_climax())
 		return FALSE
-	ejaculate()
+	ejaculate(giving = FALSE)
 
 /datum/component/arousal/proc/can_climax()
 	// Add some checks for like curses or something here.
@@ -278,7 +286,7 @@
 		adjust_arousal(source, arousal_amt)
 
 	damage_from_pain(pain_amt, giving)
-	try_ejaculate()
+	try_ejaculate(giving)
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
 	try_do_pain_effect(pain_amt, giving)
 
@@ -287,14 +295,14 @@
 	handle_statuses()
 	update_erect_state()
 
-/datum/component/arousal/proc/try_ejaculate()
+/datum/component/arousal/proc/try_ejaculate(giving = FALSE)
 	if(arousal < PASSIVE_EJAC_THRESHOLD)
 		return
 	if(!can_climax())
 		return
-	ejaculate()
+	ejaculate(giving)
 
-/datum/component/arousal/proc/ejaculate()
+/datum/component/arousal/proc/ejaculate(giving)
 	var/mob/living/mob = parent
 	var/list/parent_sessions = return_sessions_with_user(parent)
 	var/datum/sex_session/highest_priority = return_highest_priority_action(parent_sessions, parent)
@@ -304,8 +312,8 @@
 		mob.visible_message(span_love("[mob] climaxes, yet nothing is released!"))
 		after_ejaculation(FALSE, parent)
 		return
-	if(!highest_priority)
-		mob.visible_message(span_love("[mob] makes a mess!"))
+	if(!highest_priority || !giving)
+		mob.visible_message(span_love("[mob] orgasms!"))
 		var/turf/turf = get_turf(parent)
 		if(mob.getorganslot(ORGAN_SLOT_TESTICLES) && mob.getorganslot(ORGAN_SLOT_PENIS))
 			var/obj/item/organ/genitals/filling_organ/testicles/testes = mob.getorganslot(ORGAN_SLOT_TESTICLES)
@@ -569,7 +577,7 @@
 		if(W && W.transformed == TRUE)
 			user.regenerate_icons()
 
-	if(penis && hascall(penis, "update_erect_state"))// && !istype(penis, /obj/item/organ/penis/internal))//if(penis && hascall(penis, "update_erect_state"))
+	if(penis && hascall(penis, "update_erect_state"))// && !istype(penis, /obj/item/organ/genitals/penis/internal))//if(penis && hascall(penis, "update_erect_state"))
 		penis.update_erect_state()
 
 
@@ -612,14 +620,13 @@
 			else
 				chosen_emote = "sexmoanhvy"
 	if(pain_amt >= PAIN_MILD_EFFECT)
-		if(giving)
-			if(!user.can_speak())
-				chosen_emote = "sexmoangag"
+		if(!user.can_speak())
+			chosen_emote = "sexmoangag"
+		else
+			if(prob(15))
+				chosen_emote = "sexmoanhvy"
 			else
-				if(prob(15))
-					chosen_emote = "sexmoanhvy"
-				else
-					chosen_emote = "sexmoanmed"
+				chosen_emote = "sexmoanmed"
 	if(pain_amt >= PAIN_MED_EFFECT)
 		if(giving)
 			if(!user.can_speak())
@@ -810,6 +817,30 @@
 
 		MOBTIMER_SET(user, "edging_overstimulation")
 		user.apply_status_effect(/datum/status_effect/edging_overstimulation)
+
+/datum/component/arousal/proc/hole_before_insert_handle(datum/source, obj/item/item, hole_id, mob/living/inserter)
+	//var/mob/living/user = parent
+	if(istype(item, /obj/item/penis_fake)) //this is silly yes
+		return
+	adjust_arousal(source, 2)
+
+/datum/component/arousal/proc/hole_before_remove_handle(datum/source, obj/item/item, hole_id, mob/living/inserter)
+	//var/mob/living/user = parent
+	if(istype(item, /obj/item/penis_fake)) //it's because of the hole system
+		return
+	adjust_arousal(source, 2)
+
+/datum/component/arousal/proc/hole_after_insert_handle(datum/source, obj/item/item, hole_id, mob/living/inserter)
+	//var/mob/living/user = parent
+	if(istype(item, /obj/item/penis_fake)) //this is silly yes
+		return
+	adjust_arousal(source, 1)
+
+/datum/component/arousal/proc/hole_after_remove_handle(datum/source, obj/item/item, hole_id, mob/living/inserter)
+	//var/mob/living/user = parent
+	if(istype(item, /obj/item/penis_fake)) //it's because of the hole system
+		return
+	adjust_arousal(source, 1)
 
 /datum/stress_event/blue_balls
 	timer = 1.5 MINUTES

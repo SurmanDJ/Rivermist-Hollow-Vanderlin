@@ -83,10 +83,12 @@
 	var/can_knot = FALSE
 	///basically for actions being done by the user where the target is the inserter set this to true
 	var/flipped = FALSE
-	/// Ued for determining if the user should be gagged
+	/// Used for determining if the user should be gagged
 	var/gags_user = FALSE
-	/// Ued for determining if the target should be gagged
+	/// Used for determining if the target should be gagged
 	var/gags_target = FALSE
+	/// Sound volume for actions
+	var/action_volume = 50
 
 /datum/sex_action/Destroy()
 	// Clean up any tracked storage entries
@@ -167,7 +169,7 @@
 			item_to_test.name = stored_item_name
 
 	// Check if the specific hole can fit our item
-	var/can_fit = SEND_SIGNAL(target, COMSIG_HOLE_TRY_FIT, item_to_test, hole_id, user, TRUE) // Silent check
+	var/can_fit = SEND_SIGNAL(target, COMSIG_HOLE_TRY_FIT, item_to_test, hole_id, user, TRUE, TRUE) // Silent check
 
 	// Clean up test item
 	qdel(item_to_test)
@@ -201,7 +203,7 @@
 			item_to_store.name = stored_item_name
 
 	// Try to fit it in the hole
-	var/success = SEND_SIGNAL(target, COMSIG_HOLE_TRY_FIT, item_to_store, hole_id, user, FALSE)
+	var/success = SEND_SIGNAL(target, COMSIG_HOLE_TRY_FIT, item_to_store, hole_id, user, FALSE, TRUE)
 	if(!success)
 		qdel(item_to_store)
 		to_chat(user, span_warning("[target]'s [hole_id] can't accommodate [item_to_store.name]!"))
@@ -221,7 +223,7 @@
 		if(entry.hole_id == hole_id && entry.stored_item)
 			var/obj/item/stored_item = entry.stored_item
 
-			SEND_SIGNAL(target, COMSIG_HOLE_REMOVE_ITEM, stored_item, hole_id)
+			SEND_SIGNAL(target, COMSIG_HOLE_REMOVE_ITEM, stored_item, hole_id, silent, TRUE)
 
 			if(istype(stored_item, /obj/item/penis_fake))
 				var/obj/item/penis_fake/fake_penis = stored_item

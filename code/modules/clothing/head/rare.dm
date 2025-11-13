@@ -10,7 +10,8 @@
 	unequip_delay_self = 3 SECONDS
 	resistance_flags = FIRE_PROOF // These are all metallic DELETE AFTER REPATH
 	anvilrepair = /datum/skill/craft/armorsmithing	//DELETE AFTER REPATH
-	smeltresult = /obj/item/ingot/steel
+	melt_amount = 75
+	melting_material = /datum/material/steel
 	sellprice = VALUE_STEEL_HELMET+BONUS_VALUE_SMALL
 
 	armor = ARMOR_PLATE_GOOD
@@ -59,8 +60,9 @@
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR
 
-//............... Kataphract/bastion/spear/zyban Helmet ............... //
-/obj/item/clothing/head/rare/zybanplate // Unique Freelancer kit
+
+//............... Kataphract/bastion/spear/zaladin Helmet ............... //
+/obj/item/clothing/head/rare/zaladplate // Unique Freelancer kit
 	name = "bastion helm"
 	desc = "The Zaladin Kataphractoe are the ancestral guardians of the first Despot, \
 			their helms designed in the fashion of the capital's majestic sky-piercing tower \

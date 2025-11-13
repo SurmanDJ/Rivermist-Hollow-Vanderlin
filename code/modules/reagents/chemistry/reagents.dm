@@ -118,6 +118,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	return TRUE
 
 /datum/reagent/proc/on_transfer(atom/A, method=TOUCH, trans_volume) //Called after a reagent is transfered
+	if(iscarbon(A))
+		SEND_SIGNAL(A, COMSIG_CARBON_REAGENT_ADD, src, trans_volume, method)
 	return
 
 /datum/reagent/proc/set_quality(new_quality)
@@ -221,33 +223,28 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	return
 
 /datum/reagent/proc/overdose_start(mob/living/M)
-	to_chat(M, "<span class='danger'>I feel like you took too much of [name]!</span>")
-	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
-	return
+	to_chat(M, "<span class='danger'>I feel like I took too much of [name]!</span>")
+	M.add_stress(/datum/stress_event/overdose)
 
 /datum/reagent/proc/addiction_act_stage1(mob/living/M)
-	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/withdrawal_light, name)
+	M.add_stress(/datum/stress_event/withdrawal_light)
 	if(prob(30))
 		to_chat(M, "<span class='notice'>I feel like having some [name] right about now.</span>")
-	return
 
 /datum/reagent/proc/addiction_act_stage2(mob/living/M)
-	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/withdrawal_medium, name)
+	M.add_stress(/datum/stress_event/withdrawal_medium)
 	if(prob(30))
 		to_chat(M, "<span class='notice'>I feel like you need [name]. You just can't get enough.</span>")
-	return
 
 /datum/reagent/proc/addiction_act_stage3(mob/living/M)
-	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/withdrawal_severe, name)
+	M.add_stress(/datum/stress_event/withdrawal_severe)
 	if(prob(30))
 		to_chat(M, "<span class='danger'>I have an intense craving for [name].</span>")
-	return
 
 /datum/reagent/proc/addiction_act_stage4(mob/living/M)
-	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/withdrawal_critical, name)
+	M.add_stress(/datum/stress_event/withdrawal_critical)
 	if(prob(30))
 		to_chat(M, "<span class='boldannounce'>You're not feeling good at all! You really need some [name].</span>")
-	return
 
 /datum/reagent/proc/add_to_member(obj/effect/abstract/liquid_turf/adder)
 	return

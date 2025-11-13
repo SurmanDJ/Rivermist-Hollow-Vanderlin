@@ -1,6 +1,6 @@
 /obj/machinery/light/fueled/cauldron
 	name = "cauldron"
-	desc = "Bubble, Bubble, toil and trouble. A great iron cauldron for brewing potions from thaumaturgical essences."
+	desc = "Bubble, Bubble, toil and trouble. A great iron cauldron for brewing potions from alchemical essences."
 	icon = 'icons/roguetown/misc/alchemy.dmi'
 	icon_state = "cauldron1"
 	base_state = "cauldron"
@@ -107,7 +107,7 @@
 	if(on)
 		if(length(essence_contents))
 			if(brewing < 20)
-				if(src.reagents.has_reagent(/datum/reagent/water, 30))
+				if(src.reagents.has_reagent(/datum/reagent/water, 50))
 					brewing++
 					update_appearance(UPDATE_OVERLAYS)
 					if(prob(10))

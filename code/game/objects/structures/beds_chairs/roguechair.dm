@@ -237,10 +237,10 @@
 >>>>>>> vanderlin/main
 
 /obj/item/chair/stool/bar
-	name = "stool"
-	icon_state = "baritem"
+	name = "barstool"
+	icon_state = "barstoolover"
 	icon = 'icons/roguetown/misc/structure.dmi'
-	origin_type = /obj/structure/chair/stool
+	origin_type = /obj/structure/chair/stool/bar
 	blade_dulling = DULLING_BASHCHOP
 	can_parry = TRUE
 	gripped_intents = list(/datum/intent/hit)
@@ -422,9 +422,9 @@
 	sellprice = 12
 
 /obj/structure/chair/stool/crafted
-	item_chair = /obj/item/chair/stool/bar/crafted
+	item_chair = /obj/item/chair/stool/crafted
 	sellprice = 6
 
-/obj/item/chair/stool/bar/crafted
+/obj/item/chair/stool/crafted
 	origin_type = /obj/structure/chair/stool/crafted
 	sellprice = 6

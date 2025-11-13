@@ -20,10 +20,11 @@
 
 /datum/pottery_recipe/teapot
 	name = "Clay Teapot"
-	created_item = /obj/item/reagent_containers/glass/bottle/teapot
+	created_item = /obj/item/reagent_containers/glass/carafe/teapot/clay
 
 /datum/pottery_recipe/decanter
 	name = "Clay Decanter"
+<<<<<<< HEAD
 	created_item = /obj/item/reagent_containers/glass/bottle/decanter
 
 /datum/pottery_recipe/claybrick
@@ -58,3 +59,6 @@
 	created_item = /obj/item/reagent_containers/glass/bottle/glazed_teacup
 	recipe_steps = list(/obj/item/natural/clay)
 	difficulty = 3
+=======
+	created_item = /obj/item/reagent_containers/glass/carafe/decanter
+>>>>>>> vanderlin/main

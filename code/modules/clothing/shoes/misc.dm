@@ -74,7 +74,7 @@
 
 /obj/item/clothing/shoes/simpleshoes/colored/lord
 	name = "shoes"
-	desc = "Shoes typically worn by the King himself."
+	desc = "Shoes typically worn by the Monarch themselves."
 	gender = PLURAL
 	icon_state = "simpleshoe"
 	item_state = "simpleshoe"
@@ -119,8 +119,8 @@
 	sellprice = 15
 
 /obj/item/clothing/shoes/tribal
-	name = "tribal shoes"
-	desc = "Haphazardly-made slippers of creecher leather worn by primitives, or those who don't care about fashion and just want to protect their feet."
+	name = "primative shoes"
+	desc = "Haphazardly-made slippers of creecher leather worn by those with nothing better, or those who don't care about fashion and just want to protect their feet."
 	icon_state = "tribalshoes"
 	item_state = "tribalshoes"
 	sellprice = 3
@@ -145,7 +145,7 @@
 	sellprice = 20
 
 /obj/item/clothing/shoes/otavan
-	name = "otavan leather boots"
+	name = "grenzelhoftian leather boots"
 	desc = "Boots of outstanding craft, your fragile feet has never felt so protected and comfortable before."
 	body_parts_covered = FEET
 	icon_state = "fencerboots"
@@ -165,3 +165,10 @@
 /obj/item/clothing/shoes/nobleboot/duelboots
 	desc = "Boots custom fit for a Valorian Duelist. Footwork is paramount in a duel, so good boots are a must."
 	armor = list("blunt" = 25, "slash" = 25, "stab" = 25,  "piercing" = 15, "fire" = 0, "acid" = 0)
+
+/obj/item/clothing/shoes/psydonboots
+	name = "enduring boots"
+	desc = "A reliable pair of dark leather boots. Seems like they could endure the world!"
+	color = "#d5c2aa"
+	icon_state = "psydonboots"
+	item_state = "psydonboots"

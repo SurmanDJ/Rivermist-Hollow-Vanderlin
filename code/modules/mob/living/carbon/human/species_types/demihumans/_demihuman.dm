@@ -139,8 +139,11 @@
 		/datum/descriptor_choice/prominent_four_wild,
 	)
 
+<<<<<<< HEAD
 	//patreon_req = TRUE
 
+=======
+>>>>>>> vanderlin/main
 /datum/species/demihuman/get_hairc_list()
 	return sortList(list(
 	"blond - pale" = "9d8d6e",
@@ -163,7 +166,9 @@
 	"red - wine" = "82534c",
 	"red - sunset" = "82462b",
 	"red - blood" = "822b2b",
-	"red - maroon" = "612929"
+	"red - maroon" = "612929",
+
+	"orange - flame" = "b24c2e"
 
 	))
 

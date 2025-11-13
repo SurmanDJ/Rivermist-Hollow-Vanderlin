@@ -86,6 +86,8 @@
 			lordcolor()
 		else
 			RegisterSignal(SSdcs, COMSIG_LORD_COLORS_SET, TYPE_PROC_REF(/obj/item/clothing, lordcolor))
+	else if(get_detail_color()) // Lord color does this
+		update_appearance(UPDATE_OVERLAYS)
 
 	if(hoodtype)
 		MakeHood()
@@ -495,11 +497,11 @@ BLIND     // can't see anything
 			var/mob/living/carbon/human/H = src.loc
 			if(hood.color != color)
 				hood.color = color
-			if(slot_flags == ITEM_SLOT_ARMOR)
+			if(slot_flags & ITEM_SLOT_ARMOR)
 				if(H.wear_armor != src)
 					to_chat(H, "<span class='warning'>I should put that on first.</span>")
 					return
-			if(slot_flags == ITEM_SLOT_CLOAK)
+			if(slot_flags & ITEM_SLOT_CLOAK)
 				if(H.cloak != src)
 					to_chat(H, "<span class='warning'>I should put that on first.</span>")
 					return

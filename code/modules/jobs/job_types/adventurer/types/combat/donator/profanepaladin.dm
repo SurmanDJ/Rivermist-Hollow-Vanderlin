@@ -1,15 +1,15 @@
-/datum/advclass/combat/profanepaladin
-	name = "Profane Paladin"
+/datum/job/advclass/combat/profanepaladin
+	title = "Profane Paladin"
 	tutorial = "There are those who are so dedicated to the worship and service of their inhumen god, that they have become famous amongst their followers, and infamous amongst the common men and women. These Profane Paladins bear the armour and marks of their respective god, travelling across the lands to preach and slay in their name. Naturally, they are branded a heretic by the Ten. Expect no quarter."
 	allowed_races = RACES_PLAYER_ALL
-	outfit = /datum/outfit/job/adventurer/profanepaladin
-	maximum_possible_slots = 1
+	outfit = /datum/outfit/adventurer/profanepaladin
+	total_positions = 1
 	min_pq = 2
-	pickprob = 15
+	roll_chance = 15
 	category_tags = list(CTAG_ADVENTURER)
 	allowed_patrons = ALL_PROFANE_PATRONS
 
-/datum/outfit/job/adventurer/profanepaladin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/adventurer/profanepaladin/pre_equip(mob/living/carbon/human/H)
 	..()
 	switch(H.patron?.type)
 		if(/datum/patron/inhumen/graggar)
@@ -44,7 +44,7 @@
 			shoes = /obj/item/clothing/shoes/boots/armor/matthios
 			H.cmode_music = 'sound/music/cmode/antag/CombatBandit1.ogg'
 		if(/datum/patron/inhumen/baotha) //give them custom armor i beg
-			head = /obj/item/clothing/head/helmet/heavy/decorated/golden
+			head = /obj/item/clothing/head/helmet/heavy/baotha
 			mask = /obj/item/clothing/face/spectacles/sglasses
 			armor = /obj/item/clothing/armor/plate
 			gloves = /obj/item/clothing/gloves/plate

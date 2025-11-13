@@ -5,7 +5,8 @@
 	sleeved = 'icons/roguetown/clothing/onmob/onmob_racial.dmi'
 	sleevetype = null
 	anvilrepair = /datum/skill/craft/armorsmithing
-	smeltresult = /obj/item/ingot/steel
+	melt_amount = 75
+	melting_material = /datum/material/steel
 	equip_delay_self = 4 SECONDS
 	unequip_delay_self = 4 SECONDS
 	sellprice = VALUE_SNOWFLAKE_STEEL
@@ -59,7 +60,7 @@
 	item_weight = 12 * STEEL_MULTIPLIER
 	stand_speed_reduction = 1.2
 
-/obj/item/clothing/armor/rare/zybanplate
+/obj/item/clothing/armor/rare/zaladplate
 	name = "kataphractoe scaleskin"
 	desc = "Steel scales woven into armor with miniscule threads of adamantine, \
 			ensuring the wearer optimal defence with forgiving breathability. \

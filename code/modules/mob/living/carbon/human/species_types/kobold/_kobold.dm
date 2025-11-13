@@ -41,7 +41,10 @@
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/kobold.dmi'
 
 	enflamed_icon = "widefire"
+<<<<<<< HEAD
 	//patreon_req = TRUE
+=======
+>>>>>>> vanderlin/main
 
 	soundpack_m = /datum/voicepack/male/dwarf
 	soundpack_f = /datum/voicepack/female/dwarf

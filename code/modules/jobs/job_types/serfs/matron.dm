@@ -15,8 +15,9 @@
 	allowed_sexes = list(FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = RACES_PLAYER_NONEXOTIC
+	blacklisted_species = list(SPEC_ID_HALFLING)
 
-	outfit = /datum/outfit/job/matron
+	outfit = /datum/outfit/matron
 	give_bank_account = 35
 	can_have_apprentices = TRUE
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
@@ -26,7 +27,7 @@
 		/datum/action/cooldown/spell/undirected/seek_orphan,
 	)
 
-/datum/outfit/job/matron/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/matron/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)

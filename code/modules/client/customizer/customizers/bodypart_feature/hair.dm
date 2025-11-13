@@ -143,6 +143,7 @@
 		/datum/sprite_accessory/hair/head/dave,
 		/datum/sprite_accessory/hair/head/dome,
 		/datum/sprite_accessory/hair/head/druid,
+		/datum/sprite_accessory/hair/head/dunes,
 		/datum/sprite_accessory/hair/head/fancy_elf,
 		/datum/sprite_accessory/hair/head/forester,
 		/datum/sprite_accessory/hair/head/foreigner_tief,
@@ -164,6 +165,7 @@
 		/datum/sprite_accessory/hair/head/princely,
 		/datum/sprite_accessory/hair/head/rogue,
 		/datum/sprite_accessory/hair/head/romantic,
+		/datum/sprite_accessory/hair/head/sandcrop,
 		/datum/sprite_accessory/hair/head/scribe,
 		/datum/sprite_accessory/hair/head/southern_human,
 		/datum/sprite_accessory/hair/head/son,
@@ -201,6 +203,8 @@
 		/datum/sprite_accessory/hair/head/homely,
 		/datum/sprite_accessory/hair/head/junia,
 		/datum/sprite_accessory/hair/head/lady,
+		/datum/sprite_accessory/hair/head/lakkaribun,
+		/datum/sprite_accessory/hair/head/lakkaricut,
 		/datum/sprite_accessory/hair/head/loosebraid,
 		/datum/sprite_accessory/hair/head/maiden,
 		/datum/sprite_accessory/hair/head/majestic_dwarf_F,
@@ -339,6 +343,17 @@
 		/datum/sprite_accessory/hair/head/medicator/crown,
 	)
 
+/datum/customizer/bodypart_feature/hair/head/humanoid/rakshari
+	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/head/humanoid/rakshari)
+
+/datum/customizer_choice/bodypart_feature/hair/head/humanoid/rakshari
+	sprite_accessories = list(
+		/datum/sprite_accessory/hair/head/bald,
+		/datum/sprite_accessory/hair/head/rakshari/high_tail,
+		/datum/sprite_accessory/hair/head/rakshari/doubleknot,
+		/datum/sprite_accessory/hair/head/rakshari/fluffy_tail,
+	)
+
 // ===== FACIAL HAIR
 
 /datum/customizer_entry/hair/facial
@@ -351,7 +366,7 @@
 	var/datum/species/species = return_species(prefs)
 	if(prefs.age == AGE_CHILD && !(YOUNGBEARD in species.species_traits))
 		return FALSE
-	return (prefs.gender == MALE) || istype(species, /datum/species/dwarf)
+	return (prefs.gender == MALE) || istype(species, /datum/species/dwarf) || istype(species, /datum/species/triton)
 
 /datum/customizer/bodypart_feature/hair/facial/humanoid
 	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/facial/humanoid)
@@ -383,6 +398,28 @@
 		/datum/sprite_accessory/hair/facial/vandyke,
 		/datum/sprite_accessory/hair/facial/burns,
 		/datum/sprite_accessory/hair/facial/hermit,
+	)
+
+/datum/customizer/bodypart_feature/hair/facial/humanoid/rakshari
+	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/facial/humanoid/rakshari)
+
+/datum/customizer_choice/bodypart_feature/hair/facial/humanoid/rakshari
+	sprite_accessories = list(
+		/datum/sprite_accessory/hair/facial/none,
+		/datum/sprite_accessory/hair/facial/shaved,
+		/datum/sprite_accessory/hair/facial/rakshari/kesh,
+		/datum/sprite_accessory/hair/facial/rakshari/spry,
+		/datum/sprite_accessory/hair/facial/rakshari/whiskered,
+	)
+
+/datum/customizer/bodypart_feature/hair/facial/humanoid/triton
+	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/facial/humanoid/triton)
+
+/datum/customizer_choice/bodypart_feature/hair/facial/humanoid/triton
+	sprite_accessories = list(
+		/datum/sprite_accessory/hair/facial/shaved,
+		/datum/sprite_accessory/hair/facial/triton/seaqueen,
+		/datum/sprite_accessory/hair/facial/triton/catfish,
 	)
 
 /datum/customizer_choice/bodypart_feature/hair/facial/humanoid/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)

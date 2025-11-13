@@ -45,10 +45,14 @@ SUBSYSTEM_DEF(ticker)
 	//576000 dusk
 	//376000 day
 	var/gametime_offset = 288001		//Deciseconds to add to world.time for station time.
+<<<<<<< HEAD
 	var/station_time_rate_multiplier = 12.5		//factor of station time progressal vs real time.
 	var/time_until_vote = 135 MINUTES
 	var/last_vote_time = null
 	var/firstvote = TRUE
+=======
+	var/station_time_rate_multiplier = 40		//factor of station time progressal vs real time.
+>>>>>>> vanderlin/main
 
 	var/totalPlayers = 0					//used for pregame stats on statpanel
 	var/totalPlayersReady = 0				//used for pregame stats on statpanel
@@ -195,6 +199,7 @@ SUBSYSTEM_DEF(ticker)
 				if(player.ready == PLAYER_READY_TO_PLAY)
 					++totalPlayersReady
 
+			readying_update_scale_job()
 			if(start_immediately)
 				timeLeft = 0
 
@@ -247,6 +252,7 @@ SUBSYSTEM_DEF(ticker)
 =======
 			if(SSgamemode.roundvoteend)
 				return
+<<<<<<< HEAD
 			if(firstvote)
 >>>>>>> vanderlin/main
 				if(world.time > round_start_time + time_until_vote)
@@ -262,6 +268,50 @@ SUBSYSTEM_DEF(ticker)
 				return
 			if(world.time > last_vote_time + time_until_vote)
 				SSvote.initiate_vote("endround", "The Gods")
+>>>>>>> vanderlin/main
+=======
+
+/datum/controller/subsystem/ticker/proc/readying_update_scale_job()
+
+	//Get ALL town jobs
+	var/list/town_jobs = list()
+	for(var/datum/job/J as anything in SSjob.joinable_occupations)
+		if (J.faction == FACTION_TOWN)
+			town_jobs += J.title
+
+	//Now find players who readied with HIGH preference on those town jobs
+	var/list/town_ready = list()
+
+	for(var/mob/dead/new_player/player in GLOB.player_list)
+		if(!player || !player.client)
+			continue
+
+		if(player.ready != PLAYER_READY_TO_PLAY)
+			continue
+
+		//Loop through each job the player has set to HIGH
+		for(var/job_name in player.client.prefs.job_preferences)
+			if(player.client.prefs.job_preferences[job_name] != JP_HIGH)
+				continue
+
+			//Only count if it is a town job
+			if(!(job_name in town_jobs))
+				continue
+
+			//Check job availability rules
+			if(player.client.prefs.lastclass == job_name)
+				if (player.IsJobUnavailable(job_name) != JOB_AVAILABLE)
+					continue
+
+			//Add to the list
+			town_ready += job_name
+
+	var/ready_town_count = length(town_ready)
+
+	for(var/datum/job/job_to_set in SSjob.joinable_occupations)
+		if(job_to_set.enabled && job_to_set.scales)
+			job_to_set.set_spawn_and_total_positions(ready_town_count)
+
 >>>>>>> vanderlin/main
 
 /datum/controller/subsystem/ticker/proc/checkreqroles()
@@ -284,9 +334,16 @@ SUBSYSTEM_DEF(ticker)
 							continue
 					readied_jobs.Add(V)
 
+<<<<<<< HEAD
 	//if(!(("Monarch" in readied_jobs) || (start_immediately == TRUE))) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
 	//	to_chat(world, span_purple("[pick(no_ruler_lines)]"))
 	//	return FALSE
+=======
+	if(CONFIG_GET(flag/ruler_required))
+		if(!(("Monarch" in readied_jobs) || (start_immediately == TRUE))) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
+			to_chat(world, span_purple("[pick(no_ruler_lines)]"))
+			return FALSE
+>>>>>>> vanderlin/main
 
 	job_change_locked = TRUE
 	return TRUE
@@ -341,7 +398,7 @@ SUBSYSTEM_DEF(ticker)
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
 	round_start_irl = REALTIMEOFDAY
 
-	INVOKE_ASYNC(SSdbcore, /datum/controller/subsystem/dbcore/proc/SetRoundStart)
+	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore, SetRoundStart))
 
 	message_admins(span_boldnotice("Welcome to [SSmapping.config.map_name]!"))
 
@@ -394,7 +451,7 @@ SUBSYSTEM_DEF(ticker)
 			S.after_round_start()
 		else
 			stack_trace("[S] [S.type] found in start landmarks list, which isn't a start landmark!")
-
+	SSgamemode.refresh_alive_stats(first_post_roundstart_check = TRUE)
 
 //These callbacks will fire after roundstart key transfer
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/cb)

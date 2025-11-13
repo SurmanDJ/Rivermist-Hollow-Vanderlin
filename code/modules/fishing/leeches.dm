@@ -16,6 +16,7 @@
 		"embedded_pain_chance" = 0,
 		"embedded_fall_chance" = 0,
 		"embedded_bloodloss"= 0,
+		"embedded_ignore_throwspeed_threshold" = TRUE,
 	)
 	bundletype = null
 	/// Consistent AKA no lore
@@ -268,7 +269,7 @@
 				"I will defile Necra's dead, a thousand times!", \
 				"I will butcher the Ten like Necra butchered Psydon!", \
 				"Snuff out the beating hearts of Eora!"))
-		V.add_stress(/datum/stressevent/leechcult)
+		V.add_stress(/datum/stress_event/leechcult)
 
 /obj/item/natural/worms/leech/abyssoid
 	name = "abyssoid leech"

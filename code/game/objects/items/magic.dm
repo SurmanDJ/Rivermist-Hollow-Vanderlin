@@ -55,6 +55,7 @@
 				to_chat(HL, span_warning("My magical shrouding reacted to something."))
 				return
 			log_game("SCRYING: [user.real_name] ([user.ckey]) has used the scrying orb to leer at [HL.real_name] ([HL.ckey])")
+			ADD_TRAIT(user, TRAIT_NOSSDINDICATOR, "scryingorb")
 			var/mob/dead/observer/screye/S = user.scry_ghost()
 			if(!S)
 				return
@@ -73,6 +74,7 @@
 					return
 				if(HL.STAPER >= 11)
 					to_chat(HL, span_warning("I feel a pair of unknown eyes on me."))
+			REMOVE_TRAIT(user, TRAIT_NOSSDINDICATOR, "scryingorb")
 			return
 	to_chat(user, span_warning("I peer into [src], but can't find [input]."))
 	return
@@ -89,7 +91,7 @@
 /*	..................   NOC Device (Fixed scrying ball)   ................... */
 /obj/structure/nocdevice
 	name = "NOC Device"
-	desc = "A intricate lunar observation machine, that allows its user to study the face of Noc in the sky, reflecting he true whereabouts of hidden beings.."
+	desc = "A intricate lunar observation machine, that allows its user to study the face of Noc in the sky, reflecting the true whereabouts of hidden beings.."
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "nocdevice"
 	plane = -1

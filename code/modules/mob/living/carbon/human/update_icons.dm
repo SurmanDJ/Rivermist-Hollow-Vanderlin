@@ -331,7 +331,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(wear_neck)
 		update_hud_neck(wear_neck)
@@ -363,7 +363,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_RING) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(wear_ring)
 		wear_ring.screen_loc = rogueui_ringr
@@ -399,7 +399,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_GLOVES) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	var/datum/species/species = dna?.species
 	var/use_female_sprites = FALSE
@@ -469,7 +469,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_WRISTS) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(wear_wrists)
 		wear_wrists.screen_loc = rogueui_wrists
@@ -527,7 +527,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SHOES) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(shoes)
 		shoes.screen_loc = rogueui_shoes
@@ -586,7 +586,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(head)
 		if(hide_nonstandard && (head.worn_x_dimension != 32 || head.worn_y_dimension != 32))
@@ -625,11 +625,11 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT_R) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT_L) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	var/datum/species/species = dna?.species
 	var/use_female_sprites = FALSE
@@ -795,9 +795,9 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK_R) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK_L) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	var/datum/species/species = dna?.species
 
@@ -908,7 +908,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_CLOAK) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	var/list/cloaklays
 	var/datum/species/species = dna?.species
@@ -1002,7 +1002,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SHIRT) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(wear_shirt)
 		wear_shirt.screen_loc = rogueui_shirt					//move the item to the appropriate screen loc
@@ -1066,7 +1066,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_ARMOR) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(wear_armor)
 		wear_armor.screen_loc = rogueui_armor					//move the item to the appropriate screen loc
@@ -1128,7 +1128,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_PANTS) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(wear_pants)
 		wear_pants.screen_loc = rogueui_pants					//move the item to the appropriate screen loc
@@ -1188,7 +1188,7 @@ There are several things that need to be remembered:
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MOUTH) + 1]
-		inv?.update_appearance()
+		inv?.update_appearance(UPDATE_ICON_STATE)
 
 	if(mouth)
 		update_hud_mouth(mouth)
@@ -1689,3 +1689,10 @@ generate/load female uniform sprites matching all previously decided variables
 	update_inv_head()
 	update_inv_wear_mask()
 	update_inv_mouth()
+
+/mob/living/carbon/human/proc/update_smell(smelly_icon = "generic_mob_smell")
+	remove_overlay(SMELL_LAYER)
+	if(hygiene == HYGIENE_LEVEL_DISGUSTING) //You have literally ignored your stank for so long that you physically can't get dirtier.
+		var/mutable_appearance/new_smell_overlay = mutable_appearance('icons/mob/smelly.dmi', smelly_icon, -SMELL_LAYER)
+		overlays_standing[SMELL_LAYER] = new_smell_overlay
+		apply_overlay(SMELL_LAYER)

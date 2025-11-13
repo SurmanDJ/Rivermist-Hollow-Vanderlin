@@ -42,6 +42,9 @@ GLOBAL_LIST_EMPTY(prayers)
 	///verbs applied by set_patron and removed when changed
 	var/list/added_verbs
 
+	//If the patron has a specific specie worshipping them.
+	var/list/allowed_races
+
 	var/datum/storyteller/storyteller
 
 /datum/patron/proc/on_gain(mob/living/pious)
@@ -82,6 +85,7 @@ GLOBAL_LIST_EMPTY(prayers)
 
 	. = TRUE //the prayer has succeeded by this point forward
 	GLOB.prayers |= prayer
+	record_featured_stat(FEATURED_STATS_DEVOUT, follower)
 	record_round_statistic(STATS_PRAYERS_MADE)
 
 	if(findtext(prayer, name))
@@ -92,11 +96,11 @@ GLOBAL_LIST_EMPTY(prayers)
 	follower.adjust_divine_fire_stacks(100)
 	follower.IgniteMob()
 	record_round_statistic(STATS_PEOPLE_SMITTEN)
-	follower.add_stress(/datum/stressevent/psycurse)
+	follower.add_stress(/datum/stress_event/psycurse)
 
 /// The follower has prayed in a special way to the patron and is being rewarded.
 /datum/patron/proc/reward_prayer(mob/living/follower)
 	SHOULD_CALL_PARENT(TRUE)
 
 	follower.playsound_local(follower, 'sound/misc/notice (2).ogg', 100, FALSE)
-	follower.add_stress(/datum/stressevent/psyprayer)
+	follower.add_stress(/datum/stress_event/psyprayer)

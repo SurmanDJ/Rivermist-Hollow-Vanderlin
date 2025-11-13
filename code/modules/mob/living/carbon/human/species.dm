@@ -20,7 +20,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	var/list/possible_ages = ALL_AGES_LIST_CHILD
 	/// Whether or not this species has sexual characteristics
 	var/sexes = TRUE
-	/// Whether this species a requires patreon subscription to access
+	/// Whether this species a requires patreon subscription to access, we removed all patreon restrictions for species, but it's here if we ever want to reenable them or smth.
 	var/patreon_req = FALSE
 
 	/**
@@ -108,7 +108,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	 */
 	var/swap_male_clothes = FALSE
 	/**
-	 * Feales use male clothes, offsets and damage icons.
+	 * Females use male clothes, offsets and damage icons.
 	 * Importantly females still use female limb icons.
 	 * This does not effect stats or inherent traits/skills.
 	 * Females will lose their boob overlays.
@@ -141,12 +141,15 @@ GLOBAL_LIST_EMPTY(patreon_races)
 
 	/// Multipler for how quickly nutrition decreases
 	var/nutrition_mod = 1
+	/// Multiplier for how quickly hygiene decreases
+	var/hygiene_mod = 1
 	/// Multipler for blood loss
 	var/bleed_mod = 1
 	/// Multipler for pain
 	var/pain_mod = 1
 	/// Electrocution coeffcient
 	var/siemens_coeff = 1
+
 
 	/// Type of damage melee attacks do
 	var/attack_type = BRUTE
@@ -291,7 +294,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 // PROCS //
 ///////////
 
-/datum/species/proc/get_accent(var/language, var/variant = 0)
+/datum/species/proc/get_accent(language, variant = 0)
 	if(language == "Old Psydonic")
 		return strings("accents/grenz_replacement.json", "grenz")
 	if(language == "Zalad")
@@ -310,6 +313,8 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		return
 	if(language == "Orcish")
 		return strings("accents/halforc_replacement.json", "halforc")
+	if(language == "Halfling")
+		return strings("accents/halfling_replacement.json", "halfling")
 	if(language == "Deepspeak")
 		return strings("accents/triton_replacement.json", "triton")
 	if(language == "Pirate")
@@ -377,7 +382,8 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				ACCENT_GRENZ,
 				ACCENT_PIRATE,
 				ACCENT_MIDDLE_SPEAK,
-				ACCENT_ZALAD
+				ACCENT_ZALAD,
+				ACCENT_HALFLING
 			)
 
 			///This will only trigger for patreon users
@@ -1227,90 +1233,56 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		return //hunger is for BABIES
 
 	// nutrition decrease and satiety
-	if (H.nutrition > 0 && H.stat != DEAD && !HAS_TRAIT(H, TRAIT_NOHUNGER))
-		// THEY HUNGER
+	if(H.nutrition > 0 && H.stat != DEAD)
 		var/hunger_rate = (HUNGER_FACTOR * nutrition_mod)
 		H.adjust_nutrition(-hunger_rate)
 
-
-	if (H.hydration > 0 && H.stat != DEAD && !HAS_TRAIT(H, TRAIT_NOHUNGER))
-		// THEY HUNGER
+	if(H.hydration > 0 && H.stat != DEAD)
 		var/hunger_rate = HUNGER_FACTOR
-//		hunger_rate *= H.physiology.hunger_mod
 		H.adjust_hydration(-hunger_rate)
 
-
-	if (H.nutrition > NUTRITION_LEVEL_FULL)
-		if(H.overeatduration < 600) //capped so people don't take forever to unfat
-			H.overeatduration++
-	else
-		if(H.overeatduration > 1)
-			H.overeatduration -= 2 //doubled the unfat rate
-
-	//metabolism change
-//	if(H.nutrition > NUTRITION_LEVEL_FAT)
-//		H.metabolism_efficiency = 1
-//	else if(H.nutrition > NUTRITION_LEVEL_FED && H.satiety > 80)
-//		if(H.metabolism_efficiency != 1.25 && !HAS_TRAIT(H, TRAIT_NOHUNGER))
-//			to_chat(H, "<span class='notice'>I feel vigorous.</span>")
-//			H.metabolism_efficiency = 1.25
-//	else if(H.nutrition < NUTRITION_LEVEL_STARVING + 50)
-//		if(H.metabolism_efficiency != 0.8)
-//			to_chat(H, "<span class='notice'>I feel sluggish.</span>")
-//		H.metabolism_efficiency = 0.8
-//	else
-//		if(H.metabolism_efficiency == 1.25)
-//			to_chat(H, "<span class='notice'>I no longer feel vigorous.</span>")
-//		H.metabolism_efficiency = 1
-
-	//Hunger slowdown for if mood isn't enabled
-//	if(CONFIG_GET(flag/disable_human_mood))
-//		if(!HAS_TRAIT(H, TRAIT_NOHUNGER))
-//			var/hungry = (500 - H.nutrition) / 5 //So overeat would be 100 and default level would be 80
-//			if(hungry >= 70)
-//				H.add_movespeed_modifier(MOVESPEED_ID_HUNGRY, override = TRUE, multiplicative_slowdown = (hungry / 50))
-//			else if(isethereal(H))
-//				var/datum/species/ethereal/E = H.dna.species
-//				if(E.get_charge(H) <= ETHEREAL_CHARGE_NORMAL)
-//					H.add_movespeed_modifier(MOVESPEED_ID_HUNGRY, override = TRUE, multiplicative_slowdown = (1.5 * (1 - E.get_charge(H) / 100)))
-//			else
-//				H.remove_movespeed_modifier(MOVESPEED_ID_HUNGRY)
+	if(H.nutrition > NUTRITION_LEVEL_FULL && H.overeatduration < 600)
+		H.overeatduration++ //capped so people don't take forever to unfat
+	else if(H.overeatduration > 1)
+		H.overeatduration -= 2 //doubled the unfat rate
 
 	switch(H.nutrition)
-//		if(NUTRITION_LEVEL_FAT to INFINITY) //currently disabled/999999 define
-//			if(H.energy >= H.max_energy)
-//				H.apply_status_effect(/datum/status_effect/debuff/fat)
 		if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
 			H.apply_status_effect(/datum/status_effect/debuff/hungryt1)
 			H.remove_status_effect(/datum/status_effect/debuff/hungryt2)
 			H.remove_status_effect(/datum/status_effect/debuff/hungryt3)
+			H.remove_status_effect(/datum/status_effect/debuff/hungryt4)
 		if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
 			H.apply_status_effect(/datum/status_effect/debuff/hungryt2)
 			H.remove_status_effect(/datum/status_effect/debuff/hungryt1)
 			H.remove_status_effect(/datum/status_effect/debuff/hungryt3)
+			H.remove_status_effect(/datum/status_effect/debuff/hungryt4)
 		if(0 to NUTRITION_LEVEL_STARVING)
 			H.apply_status_effect(/datum/status_effect/debuff/hungryt3)
 			H.remove_status_effect(/datum/status_effect/debuff/hungryt1)
 			H.remove_status_effect(/datum/status_effect/debuff/hungryt2)
+			if(CONFIG_GET(flag/starvation_death))
+				H.apply_status_effect(/datum/status_effect/debuff/hungryt4)
 			if(prob(3))
 				playsound(get_turf(H), pick('sound/vo/hungry1.ogg','sound/vo/hungry2.ogg','sound/vo/hungry3.ogg'), 100, TRUE, -1)
 
 	switch(H.hydration)
-//		if(HYDRATION_LEVEL_WATERLOGGED to INFINITY)
-//			H.apply_status_effect(/datum/status_effect/debuff/waterlogged)
 		if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_SMALLTHIRST)
 			H.apply_status_effect(/datum/status_effect/debuff/thirstyt1)
 			H.remove_status_effect(/datum/status_effect/debuff/thirstyt2)
 			H.remove_status_effect(/datum/status_effect/debuff/thirstyt3)
+			H.remove_status_effect(/datum/status_effect/debuff/thirstyt4)
 		if(HYDRATION_LEVEL_DEHYDRATED to HYDRATION_LEVEL_THIRSTY)
 			H.apply_status_effect(/datum/status_effect/debuff/thirstyt2)
 			H.remove_status_effect(/datum/status_effect/debuff/thirstyt1)
 			H.remove_status_effect(/datum/status_effect/debuff/thirstyt3)
+			H.remove_status_effect(/datum/status_effect/debuff/thirstyt4)
 		if(0 to HYDRATION_LEVEL_DEHYDRATED)
 			H.apply_status_effect(/datum/status_effect/debuff/thirstyt3)
 			H.remove_status_effect(/datum/status_effect/debuff/thirstyt1)
 			H.remove_status_effect(/datum/status_effect/debuff/thirstyt2)
-
+			if(CONFIG_GET(flag/dehydration_death))
+				H.apply_status_effect(/datum/status_effect/debuff/thirstyt4)
 
 /datum/species/proc/update_health_hud(mob/living/carbon/human/H)
 	return 0
@@ -1323,6 +1295,51 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	if(H.gender == FEMALE)
 		H.set_facial_hair_style(/datum/sprite_accessory/hair/facial/none, FALSE)
 	H.set_hair_style(/datum/sprite_accessory/hair/head/bald)
+
+
+/datum/species/proc/handle_hygiene(mob/living/carbon/human/H)
+	if(H.stat == DEAD)
+		return
+	if(HAS_TRAIT(H, TRAIT_NOHYGIENE))
+		return
+	switch(H.hygiene)
+		if(HYGIENE_LEVEL_CLEAN to HYGIENE_LEVEL_CLEAN)
+			if(HAS_TRAIT(H, TRAIT_STINKY))
+				H.add_stress(/datum/stress_event/forced_clean)
+				H.remove_stress(/datum/stress_event/filth_lover)
+			else
+				H.add_stress(/datum/stress_event/clean)
+			H.remove_status_effect(/datum/status_effect/debuff/stinky_person)
+			H.remove_stress(/datum/stress_event/dirty)
+			H.remove_stress(/datum/stress_event/disgusting)
+		if(HYGIENE_LEVEL_DISGUSTING to HYGIENE_LEVEL_DISGUSTING)
+			if(HAS_TRAIT(H, TRAIT_STINKY))
+				H.add_stress(/datum/stress_event/filth_lover)
+			else
+				H.add_stress(/datum/stress_event/disgusting)
+			H.apply_status_effect(/datum/status_effect/debuff/stinky_person)
+			H.remove_stress(/datum/stress_event/forced_clean)
+			H.remove_stress(/datum/stress_event/dirty)
+			H.remove_stress(/datum/stress_event/clean)
+
+		if(HYGIENE_LEVEL_DIRTY to HYGIENE_LEVEL_CLEAN)
+			H.remove_stress(/datum/stress_event/dirty)
+			H.remove_stress(/datum/stress_event/disgusting)
+			H.remove_status_effect(/datum/status_effect/debuff/stinky_person)
+		if(HYGIENE_LEVEL_DISGUSTING to HYGIENE_LEVEL_DIRTY)
+			if(HAS_TRAIT(H, TRAIT_STINKY))
+				H.add_stress(/datum/stress_event/filth_lover)
+			else
+				H.add_stress(/datum/stress_event/dirty)
+			H.remove_status_effect(/datum/status_effect/debuff/stinky_person)
+			H.remove_stress(/datum/stress_event/forced_clean)
+			H.remove_stress(/datum/stress_event/disgusting)
+			H.remove_stress(/datum/stress_event/clean)
+
+
+
+
+
 
 //////////////////
 // ATTACK PROCS //
@@ -1439,6 +1456,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		if(target.mind)
 			target.mind.attackedme[user.real_name] = world.time
 		target.lastattackerckey = user.ckey
+		target.lastattacker_weakref = WEAKREF(user)
 		user.dna.species.spec_unarmedattacked(user, target)
 
 		user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname, used_item = FALSE, atom_bounce = TRUE)
@@ -1626,14 +1644,15 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		return FALSE
 	if(user == target)
 		return FALSE
-	if(user.check_leg_grabbed(1) || user.check_leg_grabbed(2))
-		if(user.check_leg_grabbed(1) && user.check_leg_grabbed(2))		//If both legs are grabbed
-			to_chat(user, span_notice("I can't move my legs!"))
+	if(!HAS_TRAIT(user, TRAIT_GARROTED))
+		if(user.check_leg_grabbed(1) || user.check_leg_grabbed(2))
+			if(user.check_leg_grabbed(1) && user.check_leg_grabbed(2))		//If both legs are grabbed
+				to_chat(user, span_notice("I can't move my legs!"))
+				return
+			else															//If only one leg is grabbed
+				to_chat(user, span_notice("I can't move my leg!"))
+				user.resist_grab()
 			return
-		else															//If only one leg is grabbed
-			to_chat(user, span_notice("I can't move my leg!"))
-			user.resist_grab()
-		return
 
 	if(user.stamina >= user.maximum_stamina)
 		return FALSE
@@ -1644,6 +1663,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		if(!stander)
 			target.lastattacker = user.real_name
 			target.lastattackerckey = user.ckey
+			target.lastattacker_weakref = WEAKREF(user)
 			if(target.mind)
 				target.mind.attackedme[user.real_name] = world.time
 			var/selzone = accuracy_check(user.zone_selected, user, target, /datum/skill/combat/unarmed, user.used_intent)
@@ -1768,6 +1788,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
 		target.lastattacker = user.real_name
 		target.lastattackerckey = user.ckey
+		target.lastattacker_weakref = WEAKREF(user)
 		if(target.mind)
 			target.mind.attackedme[user.real_name] = world.time
 		user.adjust_stamina(15)
@@ -1861,7 +1882,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				I.take_damage(1, BRUTE, I.damage_type)
 		if(!nodmg)
 			var/datum/wound/crit_wound = affecting.bodypart_attacked_by(user.used_intent.blade_class, (Iforce * weakness) * ((100-(armor_block))/100), user, selzone, crit_message = TRUE)
-			if(should_embed_weapon(crit_wound, I))
+			if(crit_wound?.should_embed(I))
 				var/can_impale = TRUE
 				if(!affecting)
 					can_impale = FALSE
@@ -1874,6 +1895,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 					user.put_in_hands(I)
 					H.emote("pain", TRUE)
 					playsound(H.loc, 'sound/foley/flesh_rem.ogg', 100, TRUE, -2)
+			I.do_special_attack_effect(user, affecting, intent, H, selzone)
 			if(istype(user.used_intent, /datum/intent/effect) && selzone)
 				var/datum/intent/effect/effect_intent = user.used_intent
 				if(LAZYLEN(effect_intent.target_parts))
@@ -2106,7 +2128,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	var/debuff_level = 0
 	// Heat damage and effects
 	if(H.bodytemperature > BODYTEMP_HEAT_DAMAGE_LIMIT && !HAS_TRAIT(H, TRAIT_RESISTHEAT))
-		H.remove_stress(list(/datum/stressevent/cold_mild, /datum/stressevent/cold_moderate, /datum/stressevent/cold_severe))
+		remove_cold_stress(H)
 
 		var/heat_excess = H.bodytemperature - BODYTEMP_HEAT_DAMAGE_LIMIT
 		apply_heat_stress(H, heat_excess)
@@ -2126,7 +2148,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		apply_heat_debuffs(H, debuff_level)
 	// Cold damage and effects
 	else if(H.bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT && !HAS_TRAIT(H, TRAIT_RESISTCOLD))
-		H.remove_stress(list(/datum/stressevent/hot_mild, /datum/stressevent/hot_moderate, /datum/stressevent/hot_severe))
+		remove_heat_stress(H)
 
 		var/cold_deficit = BODYTEMP_COLD_DAMAGE_LIMIT - H.bodytemperature
 		apply_cold_stress(H, cold_deficit)
@@ -2142,63 +2164,75 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	else
 		H.clear_alert("temp")
 		H.remove_movespeed_modifier(MOVESPEED_ID_COLD)
-		H.remove_stress(list(/datum/stressevent/cold_mild, /datum/stressevent/cold_moderate, /datum/stressevent/cold_severe,
-							/datum/stressevent/hot_mild, /datum/stressevent/hot_moderate, /datum/stressevent/hot_severe))
 		clear_temperature_debuffs(H)
+
+/datum/species/proc/remove_heat_stress(mob/living/carbon/human/H)
+	H.remove_stress(list(
+		/datum/stress_event/hot_mild,
+		/datum/stress_event/hot_moderate,
+		/datum/stress_event/hot_severe,
+	))
 
 /datum/species/proc/apply_heat_stress(mob/living/carbon/human/H, heat_excess)
 	if(heat_excess < 0)
 		return
 	switch(heat_excess)
 		if(0 to 5) // Mild heat
-			H.add_stress(/datum/stressevent/hot_mild)
+			H.add_stress(/datum/stress_event/hot_mild)
 		if(5 to 15) // Moderate heat
-			H.add_stress(/datum/stressevent/hot_moderate)
+			H.add_stress(/datum/stress_event/hot_moderate)
 		else // Severe heat
-			H.add_stress(/datum/stressevent/hot_severe)
+			H.add_stress(/datum/stress_event/hot_severe)
+
+/datum/species/proc/remove_cold_stress(mob/living/carbon/human/H)
+	H.remove_stress(list(
+		/datum/stress_event/cold_mild,
+		/datum/stress_event/cold_moderate,
+		/datum/stress_event/cold_severe,
+	))
 
 /datum/species/proc/apply_cold_stress(mob/living/carbon/human/H, cold_deficit)
 	if(cold_deficit < 0)
 		return
 	switch(cold_deficit)
 		if(0 to 5) // Mild cold
-			H.add_stress(/datum/stressevent/cold_mild)
+			H.add_stress(/datum/stress_event/cold_mild)
 		if(5 to 15) // Moderate cold
-			H.add_stress(/datum/stressevent/cold_moderate)
+			H.add_stress(/datum/stress_event/cold_moderate)
 		else // Severe cold
-			H.add_stress(/datum/stressevent/cold_severe)
+			H.add_stress(/datum/stress_event/cold_severe)
 
 // Heat stress events
-/datum/stressevent/hot_mild
-	timer = 60 SECONDS
-	stressadd = 1
+/datum/stress_event/hot_mild
 	desc = "<span class='warning'>It's getting warm in here.</span>"
-
-/datum/stressevent/hot_moderate
 	timer = 60 SECONDS
-	stressadd = 3
+	stress_change = 1
+
+/datum/stress_event/hot_moderate
 	desc = "<span class='red'>This heat is becoming unbearable.</span>"
-
-/datum/stressevent/hot_severe
 	timer = 60 SECONDS
-	stressadd = 6
+	stress_change = 3
+
+/datum/stress_event/hot_severe
 	desc = "<span class='boldred'>I'm burning up!</span>"
+	timer = 60 SECONDS
+	stress_change = 6
 
 // Cold stress events
-/datum/stressevent/cold_mild
-	timer = 60 SECONDS
-	stressadd = 1
+/datum/stress_event/cold_mild
 	desc = "<span class='notice'>It's getting chilly.</span>"
-
-/datum/stressevent/cold_moderate
 	timer = 60 SECONDS
-	stressadd = 3
+	stress_change = 1
+
+/datum/stress_event/cold_moderate
 	desc = "<span class='blue'>This cold is really getting to me.</span>"
-
-/datum/stressevent/cold_severe
 	timer = 60 SECONDS
-	stressadd = 6
+	stress_change = 3
+
+/datum/stress_event/cold_severe
 	desc = "<span class='boldblue'>I'm freezing to death!</span>"
+	timer = 60 SECONDS
+	stress_change = 6
 
 /datum/species/proc/calculate_heat_damage(mob/living/carbon/human/H, heat_excess)
 	var/firemodifier = (H.fire_stacks + H.divine_fire_stacks) / 50
@@ -2287,6 +2321,14 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	if(H.temp_debuff_level)
 		H.remove_movespeed_modifier("heat_stress")
 		H.temp_debuff_level = null
+	H.remove_stress(list(
+		/datum/stress_event/cold_mild,
+		/datum/stress_event/cold_moderate,
+		/datum/stress_event/cold_severe,
+		/datum/stress_event/hot_mild,
+		/datum/stress_event/hot_moderate,
+		/datum/stress_event/hot_severe,
+	))
 
 //////////
 // FIRE //
@@ -2349,7 +2391,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 			H.adjust_bodytemperature(5)
 		else
 			H.adjust_bodytemperature(BODYTEMP_HEATING_MAX + ((H.fire_stacks + H.divine_fire_stacks)* 12))
-			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "on_fire", /datum/mood_event/on_fire)
+			H.add_stress(/datum/stress_event/on_fire)
 
 /datum/species/proc/CanIgniteMob(mob/living/carbon/human/H)
 	if(H.status_flags & GODMODE)

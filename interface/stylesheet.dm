@@ -126,6 +126,7 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Mookmania, TrueType;}
 .papyrus				{font-family: "Papyrus", cursive, sans-serif;}
 .robot					{font-family: "Courier New", cursive, sans-serif;}
 
+<<<<<<< HEAD
 .human					{font-family: "Honoka Mincho", Mookmania;}
 .elf					{font-family: "MarkScript-Regular", cursive, Mookmania;}
 .oldpsydonic			{font-family: "Breitkopf Fraktur", Mookmania; font-size: 120%;}
@@ -138,6 +139,21 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Mookmania, TrueType;}
 .orc					{font-family: "VizaviTYGRA", Mookmania;}
 .beast					{font-family: "VizaviTYGRA", Mookmania;}
 .deepspeak				{font-family: "Underwater Love", Mookmania;}
+=======
+.human					{font-family: "Honoka Mincho", Pterra;}
+.elf					{font-family: "Dauphin", cursive, Pterra;}
+.oldpsydonic			{font-family: "Breitkopf Fraktur", Pterra; font-size: 120%;}
+.zalad					{font-family: "Byzantine", Pterra;}
+.dwarf					{font-family: "MasonAlternate", Pterra;}
+.sandspeak				{font-family: "Arabolical", Pterra;}
+.delf					{font-family: "Dauphin", Pterra;}
+.hellspeak				{font-family: "Nosfer", Pterra;}
+.undead					{font-family: "FriskyVampire", Pterra;}
+.orc					{font-family: "Thief by The Riddler", Pterra;}
+.otavan					{font-family: "Notredame", Pterra; font-size: 200%;}
+.beast					{font-family: "Thief by The Riddler", Pterra;}
+.deepspeak				{font-family: "Underwater Love", Pterra;}
+>>>>>>> vanderlin/main
 
 .torture				{color: #42ff20}
 

@@ -14,13 +14,13 @@
 
 	allowed_races = RACES_PLAYER_ALL
 
-	outfit = /datum/outfit/job/tailor
+	outfit = /datum/outfit/tailor
+	give_bank_account = 25
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
-/datum/outfit/job/tailor
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/tailor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/tailor/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	shoes = /obj/item/clothing/shoes/nobleboot

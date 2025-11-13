@@ -113,6 +113,13 @@ SUBSYSTEM_DEF(job)
 			JobDebug("GRJ isbanned failed, Player: [player], Job: [job.title]")
 			continue
 
+		if(is_race_banned(player.ckey, player.client.prefs.pref_species.id)|| QDELETED(player))
+			if(QDELETED(player))
+				JobDebug("GRJ is_race_banned failed, Player deleted")
+				break
+			JobDebug("GRJ is_race_banned failed, Player: [player], Race: [player.client.prefs.pref_species.id]")
+			continue
+
 		if(!job.can_random)
 			JobDebug("GRJ can't random into this job, Job: [job.title], Player: [player]")
 			continue
@@ -129,7 +136,8 @@ SUBSYSTEM_DEF(job)
 			JobDebug("GRJ incompatible with antagonist role, Player: [player], Job: [job.title]")
 			continue
 
-		if(length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races))
+		if((length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races)) || \
+			(length(job.blacklisted_species) && (player.client.prefs.pref_species.id in job.blacklisted_species)))
 			JobDebug("GRJ incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
 			continue
 
@@ -165,6 +173,10 @@ SUBSYSTEM_DEF(job)
 
 		if(!job.special_job_check(player))
 			JobDebug("GRJ player did not pass special check, Player: [player], Job:[job.title]")
+			continue
+
+		if(!job.enabled)
+			JobDebug("GRJ player tried to play a disabled job, Player: [player], Job:[job.title]")
 			continue
 
 		if(CONFIG_GET(flag/usewhitelist))
@@ -264,6 +276,10 @@ SUBSYSTEM_DEF(job)
 					JobDebug("DO isbanned failed, Player: [player], Job:[job.title]")
 					continue
 
+				if(is_race_banned(player.ckey, player.client.prefs.pref_species.id))
+					JobDebug("DO is_race_banned, Player: [player], Race: [player.client.prefs.pref_species.id]")
+					continue
+
 				if(QDELETED(player))
 					JobDebug("DO player deleted during job ban check")
 					break
@@ -282,7 +298,8 @@ SUBSYSTEM_DEF(job)
 
 				var/list/player_boosts = get_player_boosts(player)
 
-				if(length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races))
+				if((length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races)) || \
+					(length(job.blacklisted_species) && (player.client.prefs.pref_species.id in job.blacklisted_species)))
 					if(!player.client?.has_triumph_buy(TRIUMPH_BUY_RACE_ALL))
 						JobDebug("DO incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
 						continue
@@ -292,6 +309,7 @@ SUBSYSTEM_DEF(job)
 				if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))
 					JobDebug("DO incompatible with patron, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
 					continue
+
 				#ifdef USES_PQ
 				if(get_playerquality(player.ckey) < job.min_pq)
 					JobDebug("DO player lacks Quality. Player: [player], Job: [job.title]")
@@ -324,6 +342,10 @@ SUBSYSTEM_DEF(job)
 
 				if(!job.special_job_check(player))
 					JobDebug("DO player did not pass special check, Player: [player], Job:[job.title]")
+					continue
+
+				if(!job.enabled)
+					JobDebug("DO player tried to play a disabled job, Player: [player], Job:[job.title]")
 					continue
 
 				// If the player wants that job on this level, then try give it to him.
@@ -477,6 +499,9 @@ SUBSYSTEM_DEF(job)
 			if(is_role_banned(player.ckey, job.title))
 				continue
 
+			if(is_race_banned(player.ckey, player.client.prefs.pref_species.id))
+				continue
+
 			if(QDELETED(player))
 				break
 
@@ -492,8 +517,12 @@ SUBSYSTEM_DEF(job)
 			if(length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races))
 				continue
 
+			if(length(job.blacklisted_species) && (player.client.prefs.pref_species.id in job.blacklisted_species))
+				return
+
 			if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))
 				continue
+
 			#ifdef USES_PQ
 			if(get_playerquality(player.ckey) < job.min_pq)
 				continue
@@ -519,6 +548,9 @@ SUBSYSTEM_DEF(job)
 				continue
 
 			if(!job.special_job_check(player))
+				continue
+
+			if(!job.enabled)
 				continue
 
 			// If the player wants that job on this level, then try give it to him.
@@ -574,10 +606,11 @@ SUBSYSTEM_DEF(job)
 	SEND_SIGNAL(equipping, COMSIG_JOB_RECEIVED, job)
 
 	equipping.mind?.set_assigned_role(job)
+	job.pre_outfit_equip(equipping, player_client) // sigh
 	equipping.on_job_equipping(job)
 	addtimer(CALLBACK(job, TYPE_PROC_REF(/datum/job, greet), equipping), 5 SECONDS) //TODO: REFACTOR OUT
 
-	if(player_client.holder)
+	if(player_client?.holder)
 		if(CONFIG_GET(flag/auto_deadmin_players) || (player_client.prefs?.toggles & DEADMIN_ALWAYS))
 			player_client.holder.auto_deadmin()
 		else
@@ -630,6 +663,9 @@ SUBSYSTEM_DEF(job)
 			if(is_role_banned(player.ckey, job.title) || QDELETED(player))
 				banned++
 				continue
+			if(is_race_banned(player.ckey, player.client.prefs.pref_species.id))
+				banned++
+				continue
 			if(!job.player_old_enough(player.client))
 				young++
 				continue
@@ -667,7 +703,7 @@ SUBSYSTEM_DEF(job)
 	if(PopcapReached())
 		JobDebug("Popcap overflow Check observer located, Player: [player]")
 	JobDebug("Player rejected :[player]")
-	to_chat(player, "<b>I couldn't find a job to be..</b>")
+	to_chat(player, span_danger("<b>I couldn't find a job to be..</b>"))
 
 	var/list/client_triumphs = SStriumphs.triumph_buy_owners[player.ckey]
 	if(islist(client_triumphs))
@@ -733,6 +769,9 @@ SUBSYSTEM_DEF(job)
 	if(is_role_banned(player.ckey, job.title))
 		return
 
+	if(is_race_banned(player.ckey, player.client.prefs.pref_species.id))
+		return
+
 	if(QDELETED(player))
 		return
 
@@ -746,6 +785,9 @@ SUBSYSTEM_DEF(job)
 		return
 
 	if(length(job.allowed_races) && !(player.client.prefs.pref_species.id in job.allowed_races))
+		return
+
+	if(length(job.blacklisted_species) && (player.client.prefs.pref_species.id in job.blacklisted_species))
 		return
 
 	if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))

@@ -272,7 +272,6 @@
 
 	if(equipped_human.gender == FEMALE)
 		equipped_human.underwear = "Femleotard"
-		equipped_human.underwear_color = CLOTHING_SOOT_BLACK
 
 /datum/migrant_wave/grenzelhoft_visit
 	name = "The Grenzelhoft visit"

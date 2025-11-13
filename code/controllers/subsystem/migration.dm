@@ -301,17 +301,11 @@ SUBSYSTEM_DEF(migrants)
 	var/datum/migrant_role/role_instance = MIGRANT_ROLE(role)
 
 	var/datum/job/migrant_job = SSjob.GetJobType(role_instance.migrant_job)
-	var/datum/migrant_role/role_instance = MIGRANT_ROLE(role)
 
-	var/datum/job/migrant_job = SSjob.GetJobType(role_instance.migrant_job)
-
-	SSjob.AssignRole(new_player, migrant_job, 1)
 	SSjob.AssignRole(new_player, migrant_job, 1)
 
 	new_player.mind.late_joiner = TRUE
-	new_player.mind.late_joiner = TRUE
 
-	var/mob/living/character = new_player.create_character(spawn_on_location) //very naive, this is going to error
 	var/mob/living/character = new_player.create_character(spawn_on_location) //very naive, this is going to error
 	if(!character)
 		CRASH("Failed to create a character for migrants.")
@@ -319,11 +313,6 @@ SUBSYSTEM_DEF(migrants)
 	character.islatejoin = TRUE
 	new_player.transfer_character()
 
-	character.islatejoin = TRUE
-	new_player.transfer_character()
-
-	SSjob.EquipRank(character, migrant_job, character.client)
-	apply_loadouts(character, character.client)
 	SSjob.EquipRank(character, migrant_job, character.client)
 	apply_loadouts(character, character.client)
 	SSticker.minds += character.mind
@@ -334,9 +323,7 @@ SUBSYSTEM_DEF(migrants)
 	/// And back to non copy pasta code
 
 	to_chat(character, span_alertsyndie("I am a [role_instance.name]!"))
-	to_chat(character, span_alertsyndie("I am a [role_instance.name]!"))
 	to_chat(character, span_notice(wave.greet_text))
-	to_chat(character, span_notice(role_instance.greet_text))
 	to_chat(character, span_notice(role_instance.greet_text))
 
 	var/datum/antagonist/antag_role = migrant_job?.antag_role || role_instance?.antag_datum
@@ -420,27 +407,17 @@ SUBSYSTEM_DEF(migrants)
 /datum/controller/subsystem/migrants/proc/can_be_role(client/player, role_type)
 	if(!player || !player.prefs)
 		return FALSE
-	if(!player || !player.prefs)
-		return FALSE
 	var/datum/migrant_role/role = MIGRANT_ROLE(role_type)
 	if(!role || is_migrant_banned(player.ckey, role.name) || is_race_banned(player.ckey, player.prefs.pref_species.id))
-	if(!role || is_migrant_banned(player.ckey, role.name) || is_race_banned(player.ckey, player.prefs.pref_species.id))
 		return FALSE
-
-	var/datum/job/migrant_job = SSjob.GetJobType(role.migrant_job)
-	if(!migrant_job)
 
 	var/datum/job/migrant_job = SSjob.GetJobType(role.migrant_job)
 	if(!migrant_job)
 		return FALSE
 	if(migrant_job.banned_leprosy && is_misc_banned(player.ckey, BAN_MISC_LEPROSY))
-	if(migrant_job.banned_leprosy && is_misc_banned(player.ckey, BAN_MISC_LEPROSY))
 		return FALSE
 	if(migrant_job.banned_lunatic && is_misc_banned(player.ckey, BAN_MISC_LUNATIC))
-	if(migrant_job.banned_lunatic && is_misc_banned(player.ckey, BAN_MISC_LUNATIC))
 		return FALSE
-
-	var/datum/preferences/prefs = player.prefs
 
 	var/datum/preferences/prefs = player.prefs
 	if(!player.prefs.allowed_respawn())
@@ -461,8 +438,6 @@ SUBSYSTEM_DEF(migrants)
 	if(length(migrant_job.allowed_sexes) && !(prefs.gender in migrant_job.allowed_sexes))
 		to_chat(player, span_warning("Wrong gender. Your prioritized role only allows [migrant_job.allowed_sexes.Join(", ")]."))
 		can_join = FALSE
-	if(length(migrant_job.allowed_ages) && !(prefs.age in migrant_job.allowed_ages))
-		to_chat(player, span_warning("Wrong age. Your prioritized role only allows [migrant_job.allowed_ages.Join(", ")]."))
 	if(length(migrant_job.allowed_ages) && !(prefs.age in migrant_job.allowed_ages))
 		to_chat(player, span_warning("Wrong age. Your prioritized role only allows [migrant_job.allowed_ages.Join(", ")]."))
 		can_join = FALSE

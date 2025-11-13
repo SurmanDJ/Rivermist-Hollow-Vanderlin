@@ -131,7 +131,6 @@
 /obj/structure/pressurizer/return_rotation_chat()
 	if(!rotation_network)
 		return
-	mouseover.maptext_height = 128
 	return "RPM:[rotations_per_minute ? rotations_per_minute : "0"]\n\
 			[rotation_network.total_stress ? "[rotation_network.overstressed ? "OVER:" : "STRESS:"][round(((rotation_network?.used_stress / max(1, rotation_network?.total_stress)) * 100), 1)]%" : "Stress: [rotation_network.used_stress]"]\n\
 			DIR:[rotation_direction == 4 ? "CW" : rotation_direction == 8 ? "CCW" : ""]\n\

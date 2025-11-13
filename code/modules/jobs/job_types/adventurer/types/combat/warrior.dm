@@ -42,7 +42,6 @@
 
 	if(H.gender == FEMALE)
 		H.underwear = "Femleotard"
-		H.underwear_color = CLOTHING_SOOT_BLACK
 		H.update_body()
 
 	H.change_stat(STATKEY_STR, 2)

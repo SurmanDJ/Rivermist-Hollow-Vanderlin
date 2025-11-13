@@ -267,6 +267,10 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
+"dX" = (
+/obj/item/natural/rock,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/woods)
 "eb" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/outdoors/mountains)

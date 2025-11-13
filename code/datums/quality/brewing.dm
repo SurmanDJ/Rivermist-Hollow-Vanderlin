@@ -107,8 +107,6 @@
 	if(!quality_data)
 		return FALSE
 
-<<<<<<< HEAD
-=======
 	var/name_prefix = quality_data["name_prefix"]
 	if(islist(name_prefix))
 		var/list/names = name_prefix
@@ -127,7 +125,6 @@
 	if(description_prefix && description_prefix != "")
 		target.desc += "\n[description_prefix]"
 
->>>>>>> vanderlin/main
 	apply_brewing_quality_modifiers(target, quality_data)
 
 	// Track masterworks if enabled (quality 4)

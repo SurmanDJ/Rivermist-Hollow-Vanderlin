@@ -198,7 +198,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(self_message)
 		show_message(self_message, MSG_VISUAL, blind_message, MSG_AUDIBLE)
 
-/mob/living/carbon/human/visible_message(message, self_message, blind_message, vision_distance, list/ignored_mobs, runechat_message, log_seen, log_seen_msg)
+/mob/living/carbon/human/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, runechat_message, log_seen, log_seen_msg)
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
@@ -228,6 +228,25 @@ GLOBAL_VAR_INIT(mobids, 1)
 					if(self_at_pos)
 						var/self_closing_tag_end = self_at_pos + 4
 						self_message = copytext(self_message, 1, self_closing_tag_end) + copytext(self_message, self_closing_tag_end + 2)
+
+					var/collective_span = ""
+					// Find any collective this person is involved in
+					for(var/datum/collective_message/collective in GLOB.sex_collectives)
+						if(human_speaker in collective.involved_mobs)
+							collective_span = " [collective.collective_span_class]"
+							break
+
+					self_message = "<span class= '[collective_span]'> " + self_message + "</span>"
+
+		var/collective_span = ""
+		// Find any collective this person is involved in
+		for(var/datum/collective_message/collective in GLOB.sex_collectives)
+			if(human_speaker in collective.involved_mobs)
+				collective_span = " [collective.collective_span_class]"
+				break
+
+		message = "<span class= '[collective_span]'> " + message + "</span>"
+
 
 		// Check if we're in a collective with subtle mode
 		var/collective_subtle = FALSE
@@ -350,6 +369,23 @@ GLOBAL_VAR_INIT(mobids, 1)
 					if(self_at_pos)
 						var/self_closing_tag_end = self_at_pos + 4
 						self_message = copytext(self_message, 1, self_closing_tag_end) + copytext(self_message, self_closing_tag_end + 2)
+					var/collective_span = ""
+					// Find any collective this person is involved in
+					for(var/datum/collective_message/collective in GLOB.sex_collectives)
+						if(human_speaker in collective.involved_mobs)
+							collective_span = " [collective.collective_span_class]"
+							break
+
+					self_message = "<span class= '[collective_span]'> " + self_message + "</span>"
+
+		var/collective_span = ""
+		// Find any collective this person is involved in
+		for(var/datum/collective_message/collective in GLOB.sex_collectives)
+			if(human_speaker in collective.involved_mobs)
+				collective_span = " [collective.collective_span_class]"
+				break
+
+		message = "<span class= '[collective_span]'> " + message + "</span>"
 
 		// Check if we're in a collective with subtle mode
 		var/collective_subtle = FALSE

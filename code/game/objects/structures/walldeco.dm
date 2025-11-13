@@ -406,15 +406,12 @@
 /obj/structure/fluff/walldeco/sign/tailorsign/left
 	icon_state = "shopsign_tailor_left"
 
-<<<<<<< HEAD
 /*	..................   Artificer Sign   ................... */
 /obj/structure/fluff/walldeco/artificerflag
 	name = "Artificer's Guild"
 	desc = ""
 	icon_state = "artificer"
 
-=======
->>>>>>> vanderlin/main
 /*	..................   Wall decorations   ................... */
 /obj/structure/fluff/walldeco/bath // suggestive stonework
 	icon_state = "bath1"

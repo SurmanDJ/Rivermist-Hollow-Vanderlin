@@ -585,6 +585,12 @@
 /datum/job/proc/get_total_positions(latejoin)
 	return latejoin ? total_positions : spawn_positions
 
+/datum/job/proc/set_spawn_and_total_positions(count)
+	return spawn_positions
+
+/datum/job/proc/get_total_positions(latejoin)
+	return latejoin ? total_positions : spawn_positions
+
 /datum/job/proc/get_json_data()
 	var/list/data = list()
 

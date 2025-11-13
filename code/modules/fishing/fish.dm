@@ -1219,18 +1219,12 @@ GLOBAL_LIST_INIT(fish_compatible_fluid_types, list(
 /obj/item/reagent_containers/food/snacks/fryfish/clownfish
 	name = "cooked clownfish"
 	icon_state = "clownfishcooked"
-<<<<<<< HEAD
-=======
 	faretype = FARE_FINE
->>>>>>> vanderlin/main
 
 /obj/item/reagent_containers/food/snacks/fryfish/angler
 	name = "cooked anglerfish"
 	icon_state = "anglercooked"
-<<<<<<< HEAD
-=======
 	faretype = FARE_NEUTRAL
->>>>>>> vanderlin/main
 
 /obj/item/reagent_containers/food/snacks/fryfish/eel
 	name = "cooked eel"

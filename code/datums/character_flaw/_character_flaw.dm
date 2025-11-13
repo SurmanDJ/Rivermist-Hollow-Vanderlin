@@ -11,6 +11,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Greedy" = /datum/charflaw/greedy,
 	"Narcoleptic" = /datum/charflaw/narcoleptic,
 	"Masochist" = /datum/charflaw/masochist,
+	"Sadist" = /datum/charflaw/addiction/sadist,
 	"Wooden Arm (R)" = /datum/charflaw/limbloss/arm_r,
 	"Wooden Arm (L)" = /datum/charflaw/limbloss/arm_l,
 	"Bad Sight" = /datum/charflaw/badsight,
@@ -107,25 +108,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		QDEL_NULL(charflaw)
 
 	charflaw = new flaw(src)
-	charflaw.after_spawn(src)
-
-	if(after_spawn)
-		charflaw.after_spawn(src)
-
-	if(after_spawn)
-		charflaw.after_spawn(src)
-
-	if(after_spawn)
-		charflaw.after_spawn(src)
-
-	if(after_spawn)
-		charflaw.after_spawn(src)
-
-	if(after_spawn)
-		charflaw.after_spawn(src)
-
-	if(after_spawn)
-		charflaw.after_spawn(src)
 
 	if(after_spawn)
 		charflaw.after_spawn(src)

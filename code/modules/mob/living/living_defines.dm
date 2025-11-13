@@ -235,3 +235,5 @@
 
 	/// cooldown for the next time this person can offer
 	COOLDOWN_DECLARE(offer_cooldown)
+
+	var/list/roundstart_quirks

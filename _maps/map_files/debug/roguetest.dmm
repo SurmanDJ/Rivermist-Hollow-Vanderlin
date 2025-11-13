@@ -1145,21 +1145,10 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-<<<<<<< HEAD
 "eN" = (
 /obj/structure/redstone/dust,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/manor)
-=======
-"eH" = (
-/obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = "hd1";
-	override_floor = 1;
-	floor_turf = /turf/open/floor/tile/masonic/inverted
-	},
-/turf/closed/wall/mineral/decorstone,
-/area/rogue/under/town/basement)
->>>>>>> vanderlin/main
 "eO" = (
 /obj/machinery/anvil,
 /turf/open/floor/cobble,
@@ -1420,14 +1409,6 @@
 /obj/item/bedsheet/pelt,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
-"jH" = (
-/obj/structure/channel_connector/furnace,
-/turf/open/floor/churchbrick,
-/area/rogue/indoors/town/manor)
-"jM" = (
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/closed/wall/mineral/decorstone,
-/area/rogue/under/town/basement)
 "jN" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/manor)
@@ -1629,7 +1610,6 @@
 	pixel_y = 16;
 	pixel_x = -9
 	},
-/obj/structure/redstone/dust,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "nG" = (
@@ -2217,7 +2197,6 @@
 /obj/structure/hotspring/border/nine,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-<<<<<<< HEAD
 "wx" = (
 /obj/effect/landmark/house_spot{
 	template_z = 2;
@@ -2228,12 +2207,6 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-=======
-"wj" = (
-/obj/structure/window/openclose,
-/turf/open/floor/churchbrick,
-/area/rogue/indoors/town/manor)
->>>>>>> vanderlin/main
 "wD" = (
 /obj/structure/bridge_stakes{
 	dir = 8
@@ -2311,10 +2284,6 @@
 /obj/structure/bridge_stakes,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"xP" = (
-/obj/structure/redstone/dust,
-/turf/open/floor/wood,
-/area/rogue/indoors/town/manor)
 "yr" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/dirt/road,
@@ -2910,7 +2879,6 @@
 /obj/effect/landmark/start/lord{
 	dir = 8
 	},
-/obj/structure/redstone/dust,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/manor)
 "Ix" = (
@@ -3199,10 +3167,6 @@
 /obj/structure/sprinkler,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"QG" = (
-/obj/structure/redstone/pressure_plate,
-/turf/open/floor/churchbrick,
-/area/rogue/indoors/town/manor)
 "QN" = (
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
@@ -3262,12 +3226,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"SN" = (
-/obj/structure/sign/property_claim{
-	link_id = "test"
-	},
-/turf/closed/wall/mineral/stone,
-/area/rogue/indoors/town/manor)
 "SS" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -3520,22 +3478,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Xz" = (
-/obj/structure/window/openclose{
-	dir = 8
-	},
-/turf/open/floor/churchbrick,
-/area/rogue/indoors/town/manor)
-"XI" = (
-/obj/structure/channel_connector/drain,
-/obj/item/mould/ingot,
-/turf/open/floor/churchbrick,
-/area/rogue/indoors/town/manor)
-"XJ" = (
-/obj/structure/table/wood/crafted,
-/obj/item/paper/scroll/keep_plans,
-/turf/open/floor/tile/masonic/inverted,
-/area/rogue/under/town/basement)
 "XL" = (
 /obj/structure/hotspring/border/twelve,
 /turf/open/floor/dirt/road,
@@ -15366,10 +15308,10 @@ tL
 QN
 jN
 oe
-xP
-eN
-eN
-eN
+Rq
+MJ
+MJ
+MJ
 jf
 Wr
 ew
@@ -15626,7 +15568,7 @@ Vu
 nC
 kJ
 Iu
-eN
+MJ
 Qq
 ew
 XL
@@ -15880,7 +15822,7 @@ QN
 Wr
 uc
 DL
-xP
+Rq
 MJ
 MJ
 Ra
@@ -16137,7 +16079,7 @@ Wr
 Wr
 jN
 jN
-QG
+MJ
 Ht
 Ta
 jN
@@ -16916,7 +16858,7 @@ jN
 jN
 hA
 jN
-wx
+QN
 aF
 pD
 zF
@@ -17173,7 +17115,7 @@ iC
 sE
 jq
 ZT
-SN
+jN
 ai
 Wr
 pD

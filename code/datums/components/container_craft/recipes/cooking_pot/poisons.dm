@@ -7,11 +7,7 @@
 		/datum/reagent/poison/herbal/weak_atropa = 20,
 	)
 	requirements = list(
-<<<<<<< HEAD
-		/obj/item/alch/herb/atropa = 3,
-=======
 		/obj/item/alch/herb/atropa = 2,
->>>>>>> vanderlin/main
 		/obj/item/alch/herb/matricaria = 1
 	)
 	output_amount = 20 // Small amount of concentrated poison

@@ -17,6 +17,16 @@
 
 #define TOOT_COOLDOWN 1.5 SECONDS
 
+#define CHAT_SPELLING_DELAY_WITH_EXCLAIMED_MULTIPLIER (CHAT_SPELLING_DELAY - 0.0003 SECONDS * (EXCLAIMED_MULTIPLER - 1))
+
+#define EXCLAIMED_MULTIPLER (exclaimed ? 3 : 1)
+
+#define BLIP_TONE_FEMININE list(42000, 46000)
+#define BLIP_TONE_DEFAULT list(28000, 34000)
+#define BLIP_TONE_MASCULINE list(16000, 24000)
+
+#define TOOT_COOLDOWN 1.5 SECONDS
+
 /**
  * # Chat Message Overlay
  *
@@ -193,11 +203,7 @@
 	// BYOND Bug #2563917
 	// Construct text
 	var/static/regex/html_metachars = new(@"&[A-Za-z]{1,7};", "g")
-<<<<<<< HEAD
-	var/complete_text = {"<span style='font-size:[font_size]pt;font-family:"Mookmania";color:[tgt_color];text-shadow:0 0 5px #000,0 0 5px #000,0 0 5px #000,0 0 5px #000;' class='center maptext [extra_classes != null ? extra_classes.Join(" ") : ""]' style='color: [tgt_color]'>[text]</span>"} //AAAAAAAAAAAAAAA
-=======
 	var/complete_text = turn_to_styled(src.text)
->>>>>>> vanderlin/main
 
 	var/mheight
 	WXH_TO_HEIGHT(owned_by.MeasureText(complete_text, null, CHAT_MESSAGE_WIDTH), mheight)
@@ -241,10 +247,7 @@
 	message.maptext_width = CHAT_MESSAGE_WIDTH
 	message.maptext_height = mheight
 	message.maptext_x = (CHAT_MESSAGE_WIDTH - owner.bound_width) * -0.5
-<<<<<<< HEAD
 	message.maptext = MAPTEXT(complete_text)
-=======
->>>>>>> vanderlin/main
 
 	// View the message
 	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)

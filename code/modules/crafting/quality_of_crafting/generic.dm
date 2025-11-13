@@ -139,8 +139,6 @@
 	)
 	attacked_atom = /obj/item/grown/log/tree/small
 	starting_atom = /obj/item/alch/herb/paris
-<<<<<<< HEAD
-=======
 
 /datum/repeatable_crafting_recipe/wood_d6
 	name = "wooden die"
@@ -186,4 +184,3 @@
 	craft_time = 5 SECONDS
 	craftdiff = 1
 	subtypes_allowed = TRUE
->>>>>>> vanderlin/main

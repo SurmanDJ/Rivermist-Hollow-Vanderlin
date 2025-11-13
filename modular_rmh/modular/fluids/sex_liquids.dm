@@ -22,7 +22,7 @@
 		cum = /datum/reagent/consumable/cum/dwarf
 		femcum = /datum/reagent/consumable/femcum/dwarf
 
-/datum/species/halfelf
+/datum/species/human/halfelf
 		cum = /datum/reagent/consumable/cum/halfelf
 		femcum = /datum/reagent/consumable/femcum/halfelf
 
@@ -30,7 +30,7 @@
 		cum = /datum/reagent/consumable/cum/lizardfolk
 		femcum = /datum/reagent/consumable/femcum/lizardfolk
 
-/datum/species/tabaxi
+/datum/species/rakshari
 		cum = /datum/reagent/consumable/cum/tabaxi
 		femcum = /datum/reagent/consumable/femcum/tabaxi
 
@@ -42,15 +42,11 @@
 		cum = /datum/reagent/consumable/cum/halforc
 		femcum = /datum/reagent/consumable/femcum/halforc
 
-/datum/species/halforc
-		cum = /datum/reagent/consumable/cum/halforc
-		femcum = /datum/reagent/consumable/femcum/halforc
-
 /datum/species/kobold
 		cum = /datum/reagent/consumable/cum/kobold
 		femcum = /datum/reagent/consumable/femcum/kobold
 
-/datum/species/goblinp
+/datum/species/goblin
 		cum = /datum/reagent/consumable/cum/goblinp
 		femcum = /datum/reagent/consumable/femcum/goblinp
 
@@ -63,7 +59,7 @@
 /mob/living/carbon/proc/set_cum(cum_in) //haha come in
 	cum = cum_in
 	if(getorganslot(ORGAN_SLOT_TESTICLES))
-		var/obj/item/organ/filling_organ/testicles/testes = getorganslot(ORGAN_SLOT_TESTICLES)
+		var/obj/item/organ/genitals/filling_organ/testicles/testes = getorganslot(ORGAN_SLOT_TESTICLES)
 		testes.reagent_to_make = cum
 		testes.reagents.clear_reagents()
 		testes.create_reagents(testes.max_reagents/2)
@@ -71,7 +67,7 @@
 /mob/living/carbon/proc/set_girlcum(femcum_in)
 	femcum = femcum_in
 	if(getorganslot(ORGAN_SLOT_VAGINA))
-		var/obj/item/organ/filling_organ/vagina/vag = getorganslot(ORGAN_SLOT_VAGINA)
+		var/obj/item/organ/genitals/filling_organ/vagina/vag = getorganslot(ORGAN_SLOT_VAGINA)
 		vag.reagent_to_make = femcum
 		vag.reagents.clear_reagents()
 		//vag.create_reagents(vag.max_reagents/2)
@@ -98,7 +94,7 @@
 
 /datum/reagent/consumable/femcum/tiefling
 	color = "#c6c6c6"
-	taste_description = "hot and sweet"
+	taste_description = "hotness and sweetness"
 
 /datum/reagent/consumable/cum/dwarf
 	color = "#c6c6c6"

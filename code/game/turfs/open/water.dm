@@ -776,32 +776,6 @@
 	desc = "You know how this got here. You think."
 	notake = TRUE
 
-<<<<<<< HEAD
-/turf/open/water/pond
-	name = "pond"
-	desc = "Still and idyllic water that flows through meadows."
-	icon_state = "together"
-	water_level = 3
-	slowdown = 3
-	swim_skill = TRUE
-	wash_in = TRUE
-	water_reagent = /datum/reagent/water
-
-/turf/open/water/bath/pool
-	desc = "Clear water, pleasant temperature. Soothing."
-	icon_state = "bathtile_pool"
-
-/turf/open/water/bath/pool/Initialize()
-	.  = ..()
-	icon_state = "bathtile_pool"
-
-/turf/open/water/bath/pool/mid
-	icon_state = "bathtile_pool_mid"
-
-/turf/open/water/bath/pool/mid/Initialize()
-	.  = ..()
-	icon_state = "bathtile_pool_mid"
-=======
 /turf/open/water/ocean
 	name = "salt water"
 	desc = "The waves lap at the coast, hungry to swallow the land. Doesn't look too deep."
@@ -824,7 +798,7 @@
 	slowdown = 4
 	swim_skill = TRUE
 	wash_in = TRUE
-	fishing_datum = /datum/fish_source/ocean/deep
+	water_reagent = /datum/reagent/water
 
 /datum/reagent/water/salty
 	taste_description = "salt"
@@ -841,4 +815,3 @@
 		M.adjustToxLoss(0.25) // Slightly toxic
 		M.add_nausea(2)
 	..()
->>>>>>> vanderlin/main

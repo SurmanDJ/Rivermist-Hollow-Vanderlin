@@ -83,7 +83,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 
 	var/list/offset_genitals_f = list(
 		OFFSET_PENIS = list(0,0),\
-		OFFSET_BREASTS = list(0,0),\
+		OFFSET_BREASTS = list(0,-1),\
 		OFFSET_TESTICLES = list(0,0),\
 		OFFSET_VAGINA = list(0,0),\
 	)
@@ -219,6 +219,8 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
 		ORGAN_SLOT_GUTS = /obj/item/organ/guts,
+		ORGAN_SLOT_ANUS = /obj/item/organ/genitals/filling_organ/anus,
+		ORGAN_SLOT_ANUS = /obj/item/organ/genitals/filling_organ/anus,
 	)
 
 	/// List of descriptor choices this species gets in preferences customization
@@ -408,10 +410,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				/datum/language/celestial = "Celestial",
 				/datum/language/zalad = "Zalad",
 				/datum/language/deepspeak = "Deepspeak",
-<<<<<<< HEAD
-=======
 				/datum/language/oldpsydonic = "Old Psydonic",
->>>>>>> vanderlin/main
 				/datum/language/undead = "Zizo Chant"
 			)
 
@@ -437,7 +436,21 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	return TRUE
 
 
+/datum/species/proc/add_marking_sets_to_markings()
+	if(!body_marking_sets)
+		return
+	if(!body_markings)
+		body_markings = list(
+		/datum/body_marking/flushed_cheeks,
+		/datum/body_marking/eyeliner,)
+	var/datum/body_marking_set/bodyset
+	for(var/set_type in body_marking_sets)
+		bodyset = GLOB.body_marking_sets_by_type[set_type]
+		for(var/body_marking_type in bodyset.body_marking_list)
+			body_markings |= body_marking_type
+
 /datum/species/New()
+	add_marking_sets_to_markings()
 
 	if(!limbs_id)	//if we havent set a limbs id to use, just use our own id
 		limbs_id = name
@@ -501,7 +514,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	var/list/possible_surnames = get_possible_surnames(gender)
 	return " [pick(possible_surnames)]"
 
-/datum/species/proc/get_spec_undies_list(gender)
+/*/datum/species/proc/get_spec_undies_list(gender)
 	if(!GLOB.underwear_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/underwear, GLOB.underwear_list, GLOB.underwear_m, GLOB.underwear_f)
 	var/list/spec_undies = list()
@@ -523,15 +536,15 @@ GLOBAL_LIST_EMPTY(patreon_races)
 							spec_undies += X
 	return spec_undies
 
-/datum/species/proc/random_underwear(gender)
+/datum/species/proc/random_underwear(gender)		 Readd when we have inventory underwear?
 	var/list/spec_undies = get_spec_undies_list(gender)
 	if(LAZYLEN(spec_undies))
-		/* Readd when we have inventory underwear?
+
 		var/datum/sprite_accessory/underwear = pick(spec_undies)
 
 		return underwear.name
-		*/
-		return "Nude"
+
+		return null*/
 
 /datum/species/proc/regenerate_icons(mob/living/carbon/human/H)
 	return FALSE
@@ -653,7 +666,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 /datum/species/proc/random_character(mob/living/carbon/human/H)
 	H.real_name = random_name(H.gender,1)
 //	H.age = pick(possible_ages)
-	H.underwear = random_underwear(H.gender)
+//	H.underwear = random_underwear(H.gender)
 	var/list/skins = get_skin_list()
 	H.skin_tone = skins[pick(skins)]
 	H.accessory = "Nothing"
@@ -661,6 +674,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		H.dna.real_name = H.real_name
 		var/list/features = random_features()
 		H.dna.features = features.Copy()
+		H.dna.body_markings = get_random_body_markings(H.dna.features)
 	validate_customizer_entries(H)
 	reset_all_customizer_accessory_colors(H)
 	randomize_all_customizer_accessories(H)
@@ -758,12 +772,14 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	if(C.hud_used)
 		C.hud_used.update_locked_slots()
 
-	if(ishuman(C))
-		random_character(C)
+	//if(ishuman(C))
+	//	random_character(C)
 
 	C.mob_biotypes = inherent_biotypes
 
 	regenerate_organs(C,old_species, pref_load=pref_load)
+	if(ishuman(C))
+		apply_markings_to_body_parts(C.dna.body_markings, C)
 
 	if(exotic_bloodtype && C.dna.human_blood_type != exotic_bloodtype)
 		C.dna.human_blood_type = exotic_bloodtype
@@ -812,6 +828,9 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	soundpack_m = new soundpack_m()
 	soundpack_f = new soundpack_f()
 
+	if(C.underwear)
+		qdel(C.underwear)
+		C.underwear = null
 	C.remove_all_bodypart_features()
 	for(var/bodypart_feature_type in bodypart_features)
 		var/datum/bodypart_feature/feature = new bodypart_feature_type()
@@ -887,7 +906,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 			standing += bodyhair_overlay
 
 	//Underwear
-	if(!(NO_UNDERWEAR in species_traits))
+	/*if(!(NO_UNDERWEAR in species_traits))
 		var/hide_top = FALSE
 		var/hide_bottom = FALSE
 		var/obj/item/clothing/w_armor = H.wear_armor
@@ -928,12 +947,12 @@ GLOBAL_LIST_EMPTY(patreon_races)
 					if(LAZYACCESS(offsets, OFFSET_UNDIES))
 						underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
 						underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
-					if(!underwear.use_static)
+					/*if(!underwear.use_static)
 						if(H.underwear_color)
 							underwear_overlay.color = H.underwear_color
 						else //default undies are brown
 							H.underwear_color = "#755f46"
-							underwear_overlay.color = "#755f46"
+							underwear_overlay.color = "#755f46"*/
 					standing += underwear_overlay
 					if(!istype(H, /mob/living/carbon/human/dummy))
 						underwear_emissive = emissive_blocker(underwear.icon, underwear.icon_state, -BODY_LAYER)
@@ -957,7 +976,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 						underwear_emissive = emissive_blocker(underwear.icon, "[underwear.icon_state]_boob", -BODY_LAYER)
 						underwear_emissive.pixel_y = underwear_overlay.pixel_y
 						underwear_emissive.pixel_x = underwear_overlay.pixel_x
-						standing += underwear_emissive
+						standing += underwear_emissive*/
 
 	if(length(standing))
 		H.overlays_standing[BODY_LAYER] = standing
@@ -2405,6 +2424,8 @@ GLOBAL_LIST_EMPTY(patreon_races)
 /datum/species/proc/ExtinguishMob(mob/living/carbon/human/H)
 	return
 
+/datum/species/proc/get_random_body_markings(list/features) //Needs features to base the colour off of
+	return list()
 
 ////////////
 //  Stun  //

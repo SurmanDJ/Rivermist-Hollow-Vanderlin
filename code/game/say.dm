@@ -116,11 +116,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 					namepart = "Unknown [(L.gender == FEMALE) ? "Woman" : "Man"]"
 				else
 					namepart = "Unknown"
-<<<<<<< HEAD
 			spanpart1 = "<span class='smallyell[collective_span]'>"
-=======
-			spanpart1 = "<span class='smallyell'>"
->>>>>>> vanderlin/main
 
 	var/languageicon = ""
 	var/datum/language/D = GLOB.language_datum_instances[message_language]
@@ -175,8 +171,8 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 /atom/movable/proc/quoteless_say_quote(input, list/spans = list(speech_span), list/message_mods = list()) //what the fuck.
 	input = parsemarkdown_basic(input, limited = TRUE, barebones = TRUE)
-	var/pos = findtext(input, "*")
-	return pos ? copytext(input, pos + 1) : input
+	var/pos = findtext_char(input, "*")
+	return pos ? copytext_char(input, pos + 1) : input
 
 /atom/movable/proc/check_language_hear(language)
 	return FALSE

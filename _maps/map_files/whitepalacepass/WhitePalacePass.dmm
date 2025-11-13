@@ -3380,12 +3380,8 @@
 	pixel_y = 5
 	},
 /obj/item/alch/herb/rosa{
-<<<<<<< HEAD
 	pixel_x = 6;
 	pixel_y = 0
-=======
-	pixel_x = 6
->>>>>>> vanderlin/main
 	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/manor)
@@ -21237,12 +21233,8 @@
 	pixel_y = 11
 	},
 /obj/item/reagent_containers/glass/cup/glassware/wineglass{
-<<<<<<< HEAD
 	pixel_x = -4;
 	pixel_y = 0
-=======
-	pixel_x = -4
->>>>>>> vanderlin/main
 	},
 /obj/item/reagent_containers/glass/cup/glassware/wineglass{
 	pixel_x = 4;

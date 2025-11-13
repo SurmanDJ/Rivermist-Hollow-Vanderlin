@@ -1,8 +1,8 @@
 /datum/sprite_accessory/genitals/penis
-	icon = 'icons/mob/sprite_accessory/genitals/pintle.dmi'
+	icon = 'modular_rmh/icons/mob/sprite_accessory/genitals/pintle.dmi'
 	color_keys = 2
 	color_key_names = list("Member", "Skin")
-	relevant_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+	relevant_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 	abstract_type = /datum/sprite_accessory/genitals/penis
 
 /datum/sprite_accessory/genitals/penis/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
@@ -23,15 +23,14 @@
 				else
 					return "slit_2"
 	if(penis.erect_state == ERECT_STATE_HARD)
-		return "[icon_state]_[min(3,penis.penis_size+1)]"
+		return "[icon_state]_[min(3,penis.organ_size+1)]"
 	else
-		return "[icon_state]_[penis.penis_size]"
+		return "[icon_state]_[penis.organ_size]"
 
 /datum/sprite_accessory/genitals/penis/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/human/owner)
-	/*
 	if(owner.underwear)
 		return FALSE
-	*/
+
 	return is_human_part_visible(owner, HIDEJUMPSUIT|HIDEUNDIESBOT)
 
 /datum/sprite_accessory/genitals/penis/human

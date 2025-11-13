@@ -91,9 +91,9 @@
 
 	var/list/offsets
 	if(use_female_sprites)
-		offsets = species.offset_genitals_m
-	else
 		offsets = species.offset_genitals_f
+	else
+		offsets = species.offset_genitals_m
 
 	if(LAZYACCESS(offsets, feature_key))
 		for(var/mutable_appearance/appearance as anything in appearance_list)
@@ -232,7 +232,13 @@
 	switch(passed_layer)
 		if(BODY_FRONT_LAYER)
 			return "FRONT"
+		if(BODY_ADJ_LOW_LAYER)
+			return "ADJ"
 		if(BODY_ADJ_LAYER)
+			return "ADJ"
+		if(BODY_ADJ_MID_LAYER)
+			return "ADJ"
+		if(BODY_ADJ_UPPER_LAYER)
 			return "ADJ"
 		if(BODY_BEHIND_LAYER)
 			return "BEHIND"

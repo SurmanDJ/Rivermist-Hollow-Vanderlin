@@ -62,6 +62,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/stop_sounds,
 	/client/proc/mark_datum_mapview,
 	/client/proc/toggle_migrations, // toggles migrations.
+	/client/proc/toggle_migrations, // toggles migrations.
 
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
 	/client/proc/toggle_specific_triumph_buy, /*toggle whether specific triumphs can be bought*/
@@ -417,6 +418,8 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			if(S && !HAS_TRAIT(M, TRAIT_FLOORED)) // Wake them up unless they're asleep for another reason
 				M.remove_status_effect(S)
 				M.set_resting(FALSE, TRUE)
+			if(HAS_TRAIT(M, TRAIT_NOSLEEP))
+				REMOVE_TRAIT(M, TRAIT_NOSLEEP, TRAIT_GENERIC)
 			M.density = initial(M.density)
 			M.invisibility = initial(M.invisibility)
 		else
@@ -435,6 +438,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		//ghostize
 		log_admin("[key_name(usr)] admin ghosted.")
 		message_admins("[key_name_admin(usr)] admin ghosted.")
+		ADD_TRAIT(mob, TRAIT_NOSLEEP, TRAIT_GENERIC)
 		var/mob/body = mob
 		if (aghost_toggle)
 			body.invisibility = INVISIBILITY_MAXIMUM

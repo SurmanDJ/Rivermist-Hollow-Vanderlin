@@ -8,27 +8,50 @@
 	var/sheath_type = SHEATH_TYPE_NONE
 	var/erect_state = ERECT_STATE_NONE
 	var/penis_type = PENIS_TYPE_PLAIN
-	var/penis_size = DEFAULT_PENIS_SIZE
+	organ_size = DEFAULT_PENIS_SIZE
 	var/functional = TRUE
+	var/always_hard = FALSE
+	var/strapon = FALSE
 
 /obj/item/organ/genitals/penis/Initialize()
 	. = ..()
 
 /obj/item/organ/genitals/penis/Insert(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
+	RegisterSignal(M, COMSIG_SEX_AROUSAL_CHANGED, PROC_REF(on_arousal_changed), TRUE)
 	if(penis_type in list(PENIS_TYPE_KNOTTED, PENIS_TYPE_TAPERED_DOUBLE_KNOTTED, PENIS_TYPE_BARBED_KNOTTED))
 		M.AddComponent(/datum/component/knotting)
 
-/obj/item/organ/genitals/penis/penis/Remove(mob/living/carbon/M, special, drop_if_replaced)
+/obj/item/organ/genitals/penis/Remove(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
+	UnregisterSignal(M, COMSIG_SEX_AROUSAL_CHANGED)
 	if(penis_type in list(PENIS_TYPE_KNOTTED, PENIS_TYPE_TAPERED_DOUBLE_KNOTTED, PENIS_TYPE_BARBED_KNOTTED))
 		qdel(M.GetComponent(/datum/component/knotting))
 
-/obj/item/organ/genitals/penis/proc/update_erect_state()
-	var/oldstate = erect_state
-	var/new_state = ERECT_STATE_NONE
+/obj/item/organ/genitals/penis/proc/on_arousal_changed()
+	var/list/arousal_data = list()
+	SEND_SIGNAL(owner, COMSIG_SEX_GET_AROUSAL, arousal_data)
 
-	erect_state = new_state
+	var/max_arousal = ACTIVE_EJAC_THRESHOLD || 120
+	var/current_arousal = arousal_data["arousal"] || 0
+	var/arousal_percent = min(100, (current_arousal / max_arousal) * 100)
+
+	var/new_state = ERECT_STATE_NONE
+	switch(arousal_percent)
+		if(0 to 10)
+			new_state = ERECT_STATE_NONE
+		if(11 to 35)
+			new_state = ERECT_STATE_PARTIAL
+		if(36 to 100)
+			new_state = ERECT_STATE_HARD
+	update_erect_state(new_state)
+
+/obj/item/organ/genitals/penis/proc/update_erect_state(new_state = ERECT_STATE_NONE)
+	var/oldstate = erect_state
+	if(always_hard)
+		erect_state = ERECT_STATE_HARD
+	else
+		erect_state = new_state
 	if(oldstate != erect_state && owner)
 		owner.update_body_parts(TRUE)
 
@@ -50,6 +73,7 @@
 	var/original_owner_ckey = null
 	var/original_owner_name = null
 	var/insertion_timestamp = null
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/penis_fake/Initialize()
 	. = ..()
@@ -61,7 +85,7 @@
 	sheath_type = source.sheath_type
 	erect_state = source.erect_state
 	penis_type = source.penis_type
-	penis_size = source.penis_size
+	penis_size = source.organ_size
 	grid_height = 32 * penis_size
 	grid_width = 32
 	name = "[source.name]"
@@ -83,7 +107,7 @@
 	sheath_type = SHEATH_TYPE_NORMAL
 
 /obj/item/organ/genitals/penis/knotted/big
-	penis_size = 3
+	organ_size = 3
 
 /obj/item/organ/genitals/penis/equine
 	name = "equine penis"

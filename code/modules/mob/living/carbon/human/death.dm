@@ -57,10 +57,10 @@
 			if(mind.has_antag_datum(/datum/antagonist/zombie) || mind.has_antag_datum(/datum/antagonist/skeleton) || mind.has_antag_datum(/datum/antagonist/lich))
 				record_round_statistic(STATS_DEADITES_KILLED)
 
-	if(!gibbed)
+	/*if(!gibbed)
 		if(!has_world_trait(/datum/world_trait/necra_requiem))
 			if(!is_in_roguetown(src) || has_world_trait(/datum/world_trait/zizo_defilement))
-				zombie_check()
+				zombie_check()*/
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)

@@ -144,17 +144,6 @@
 	required_item = /obj/item/natural/wood/plank
 	created_item = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	additional_items = list(/obj/item/ingot/steel = 1, /obj/item/natural/fibers = 2)
-<<<<<<< HEAD
-	hammers_per_item = 7
-	craftdiff = 4
-
-/datum/artificer_recipe/weapons/harpoon_gun
-	name = "Harpoon Gun (+1 Chain) (+2 Metal Gear) (+2 Bronze)"
-	required_item = /obj/item/ingot/steel
-	created_item = /obj/item/harpoon_gun
-	additional_items = list(/obj/item/rope/chain = 1, /obj/item/gear/metal = 2, /obj/item/ingot/bronze = 2)
-=======
->>>>>>> vanderlin/main
 	hammers_per_item = 7
 	craftdiff = 4
 
@@ -275,15 +264,6 @@
 	hammers_per_item = 4
 	craftdiff = 5
 
-<<<<<<< HEAD
-/datum/artificer_recipe/contraptions/boiler
-	name = "Steamknight Boiler (+1 Bar, +3 Cogs)"
-	required_item = /obj/item/ingot/bronze
-	created_item = /obj/item/clothing/cloak/boiler
-	additional_items = list(/obj/item/gear/metal/bronze = 3, /obj/item/ingot/bronze = 1)
-	hammers_per_item = 4
-	craftdiff = 5
-=======
 /datum/artificer_recipe/contraptions/dwarven_music_box
 	name = "Dwarven Music Box (+2 Bronze) (+2 Cogs) (+1 Amethyst)"
 	required_item = /obj/item/ingot/bronze
@@ -300,7 +280,6 @@
 	additional_items = list(/obj/item/gear/metal = 2)
 	craftdiff = 4
 	created_amount = 2
->>>>>>> vanderlin/main
 
 // --------- Ammo -----------
 
@@ -308,8 +287,6 @@
 	i_type = "Ammo"
 	category = "Ammo"
 
-<<<<<<< HEAD
-=======
 /datum/artificer_recipe/ammo/cannon_ball
 	name = "Lead Cannonball (+3 Iron)"
 	created_item = /obj/item/ammo_casing/caseless/cball
@@ -318,7 +295,6 @@
 	hammers_per_item = 6
 	craftdiff = 5
 
->>>>>>> vanderlin/main
 /datum/artificer_recipe/ammo/lead_bullet
 	name = "Lead Bullets 4x"
 	hammers_per_item = 4

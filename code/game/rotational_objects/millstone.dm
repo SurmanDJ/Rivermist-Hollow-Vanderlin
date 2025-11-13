@@ -121,13 +121,6 @@
 
 	if(mill_progress >= 100)
 		mill_progress -= 100
-<<<<<<< HEAD
-		var/obj/item/reagent_containers/food/snacks/S = millable_contents[1]
-		var/obj/item/mill_result = new S.mill_result(get_turf(loc))
-		mill_result.set_quality(S.recipe_quality)
-		millable_contents -= S
-		qdel(S)
-=======
 		var/obj/item/millable_item = millable_contents[1]
 		var/result_type
 		var/quality = millable_item.recipe_quality
@@ -145,6 +138,5 @@
 
 		millable_contents -= millable_item
 		qdel(millable_item)
->>>>>>> vanderlin/main
 
 	return TRUE

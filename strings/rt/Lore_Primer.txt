@@ -93,12 +93,17 @@ While it's not required reading, leadership roles may find this information usef
 
 	<details>
 		<summary><em> Points of Interest </em></summary>
+	<p><strong>  The Lakkarian Strip </strong><em> - "The diverse stretch of resource-rich rainforests and dunes currently ruled over by the Queendom of Lakkari, the second largest elven territory of Faience."	</em></p>
+
+	<details>
+		<summary><em> Points of Interest </em></summary>
 
 		<p><strong> - City Of Iwabaree </strong><br> Nestled within the northwestern jungle of The Lakkarian Strip, Iwabaree is the capital city of Lakkari. Its considered to be one of the most sacred cities to Astratans within Psydonia and the wealthiest city of the Queendom. The Black Empire failed to capture it during the War of the Split Feather. Iwabaree is defined by its towering temples to Astrata, complex system of canals, and its gold-crested royal palace. It has only recently opened its doors to those of the inhumen species.	</p>
 		<p><strong> - Barony Of Sakhumeti </strong><br> Referred to as the graveyard capital of Faience. Sakhumeti is an expansive yet desolate barony with a majority Necran population, which has dropped sharply ever since Zizo's ascension. Clerics and Templars are frequently sent to Sakhumeti to clear out the still-rising dead within the city's sprawling tombs.	</p>
 		<p><strong> - City Of Ei Onkara </strong><br> South of the Lakkarian capital city of Iwabaree, the coastal city of Ei Onkara serves as the trade hub of Lakkari and is considered the second-wealthiest city in the Queendom. Ei Onkara is renowned for its expansive market district, skilled goldsmiths, and vast underground catacombs, which few dare to explore. There are often intense feuds and conflicts between its majority Astratan nobility and its majority Xylixian commoner population.	</p>
 		<p><strong> - Barony of Sekket </strong><br> The eastern-most barony of the Queendom of Lakkari, nearing the Zaladin Dynasty's northern border. Desired for its proximity to gold deposits and strategic location next to the Veil of Colors. There have been many squabbles between the Queendom of Lakkari and the Zaladin Dynasty over who has the rightful claim to Sekket, as control over it has shifted multiple times throughout history. Being a majority Xylixian barony, Sekket is also home to many anti-slaver groups. The most prominent being the Shinobi's of Sekket, which runs many underground operations throughout the Zaladin Dynasty. The operations of the Shinobi's of Sekket has drastically soured the already dire relations between the two nations.	</p>
 </details>
+<br>
 <br>
 
 
@@ -509,6 +514,7 @@ While it's not required reading, leadership roles may find this information usef
 	<details>
 		<summary><strong> Elves </strong></summary>
 		<br>
+		Elves, created by Necra to guide humenity, are characterized by lengthened age, low fertility, and a magical aptitude originating from a vast array of tribal cultures. With the ascension of Zizo, the entire culture of snow-elves was all but destroyed, leading the remaining tribes to live in fear and paranoia of suffering the same fate. Many elves sought safety through mixing culture, positioning themselves under the watchful guard of their stronger humen counterparts. A longstanding feud remains between elves and dwarves. Elvenkind has yet to forgive the dwarves for their destruction of homeland and pillaging of natural resources within the former snow-elf territory. To elves, it was the greatest disrespect to those lost.
 		Elves, created by Necra to guide humenity, are characterized by lengthened age, low fertility, and a magical aptitude originating from a vast array of tribal cultures. With the ascension of Zizo, the entire culture of snow-elves was all but destroyed, leading the remaining tribes to live in fear and paranoia of suffering the same fate. Many elves sought safety through mixing culture, positioning themselves under the watchful guard of their stronger humen counterparts. A longstanding feud remains between elves and dwarves. Elvenkind has yet to forgive the dwarves for their destruction of homeland and pillaging of natural resources within the former snow-elf territory. To elves, it was the greatest disrespect to those lost.
 		<br><br>
 	</details>

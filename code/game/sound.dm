@@ -407,8 +407,6 @@
 							'sound/foley/footsteps/armor/powerarmor (2).ogg',\
 							'sound/foley/footsteps/armor/powerarmor (3).ogg',\
 							)
-<<<<<<< HEAD
-=======
 			if(SFX_WATCH_BOOT_STEP)
 				soundin = pick('sound/foley/footsteps/armor/heavy-footstep (1).ogg',\
 							'sound/foley/footsteps/armor/heavy-footstep (2).ogg',\
@@ -416,7 +414,6 @@
 							'sound/foley/footsteps/armor/heavy-footstep (4).ogg',\
 							'sound/foley/footsteps/armor/heavy-footstep (5).ogg'\
 							)
->>>>>>> vanderlin/main
 			if(SFX_CAT_MEOW)
 				soundin = pickweight(list(
 					'sound/vo/cat/cat_meow1.ogg' = 33,

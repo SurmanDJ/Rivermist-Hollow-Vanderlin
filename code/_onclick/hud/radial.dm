@@ -7,7 +7,6 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	var/click_on_hover = FALSE
 	var/datum/radial_menu/parent
 
-<<<<<<< HEAD
 /atom/movable/screen/radial/handle_mouseover(location, control, params)
 	var/mob/p = usr
 	if(p.client)
@@ -31,9 +30,6 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		p.client.screen |= p.client.mouseovertext
 	return TRUE
 
-
-=======
->>>>>>> vanderlin/main
 /atom/movable/screen/radial/proc/set_parent(new_value)
 	UnregisterSignal(parent, COMSIG_PARENT_QDELETING)
 	parent = new_value

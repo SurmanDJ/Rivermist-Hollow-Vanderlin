@@ -92,6 +92,48 @@
 		return ..()
 	if(!spillable)
 		return
+	if(ishuman(M) && user.used_intent.type == INTENT_FILL)
+		var/mob/living/carbon/human/humanized = M
+		var/obj/item/organ/genitals/filling_organ/breasts/tiddies = humanized.getorganslot(ORGAN_SLOT_BREASTS) // tiddy hehe
+		switch(user.zone_selected)
+			if(BODY_ZONE_CHEST) //chest
+				if(humanized.wear_shirt && (humanized.wear_shirt.flags_inv & HIDEBOOB || !humanized.wear_shirt.genitalaccess))
+					to_chat(user, span_warning("[humanized]'s chest must be exposed before I can milk [humanized.p_them()]!"))
+					return TRUE
+				if(!tiddies)
+					to_chat(user, span_warning("[humanized] cannot be milked!"))
+					return TRUE
+				if(tiddies.reagents.total_volume <= 0)
+					to_chat(user, span_warning("[humanized] is out of milk!"))
+					return TRUE
+				if(reagents.total_volume >= volume)
+					to_chat(user, span_warning("[src] is full."))
+					return TRUE
+				user.visible_message(span_notice("[user] starts to gently massage [humanized]'s breasts, trying to fill the [src] with milk..."), span_notice("I start to gently massage [humanized]'s breasts, trying to fill the [src] with milk..."))
+				var/milk_to_take = CLAMP((tiddies.reagents.maximum_volume/6), 1, min(tiddies.reagents.total_volume, volume - reagents.total_volume))
+				if(do_after(user, 20, target = humanized))
+					tiddies.reagents.trans_to(src, milk_to_take, transfered_by = user)
+					user.visible_message(span_notice("[user] milks [humanized] into \the [src]."), span_notice("I milk [humanized] into \the [src]."))
+			if(BODY_ZONE_PRECISE_GROIN) //groin
+				if(humanized.wear_pants && (humanized.wear_pants.flags_inv & HIDECROTCH || !humanized.wear_pants.genitalaccess))
+					to_chat(user, span_warning("[humanized]'s groin must be exposed before I can collect [humanized.p_them()] fluids!"))
+					return TRUE
+				var/obj/item/organ/genitals/filling_organ/vagina/vag = humanized.getorganslot(ORGAN_SLOT_VAGINA)
+				if(!vag)
+					to_chat(user, span_warning("[humanized] has nothing to colect from!"))
+					return TRUE
+				if(vag.reagents.total_volume <= 0)
+					to_chat(user, span_warning("[humanized]'s loins are ampty!"))
+					return TRUE
+				if(reagents.total_volume >= volume)
+					to_chat(user, span_warning("[src] is full."))
+					return TRUE
+				user.visible_message(span_notice("[user] positions the [src] right under [humanized]'s loin and waits..."), span_notice("I position the [src] right under [humanized]'s loin..."))
+				if(do_after(user, 40, target = humanized))
+					var/reag_to_take = CLAMP((vag.reagents.maximum_volume/2), 1, min(vag.reagents.total_volume, volume - reagents.total_volume))
+					vag.reagents.trans_to(src, reag_to_take, transfered_by = user)
+					user.visible_message(span_notice("[user] collects some of the fluids from [humanized]'s loin into \the [src]."), span_notice("I collect fluids from [humanized]'s loin into \the [src]."))
+		return
 	if(!reagents?.total_volume)
 		to_chat(user, span_danger("[src] is empty!"))
 		return
@@ -240,67 +282,3 @@
 				qdel(E)
 			return
 	..()
-<<<<<<< HEAD
-
-/obj/item/reagent_containers/glass/bucket
-	name = "bugged bucket please report to mappers"
-	desc = ""
-	icon = 'icons/roguetown/items/misc.dmi'
-	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
-	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
-	icon_state = "woodbucket"
-	item_state = "woodbucket"
-	fill_icon_thresholds = list(0, 50, 100)
-	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
-	max_integrity = 300
-	w_class = WEIGHT_CLASS_BULKY
-	amount_per_transfer_from_this = 9
-	possible_transfer_amounts = list(9)
-	volume = 100
-	flags_inv = HIDEHAIR
-	obj_flags = CAN_BE_HIT
-	resistance_flags = NONE
-
-/obj/item/reagent_containers/glass/bucket/dropped(mob/user)
-	. = ..()
-	reagents.flags = initial(reagent_flags)
-
-/obj/item/reagent_containers/glass/bucket/attackby(obj/item/I, mob/user, params)
-	..()
-	if(istype(I, /obj/item/reagent_containers/powder/salt))
-		if(!reagents.has_reagent(/datum/reagent/consumable/milk, 15) && !reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
-			to_chat(user, span_danger("Not enough milk."))
-			return
-		to_chat(user, span_danger("Adding salt to the milk."))
-		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-		if(do_after(user,2 SECONDS, src))
-			if(reagents.has_reagent(/datum/reagent/consumable/milk, 15))
-				reagents.remove_reagent(/datum/reagent/consumable/milk, 15)
-				reagents.add_reagent(/datum/reagent/consumable/milk/salted, 15)
-			if(reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
-				reagents.remove_reagent(/datum/reagent/consumable/milk/gote, 15)
-				reagents.add_reagent(/datum/reagent/consumable/milk/salted_gote, 15)
-			qdel(I)
-
-/obj/item/reagent_containers/glass/bucket/wooden
-	name = "bucket"
-	fill_icon_state = "bucket"
-	force = 5
-	throwforce = 10
-	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 0, "acid" = 50)
-	resistance_flags = FLAMMABLE
-	dropshrink = 0.8
-	slot_flags = null
-	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
-
-/obj/item/reagent_containers/glass/bucket/wooden/alter // just new look, trying it on for size
-	icon = 'icons/roguetown/items/cooking.dmi'
-
-/obj/item/reagent_containers/glass/bucket/wooden/getonmobprop(tag)
-	. = ..()
-	if(tag)
-		switch(tag)
-			if("gen")
-				return list("shrink" = 0.5,"sx" = -5,"sy" = -8,"nx" = 7,"ny" = -9,"wx" = -1,"wy" = -8,"ex" = -1,"ey" = -8,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
-=======
->>>>>>> vanderlin/main

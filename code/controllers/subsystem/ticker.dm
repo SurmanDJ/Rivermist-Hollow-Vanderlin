@@ -45,14 +45,10 @@ SUBSYSTEM_DEF(ticker)
 	//576000 dusk
 	//376000 day
 	var/gametime_offset = 288001		//Deciseconds to add to world.time for station time.
-<<<<<<< HEAD
 	var/station_time_rate_multiplier = 12.5		//factor of station time progressal vs real time.
 	var/time_until_vote = 135 MINUTES
 	var/last_vote_time = null
 	var/firstvote = TRUE
-=======
-	var/station_time_rate_multiplier = 40		//factor of station time progressal vs real time.
->>>>>>> vanderlin/main
 
 	var/totalPlayers = 0					//used for pregame stats on statpanel
 	var/totalPlayersReady = 0				//used for pregame stats on statpanel
@@ -167,7 +163,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		login_music = "[global.config.directory]/title_music/sounds/[pick(music)]"
 
-	login_music = pick('sound/music/title.ogg','sound/music/title2.ogg','sound/music/title3.ogg')
+	login_music = pick('modular_rmh/sound/music/house_of_the_rising_sun.ogg','modular_rmh/sound/music/soldier_poet_king.ogg')
 
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 	if(CONFIG_GET(flag/randomize_shift_time))
@@ -247,29 +243,6 @@ SUBSYSTEM_DEF(ticker)
 				toggle_dooc(TRUE)
 				declare_completion(force_ending)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
-<<<<<<< HEAD
-			/*if(firstvote)
-=======
-			if(SSgamemode.roundvoteend)
-				return
-<<<<<<< HEAD
-			if(firstvote)
->>>>>>> vanderlin/main
-				if(world.time > round_start_time + time_until_vote)
-					SSvote.initiate_vote("endround", "The Gods")
-					time_until_vote = 40 MINUTES
-					last_vote_time = world.time
-					firstvote = FALSE
-<<<<<<< HEAD
-			else
-				if(world.time > last_vote_time + time_until_vote)
-					SSvote.initiate_vote("endround", "The Gods")*/
-=======
-				return
-			if(world.time > last_vote_time + time_until_vote)
-				SSvote.initiate_vote("endround", "The Gods")
->>>>>>> vanderlin/main
-=======
 
 /datum/controller/subsystem/ticker/proc/readying_update_scale_job()
 
@@ -312,7 +285,6 @@ SUBSYSTEM_DEF(ticker)
 		if(job_to_set.enabled && job_to_set.scales)
 			job_to_set.set_spawn_and_total_positions(ready_town_count)
 
->>>>>>> vanderlin/main
 
 /datum/controller/subsystem/ticker/proc/checkreqroles()
 	var/list/readied_jobs = list()
@@ -334,16 +306,10 @@ SUBSYSTEM_DEF(ticker)
 							continue
 					readied_jobs.Add(V)
 
-<<<<<<< HEAD
-	//if(!(("Monarch" in readied_jobs) || (start_immediately == TRUE))) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
-	//	to_chat(world, span_purple("[pick(no_ruler_lines)]"))
-	//	return FALSE
-=======
-	if(CONFIG_GET(flag/ruler_required))
+	/*if(CONFIG_GET(flag/ruler_required))
 		if(!(("Monarch" in readied_jobs) || (start_immediately == TRUE))) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
 			to_chat(world, span_purple("[pick(no_ruler_lines)]"))
-			return FALSE
->>>>>>> vanderlin/main
+			return FALSE*/
 
 	job_change_locked = TRUE
 	return TRUE
@@ -494,6 +460,8 @@ SUBSYSTEM_DEF(ticker)
 			CHECK_TICK
 			continue
 		var/mob/living/carbon/human/new_player_living = new_player_mob.new_character
+		if(ishuman(new_player_living))
+			SSquirks.AssignQuirks(new_player_living, new_player_mob.client, TRUE)
 		if(!new_player_living.mind || is_unassigned_job(new_player_living.mind.assigned_role))
 			CHECK_TICK
 			continue

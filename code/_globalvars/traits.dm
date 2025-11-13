@@ -42,6 +42,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_NOGUNS" = TRAIT_NOGUNS,
 		"TRAIT_NOHUNGER" = TRAIT_NOHUNGER,
 		"TRAIT_NOHYGIENE" = TRAIT_NOHYGIENE,
+		"TRAIT_NOHYGIENE" = TRAIT_NOHYGIENE,
 		"TRAIT_NOMETABOLISM" = TRAIT_NOMETABOLISM,
 		"TRAIT_TOXIMMUNE" = TRAIT_TOXIMMUNE,
 		"TRAIT_EASYDISMEMBER" = TRAIT_EASYDISMEMBER,
@@ -91,6 +92,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Golden Blood" = TRAIT_SEEPRICES,
 		"Of the Cabal" = TRAIT_CABAL,
 		"Unleechable" = TRAIT_LEECHIMMUNE,
+		"Good Lover" = TRAIT_GOODLOVER,
 		"Webwalker" = TRAIT_WEBWALK,
 		"Brushwalker" = TRAIT_BRUSHWALK,
 		"Dead Nose" = TRAIT_DEADNOSE,
@@ -187,12 +189,8 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_MOVE_FLYING" = TRAIT_MOVE_FLYING,
 		"TRAIT_MOVE_VENTCRAWLING" = TRAIT_MOVE_VENTCRAWLING,
 		"TRAIT_MOVE_FLOATING" = TRAIT_MOVE_FLOATING,
-<<<<<<< HEAD
-		"TRAIT_MOVE_PHASING" = TRAIT_MOVE_PHASING
-=======
 		"TRAIT_MOVE_PHASING" = TRAIT_MOVE_PHASING,
 		"TRAIT_SHAKY_SPEECH" = TRAIT_SHAKY_SPEECH,
->>>>>>> vanderlin/main
 		),
 	))
 
@@ -240,6 +238,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ASSASSIN = "My soul has been tainted by Graggar, god of murder.",
 	TRAIT_BARDIC_TRAINING = "Xylixian inspiration grants my songs boons and ailments.",
 	TRAIT_GRAVEROBBER = "Necra favors my grim deeds, I can unearth graves without being cursed by her.",
+	TRAIT_GOODLOVER = span_love("It's a lucky thing to share my bed."),
 	TRAIT_MISSING_NOSE = span_warning("I struggle to breathe."),
 	TRAIT_DISFIGURED = span_warning("No one can recognize me..."),
 	TRAIT_BEAUTIFUL = span_love("My face was shaped by the gods!"),

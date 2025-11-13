@@ -671,6 +671,7 @@
 		set_glide_size(glide_size_override)
 
 	last_move = direct
+	last_move_time = world.time
 	if(!(atom_flags & NO_DIR_CHANGE_ON_MOVE) && !throwing && update_dir)
 		setDir(direction_to_move)
 	if(. && has_buckled_mobs() && !handle_buckled_mob_movement(loc,direct, glide_size_override)) //movement failed due to buckled mob(s)
@@ -1476,8 +1477,6 @@
 	loc = new_loc
 	Moved(old_loc, direction, TRUE)
 
-<<<<<<< HEAD
-=======
 /atom/movable/proc/pushed(new_loc, dir_pusher_to_pushed, glize_size, pusher_dir)
 	if(!Move(new_loc, dir_pusher_to_pushed, glize_size))
 		return FALSE
@@ -1491,6 +1490,5 @@
 	if(pusher_dir)
 		setDir(dir_pusher_to_pushed)
 
->>>>>>> vanderlin/main
 #undef ATTACK_ANIMATION_PIXEL_DIFF
 #undef ATTACK_ANIMATION_TIME

@@ -640,7 +640,6 @@
 	var/obj/structure/S = new /obj/structure/table/wood/treestump/shroomstump(loc)
 	S.icon_state = "stump_[icon_state]"
 	return ..()
-<<<<<<< HEAD
 
 /obj/structure/flora/mushroomcluster
 	name = "mushroom cluster"
@@ -656,10 +655,8 @@
 /obj/structure/flora/tinymushrooms
 	name = "small mushroom cluster"
 	desc = "A cluster of tiny mushrooms native to the underdark."
-	icon = 'icons/roguetown/misc/foliage.dmi'
+	icon = 'modular_rmh/icons/obj/flora/foliage.dmi'
 	icon_state = "tinymushrooms"
-=======
->>>>>>> vanderlin/main
 
 /obj/structure/table/wood/treestump/shroomstump
 	name = "shroom stump"
@@ -906,7 +903,7 @@
 	num_random_icons = 0
 	silky = TRUE
 
-<<<<<<< HEAD
+
 /obj/structure/flora/grass/brown
 	icon_state = "snowgrass1bb"
 	icon = 'modular_rmh/icons/obj/flora/snowflora.dmi'
@@ -930,7 +927,7 @@
 /obj/structure/flora/grass/both/Initialize()
 	icon_state = "snowgrassall[rand(1, 3)]"
 	. = ..()
-=======
+
 
 /obj/structure/flora/grass/mushroom
 	name = "leafy mushrooms"
@@ -959,4 +956,3 @@
 	icon_state = "livebush_1"
 	base_icon_state = "livebush_"
 	num_random_icons = 3
->>>>>>> vanderlin/main

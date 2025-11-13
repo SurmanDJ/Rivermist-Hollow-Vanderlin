@@ -4,21 +4,30 @@ SUBSYSTEM_DEF(migrants)
 	runlevels = RUNLEVEL_GAME
 
 	/// Count of all waves
+
+	/// Count of all waves
 	var/wave_number = 1
+	/// Current wave running
 	/// Current wave running
 	var/current_wave = null
 	/// Time until the next wave
+	/// Time until the next wave
 	var/time_until_next_wave = 2 MINUTES
+	/// Current wave timer
 	/// Current wave timer
 	var/wave_timer = 0
 
 	/// Time between successful waves
+	/// Time between successful waves
 	var/time_between_waves = 3 MINUTES
+	/// Time between failing waves
 	/// Time between failing waves
 	var/time_between_fail_wave = 90 SECONDS
 	/// how long waves wait for players
+	/// how long waves wait for players
 	var/wave_wait_time = 30 SECONDS
 
+	/// Track waves that have happened
 	/// Track waves that have happened
 	var/list/spawned_waves = list()
 	/// Track triumph contributions across all waves
@@ -48,6 +57,7 @@ SUBSYSTEM_DEF(migrants)
 /datum/controller/subsystem/migrants/proc/get_current_disabled_status()
 	return admin_disabled ? "Disabled" : "Enabled"
 
+
 /datum/controller/subsystem/migrants/proc/set_current_wave(wave_type, time, parent_wave = -1)
 	current_wave = wave_type
 	wave_timer = time
@@ -55,6 +65,8 @@ SUBSYSTEM_DEF(migrants)
 		current_parent_wave = parent_wave
 
 /datum/controller/subsystem/migrants/proc/process_migrants(dt)
+	if(admin_disabled)
+		return
 	if(admin_disabled)
 		return
 	if(current_wave)
@@ -137,6 +149,7 @@ SUBSYSTEM_DEF(migrants)
 
 	if(!length(active_migrants))
 		return FALSE
+
 
 	/// Try to assign priority players to positions
 	for(var/i in 1 to assignments.len)
@@ -282,16 +295,23 @@ SUBSYSTEM_DEF(migrants)
 	if(!new_player)
 		return
 
+
 	/// copy pasta from AttemptLateSpawn(rank) further on TODO put it in a proc and use in both places
 
 	var/datum/migrant_role/role_instance = MIGRANT_ROLE(role)
 
 	var/datum/job/migrant_job = SSjob.GetJobType(role_instance.migrant_job)
+	var/datum/migrant_role/role_instance = MIGRANT_ROLE(role)
 
+	var/datum/job/migrant_job = SSjob.GetJobType(role_instance.migrant_job)
+
+	SSjob.AssignRole(new_player, migrant_job, 1)
 	SSjob.AssignRole(new_player, migrant_job, 1)
 
 	new_player.mind.late_joiner = TRUE
+	new_player.mind.late_joiner = TRUE
 
+	var/mob/living/character = new_player.create_character(spawn_on_location) //very naive, this is going to error
 	var/mob/living/character = new_player.create_character(spawn_on_location) //very naive, this is going to error
 	if(!character)
 		CRASH("Failed to create a character for migrants.")
@@ -299,6 +319,11 @@ SUBSYSTEM_DEF(migrants)
 	character.islatejoin = TRUE
 	new_player.transfer_character()
 
+	character.islatejoin = TRUE
+	new_player.transfer_character()
+
+	SSjob.EquipRank(character, migrant_job, character.client)
+	apply_loadouts(character, character.client)
 	SSjob.EquipRank(character, migrant_job, character.client)
 	apply_loadouts(character, character.client)
 	SSticker.minds += character.mind
@@ -309,7 +334,9 @@ SUBSYSTEM_DEF(migrants)
 	/// And back to non copy pasta code
 
 	to_chat(character, span_alertsyndie("I am a [role_instance.name]!"))
+	to_chat(character, span_alertsyndie("I am a [role_instance.name]!"))
 	to_chat(character, span_notice(wave.greet_text))
+	to_chat(character, span_notice(role_instance.greet_text))
 	to_chat(character, span_notice(role_instance.greet_text))
 
 	var/datum/antagonist/antag_role = migrant_job?.antag_role || role_instance?.antag_datum
@@ -352,6 +379,7 @@ SUBSYSTEM_DEF(migrants)
 		if(final_priority > 0)
 			triumph_weighted[client] = final_priority
 
+	//Convert weighted list to prioritized list
 	//Check if all triumph_weighted values are equal
 	var/all_equal = TRUE
 	var/first_val = -1
@@ -382,27 +410,42 @@ SUBSYSTEM_DEF(migrants)
 	if(all_equal)
 		priority = shuffle(priority)
 
+	//Shuffle only if all have equal priority
+	if(all_equal)
+		priority = shuffle(priority)
+
 	return priority
 
 
 /datum/controller/subsystem/migrants/proc/can_be_role(client/player, role_type)
 	if(!player || !player.prefs)
 		return FALSE
+	if(!player || !player.prefs)
+		return FALSE
 	var/datum/migrant_role/role = MIGRANT_ROLE(role_type)
+	if(!role || is_migrant_banned(player.ckey, role.name) || is_race_banned(player.ckey, player.prefs.pref_species.id))
 	if(!role || is_migrant_banned(player.ckey, role.name) || is_race_banned(player.ckey, player.prefs.pref_species.id))
 		return FALSE
 
 	var/datum/job/migrant_job = SSjob.GetJobType(role.migrant_job)
 	if(!migrant_job)
+
+	var/datum/job/migrant_job = SSjob.GetJobType(role.migrant_job)
+	if(!migrant_job)
 		return FALSE
 	if(migrant_job.banned_leprosy && is_misc_banned(player.ckey, BAN_MISC_LEPROSY))
+	if(migrant_job.banned_leprosy && is_misc_banned(player.ckey, BAN_MISC_LEPROSY))
 		return FALSE
+	if(migrant_job.banned_lunatic && is_misc_banned(player.ckey, BAN_MISC_LUNATIC))
 	if(migrant_job.banned_lunatic && is_misc_banned(player.ckey, BAN_MISC_LUNATIC))
 		return FALSE
 
 	var/datum/preferences/prefs = player.prefs
+
+	var/datum/preferences/prefs = player.prefs
 	if(!player.prefs.allowed_respawn())
 		return FALSE
+
 
 	var/can_join = TRUE
 	if(length(migrant_job.allowed_races) && !(prefs.pref_species.id in migrant_job.allowed_races))
@@ -420,7 +463,10 @@ SUBSYSTEM_DEF(migrants)
 		can_join = FALSE
 	if(length(migrant_job.allowed_ages) && !(prefs.age in migrant_job.allowed_ages))
 		to_chat(player, span_warning("Wrong age. Your prioritized role only allows [migrant_job.allowed_ages.Join(", ")]."))
+	if(length(migrant_job.allowed_ages) && !(prefs.age in migrant_job.allowed_ages))
+		to_chat(player, span_warning("Wrong age. Your prioritized role only allows [migrant_job.allowed_ages.Join(", ")]."))
 		can_join = FALSE
+
 
 	return can_join
 
@@ -629,6 +675,7 @@ SUBSYSTEM_DEF(migrants)
 	return active
 
 /// Returns a list of all new_player clients with active migrant pref
+/// Returns a list of all new_player clients with active migrant pref
 /datum/controller/subsystem/migrants/proc/get_active_migrants()
 	var/list/migrants = list()
 	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
@@ -641,6 +688,7 @@ SUBSYSTEM_DEF(migrants)
 		migrants += player.client
 	return migrants
 
+/// Returns a list of all new_player clients
 /// Returns a list of all new_player clients
 /datum/controller/subsystem/migrants/proc/get_all_migrants()
 	var/list/migrants = list()
@@ -699,6 +747,5 @@ SUBSYSTEM_DEF(migrants)
 		qdel(GET_IT_OUT)
 
 /mob/living/carbon/human/proc/grant_lit_torch()
-	var/obj/item/flashlight/flare/torch/torch = new()
-	torch.spark_act()
-	put_in_hands(torch, forced = TRUE)
+		adv_hugboxing_start()
+

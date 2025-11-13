@@ -471,8 +471,6 @@
 			for(var/i = SStreasury.log_entries.len to 1 step -1)
 				contents += "<span class='info'>[SStreasury.log_entries[i]]</span><BR>"
 			contents += "</div>"
-<<<<<<< HEAD
-=======
 
 		if(TAB_CUSTOM)
 			contents += "<a href='byond://?src=\ref[src];switchtab=[TAB_MAIN]'>\[Return\]</a>"
@@ -507,7 +505,6 @@
 				contents += "<i>No custom stocks created yet.</i><BR>"
 
 			contents += "</div>"
->>>>>>> vanderlin/main
 
 	contents += {"
 		</head>

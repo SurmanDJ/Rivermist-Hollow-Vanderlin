@@ -222,24 +222,12 @@
 /obj/item/paper/inqslip/read(mob/user)
 	if(!user.client || !user.hud_used)
 		return
-	if(!user.hud_used.reads)
+	if(waxed)
+		to_chat(user, span_notice("It's been sealed. It's ready to send back to the Oratorium."))
 		return
 	if(!user.can_read(src))
 		return
 	if(in_range(user, src) || isobserver(user))
-<<<<<<< HEAD
-		user.hud_used.reads.icon_state = "scroll"
-		user.hud_used.reads.show()
-		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-					<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><style type=\"text/css\">
-					body { background-image:url('book.png');background-repeat: repeat; }</style>
-					</head><body scroll=yes>"}
-		dat += "[info]<br>"
-		dat += "<a href='byond://?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
-		dat += "</body></html>"
-		user << browse(dat, "window=reading;size=460x300;can_close=0;can_minimize=0;can_maximize=0;can_resize=0;titlebar=0")
-		onclose(user, "reading", src)
-=======
 		if(waxed)
 			to_chat(user, span_notice("This writ has been signed by [signee.real_name], sealed with redtallow, and can now be mailed back through the Hermes. The Archbishop will be pleased with this one."))
 		if(signed)
@@ -287,7 +275,6 @@
 		marquevalue += 2
 		REMOVE_TRAIT(user, TRAIT_HAS_CONFESSED, TRAIT_GENERIC)
 		update_appearance()
->>>>>>> vanderlin/main
 	else
 		return
 

@@ -1145,10 +1145,14 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"eN" = (
-/obj/structure/redstone/dust,
-/turf/open/floor/churchbrick,
-/area/rogue/indoors/town/manor)
+"eH" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "hd1";
+	override_floor = 1;
+	floor_turf = /turf/open/floor/tile/masonic/inverted
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/under/town/basement)
 "eO" = (
 /obj/machinery/anvil,
 /turf/open/floor/cobble,
@@ -1409,6 +1413,14 @@
 /obj/item/bedsheet/pelt,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
+"jH" = (
+/obj/structure/channel_connector/furnace,
+/turf/open/floor/churchbrick,
+/area/rogue/indoors/town/manor)
+"jM" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/under/town/basement)
 "jN" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/manor)
@@ -2197,16 +2209,10 @@
 /obj/structure/hotspring/border/nine,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"wx" = (
-/obj/effect/landmark/house_spot{
-	template_z = 2;
-	template_x = 6;
-	template_y = 6;
-	link_id = "test";
-	house_id = "test"
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+"wj" = (
+/obj/structure/window/openclose,
+/turf/open/floor/churchbrick,
+/area/rogue/indoors/town/manor)
 "wD" = (
 /obj/structure/bridge_stakes{
 	dir = 8
@@ -3478,6 +3484,22 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"Xz" = (
+/obj/structure/window/openclose{
+	dir = 8
+	},
+/turf/open/floor/churchbrick,
+/area/rogue/indoors/town/manor)
+"XI" = (
+/obj/structure/channel_connector/drain,
+/obj/item/mould/ingot,
+/turf/open/floor/churchbrick,
+/area/rogue/indoors/town/manor)
+"XJ" = (
+/obj/structure/table/wood/crafted,
+/obj/item/paper/scroll/keep_plans,
+/turf/open/floor/tile/masonic/inverted,
+/area/rogue/under/town/basement)
 "XL" = (
 /obj/structure/hotspring/border/twelve,
 /turf/open/floor/dirt/road,

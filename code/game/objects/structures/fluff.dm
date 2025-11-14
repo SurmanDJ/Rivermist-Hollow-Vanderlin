@@ -175,15 +175,7 @@
 /obj/structure/fluff/railing/border/west
 	dir = 8
 
-/obj/structure/fluff/railing/tall
-	name = "wooden fence"
-	desc = "A sturdy fence of wooden planks."
-	icon = 'icons/roguetown/misc/tallwoodenrailing.dmi'
-	icon_state = "tallwoodenrailing"
-	max_integrity = 500
-	pass_crawl = FALSE
-	pass_throwing = FALSE
-	pass_projectile = TRUE
+
 
 /obj/structure/fluff/railing/tall/palisade
 	name = "palisade"
@@ -193,6 +185,10 @@
 	opacity = TRUE
 	climb_offset = 6
 	pass_projectile = FALSE
+	max_integrity = 500
+	pass_crawl = FALSE
+	pass_throwing = FALSE
+	pass_projectile = TRUE
 
 /obj/structure/bars
 	name = "bars"
@@ -1031,19 +1027,23 @@
 		var/datum/antagonist/bandit/B = user.mind.has_antag_datum(/datum/antagonist/bandit)
 		if(B)
 			if(B.tri_amt >= 8)
-				to_chat(user, "<span class='warning'>The idol had collected enough tribute from you.</span>")
+				to_chat(user, span_warning("The idol had collected enough tribute from you."))
 				return
 			if(istype(W, /obj/item/reagent_containers/lux))
-				B.contrib += 150
-				record_round_statistic(STATS_SHRINE_VALUE, 150)
+				B.contrib += 120
+				record_round_statistic(STATS_SHRINE_VALUE, 120)
 			else if(istype(W, /obj/item/coin) || istype(W, /obj/item/gem) || istype(W, /obj/item/reagent_containers/glass/cup/silver) || istype(W, /obj/item/reagent_containers/glass/cup/golden) || istype(W, /obj/item/reagent_containers/glass/carafe) || istype(W, /obj/item/clothing/ring) || istype(W, /obj/item/clothing/head/crown/circlet) || istype(W, /obj/item/statue))
 				if(!istype(W, /obj/item/coin))
+					B.contrib += (W.get_real_price() / 2) // sell jewelry and other fineries, though at a lesser price compared to fencing them first
 					B.contrib += (W.get_real_price() / 2) // sell jewelry and other fineries, though at a lesser price compared to fencing them first
 					record_round_statistic(STATS_SHRINE_VALUE, (W.get_real_price() / 2))
 				else
 					B.contrib += W.get_real_price()
 					record_round_statistic(STATS_SHRINE_VALUE, W.get_real_price())
-			if(B.contrib >= 100)
+			else
+				to_chat(user, span_warning("The idol doesn't want your garbage."))
+				return
+			if(B.contrib >= 80)
 				give_rewards(B, user)
 			else
 				playsound(loc,'sound/items/matidol1.ogg', 50, TRUE)
@@ -1056,7 +1056,7 @@
 /obj/structure/fluff/statue/evil/proc/give_rewards(datum/antagonist/bandit/offering_bandit, mob/user)
 	offering_bandit.tri_amt++
 	user.mind.adjust_triumphs(1)
-	offering_bandit.contrib -= 100
+	offering_bandit.contrib -= 80
 
 	var/obj/item/I
 	switch(offering_bandit.tri_amt)

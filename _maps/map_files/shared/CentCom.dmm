@@ -3955,14 +3955,6 @@
 /obj/effect/decal/cobbleedge/alt,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog/inhumen_camp)
-"wp" = (
-/obj/structure/table/wood{
-	dir = 4;
-	icon_state = "largetable"
-	},
-/obj/item/clothing/face/skullmask,
-/turf/open/floor/carpet,
-/area/rogue/indoors/vampire_manor)
 "ws" = (
 /obj/structure/closet/dirthole/closed,
 /turf/open/floor/dirt,
@@ -4818,28 +4810,6 @@
 "CA" = (
 /obj/item/bin/water/gross,
 /turf/open/floor/blocks,
-/area/rogue/indoors/vampire_manor)
-"CD" = (
-/obj/structure/closet/crate/crafted_closet/inn,
-/obj/item/clothing/armor/leather/jacket/hand,
-/obj/item/clothing/armor/leather/jacket/leathercoat/black,
-/obj/item/clothing/shirt/grenzelhoft,
-/obj/item/clothing/shirt/tunic/noblecoat,
-/obj/item/clothing/shirt/undershirt/fancy,
-/obj/item/clothing/head/fancyhat,
-/obj/item/clothing/pants/grenzelpants,
-/obj/item/clothing/shoes/boots,
-/obj/item/clothing/shoes/nobleboot,
-/obj/item/clothing/head/helmet/skullcap/grenzelhoft,
-/obj/item/clothing/cloak/cape,
-/obj/item/clothing/cloak/raincloak/furcloak,
-/obj/item/clothing/shirt/tunic/colored/black,
-/obj/item/clothing/gloves/angle/grenzel,
-/obj/item/clothing/gloves/angle,
-/obj/item/clothing/shirt/dress/silkdress/colored/black,
-/obj/item/clothing/armor/gambeson/heavy/winterdress,
-/obj/item/clothing/armor/gambeson/heavy/dress,
-/turf/open/floor/carpet,
 /area/rogue/indoors/vampire_manor)
 "CE" = (
 /obj/item/weapon/sword,

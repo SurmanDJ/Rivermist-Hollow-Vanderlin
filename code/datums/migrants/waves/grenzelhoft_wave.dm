@@ -270,9 +270,8 @@
 /datum/outfit/grenzelhoft_man_at_arms/pre_equip(mob/living/carbon/human/equipped_human, visuals_only)
 	. = ..()
 
-	/*if(equipped_human.gender == FEMALE)
+	if(equipped_human.gender == FEMALE)
 		equipped_human.underwear = "Femleotard"
-		equipped_human.underwear_color = CLOTHING_SOOT_BLACK*/
 
 /datum/migrant_wave/grenzelhoft_visit
 	name = "The Grenzelhoft visit"

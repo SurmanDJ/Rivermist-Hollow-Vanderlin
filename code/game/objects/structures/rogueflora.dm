@@ -904,6 +904,31 @@
 	silky = TRUE
 
 
+/obj/structure/flora/grass/brown
+	icon_state = "snowgrass1bb"
+	icon = 'modular_rmh/icons/obj/flora/snowflora.dmi'
+
+/obj/structure/flora/grass/brown/Initialize()
+	icon_state = "snowgrass[rand(1, 3)]bb"
+	. = ..()
+
+/obj/structure/flora/grass/green
+	icon_state = "snowgrass1gb"
+	icon = 'modular_rmh/icons/obj/flora/snowflora.dmi'
+
+/obj/structure/flora/grass/green/Initialize()
+	icon_state = "snowgrass[rand(1, 3)]gb"
+	. = ..()
+
+/obj/structure/flora/grass/both
+	icon_state = "snowgrassall1"
+	icon = 'modular_rmh/icons/obj/flora/snowflora.dmi'
+
+/obj/structure/flora/grass/both/Initialize()
+	icon_state = "snowgrassall[rand(1, 3)]"
+	. = ..()
+
+
 /obj/structure/flora/grass/mushroom
 	name = "leafy mushrooms"
 	desc = "A number of mushrooms, each of which surrounds a greenish sporangium with a number of leaf-like structures."
@@ -931,27 +956,3 @@
 	icon_state = "livebush_1"
 	base_icon_state = "livebush_"
 	num_random_icons = 3
-
-/obj/structure/flora/grass/brown
-	icon_state = "snowgrass1bb"
-	icon = 'modular_rmh/icons/obj/flora/snowflora.dmi'
-
-/obj/structure/flora/grass/brown/Initialize()
-	icon_state = "snowgrass[rand(1, 3)]bb"
-	. = ..()
-
-/obj/structure/flora/grass/green
-	icon_state = "snowgrass1gb"
-	icon = 'modular_rmh/icons/obj/flora/snowflora.dmi'
-
-/obj/structure/flora/grass/green/Initialize()
-	icon_state = "snowgrass[rand(1, 3)]gb"
-	. = ..()
-
-/obj/structure/flora/grass/both
-	icon_state = "snowgrassall1"
-	icon = 'modular_rmh/icons/obj/flora/snowflora.dmi'
-
-/obj/structure/flora/grass/both/Initialize()
-	icon_state = "snowgrassall[rand(1, 3)]"
-	. = ..()

@@ -178,4 +178,3 @@
 	icon_state = "euphorbia2"
 
 	herbtype = /obj/item/alch/herb/euphorbia
-

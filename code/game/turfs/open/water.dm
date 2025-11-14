@@ -36,6 +36,8 @@
 	shine = SHINE_SHINY
 	no_over_text = FALSE
 	water_level = 2
+	spread_chance = 0
+	burn_power = 0
 	var/uses_level = TRUE
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
@@ -55,6 +57,7 @@
 
 	/// Fishing element for this specific water tile
 	var/datum/fish_source/fishing_datum = /datum/fish_source/ocean
+	flags_1 = CONDUCT_1
 
 /turf/open/water/proc/set_watervolume(volume)
 	water_volume = volume
@@ -342,8 +345,11 @@
 		return
 	if(istype(AM, /obj/item/reagent_containers/food/snacks/fish))
 		var/obj/item/reagent_containers/food/snacks/fish/F = AM
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_FISH_RELEASED, F.type, F.rarity_rank)
-		F.visible_message("<span class='warning'>[F] dives into \the [src] and disappears!</span>")
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_FISH_RELEASED, F)
+		if(!F.status != FISH_DEAD)
+			F.visible_message("<span class='warning'>[F] dives into \the [src] and disappears!</span>")
+		else
+			F.visible_message("<span class='warning'>[F] slowly sinks motionlessly into \the [src] and disappears...</span>")
 		qdel(F)
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/L = AM
@@ -423,15 +429,16 @@
 				adjust_originate_watervolume(-2)
 			playsound(user, pick(wash), 100, FALSE)
 
-			//handle hygiene
-			if(isliving(user))
-				var/mob/living/hygiene_target = user
-				var/list/equipped_items = hygiene_target.get_equipped_items()
-				if(length(equipped_items) > 0)
-					to_chat(user, span_notice("I could probably clean myself faster if I weren't wearing clothes..."))
-					hygiene_target.adjust_hygiene(HYGIENE_GAIN_CLOTHED * cleanliness_factor)
-				else
-					hygiene_target.adjust_hygiene(HYGIENE_GAIN_UNCLOTHED * cleanliness_factor)
+			L.ExtinguishMob()
+			//handle hygiene and clean off alcohol
+			var/list/equipped_items = L.get_equipped_items()
+			if(length(equipped_items) > 0)
+				to_chat(user, span_notice("I could probably clean myself faster if I weren't wearing clothes..."))
+				L.adjust_hygiene(HYGIENE_GAIN_CLOTHED * cleanliness_factor)
+				L.adjust_fire_stacks(-4)
+			else
+				L.adjust_hygiene(HYGIENE_GAIN_UNCLOTHED * cleanliness_factor)
+				L.adjust_fire_stacks(-2)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /turf/open/water/attackby_secondary(obj/item/item2wash, mob/user, params)
@@ -791,7 +798,7 @@
 	slowdown = 4
 	swim_skill = TRUE
 	wash_in = TRUE
-	fishing_datum = /datum/fish_source/ocean/deep
+	water_reagent = /datum/reagent/water
 
 /datum/reagent/water/salty
 	taste_description = "salt"

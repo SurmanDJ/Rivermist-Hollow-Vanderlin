@@ -7,7 +7,6 @@
 	min_pq = 2
 	roll_chance = 15
 	category_tags = list(CTAG_ADVENTURER)
-	allowed_patrons = ALL_PROFANE_PATRONS
 
 /datum/outfit/adventurer/profanepaladin/pre_equip(mob/living/carbon/human/H)
 	..()

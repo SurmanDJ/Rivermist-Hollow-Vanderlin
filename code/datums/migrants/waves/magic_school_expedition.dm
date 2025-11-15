@@ -14,7 +14,6 @@
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = RACES_PLAYER_NONEXOTIC
 	blacklisted_species = list(SPEC_ID_HALFLING)
-	allowed_patrons = list(/datum/patron/divine/noc)
 
 	jobstats = list(
 		STATKEY_STR = -1,
@@ -32,7 +31,7 @@
 	)
 
 	spells = list(/datum/action/cooldown/spell/undirected/touch/prestidigitation)
-	spell_points = 10
+	spell_points = 20
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 	voicepack_m = /datum/voicepack/male/wizard
@@ -71,7 +70,6 @@
 	outfit = /datum/outfit/magic_student
 	allowed_ages = list(AGE_CHILD)
 	allowed_races = RACES_PLAYER_NONEXOTIC
-	allowed_patrons = list(/datum/patron/divine/noc)
 
 	jobstats = list(
 		STATKEY_STR = -1,
@@ -90,7 +88,7 @@
 	)
 
 	spells = list(/datum/action/cooldown/spell/undirected/touch/prestidigitation)
-	spell_points = 6
+	spell_points = 10
 
 /datum/job/migrant/magic_student/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()

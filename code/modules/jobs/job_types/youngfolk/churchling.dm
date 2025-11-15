@@ -15,7 +15,6 @@
 
 	allowed_ages = list(AGE_CHILD)
 	allowed_races = RACES_PLAYER_ALL
-	allowed_patrons = ALL_TEMPLE_PATRONS
 
 	outfit = /datum/outfit/churchling
 	give_bank_account = TRUE

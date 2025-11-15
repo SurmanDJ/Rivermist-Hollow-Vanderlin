@@ -29,13 +29,11 @@
 		/datum/action/cooldown/spell/undirected/jaunt/ethereal_jaunt,
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 	)
-	spell_points = 17
-	attunements_max = 6
+	spell_points = 30
+	attunements_max = 8
 	attunements_min = 4
 
 	job_bitflag = BITFLAG_ROYALTY
-
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo) //intentional. This means it's a gamble between Noc or Zizo if your not one already. Don't fucking change this.
 
 /datum/job/magician/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	. = ..()

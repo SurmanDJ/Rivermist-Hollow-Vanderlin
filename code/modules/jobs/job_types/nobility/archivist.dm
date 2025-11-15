@@ -25,7 +25,6 @@
 	give_bank_account = 100
 
 	job_bitflag = BITFLAG_ROYALTY
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 /datum/job/archivist/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()

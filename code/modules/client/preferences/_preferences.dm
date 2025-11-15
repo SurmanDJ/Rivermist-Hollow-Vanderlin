@@ -141,7 +141,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	/// The patron/god/diety this character worships
 	var/datum/patron/selected_patron
 	/// The default patron to use if none is selected
-	var/static/datum/patron/default_patron = /datum/patron/faerun/neutral_gods/ao
+	var/static/datum/patron/default_patron = /datum/patron/faerun/good_gods/Selune
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/list/randomise = list(
 		(RANDOM_BODY) = FALSE,

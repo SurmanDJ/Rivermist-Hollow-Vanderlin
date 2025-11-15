@@ -1548,12 +1548,6 @@
 	dir = 1;
 	pixel_y = 2
 	},
-/obj/item/fishing/bait/gray,
-/obj/item/fishing/bait/gray,
-/obj/item/fishing/bait/gray,
-/obj/item/fishing/bait/gray,
-/obj/item/fishing/bait/gray,
-/obj/item/fishing/bait/gray,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/rmh_desert_phouse)
 "gR" = (
@@ -4464,9 +4458,6 @@
 /area/rogue/under/rmh_desert/palacecellar)
 "tA" = (
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/fishing/bait/dough,
-/obj/item/fishing/bait/dough,
-/obj/item/fishing/bait/dough,
 /obj/item/fishingrod/fisher,
 /turf/open/floor/sandstone,
 /area/rogue/indoors/rmh_desert_phouse)
@@ -10922,7 +10913,7 @@
 "WB" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "underdarkdesert";
-	aportalid = "desertunderdark1"
+	aportalid = "desertunderdark"
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)

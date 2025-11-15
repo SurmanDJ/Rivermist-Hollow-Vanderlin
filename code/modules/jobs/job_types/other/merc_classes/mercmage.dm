@@ -20,8 +20,6 @@
 	blacklisted_species = list(SPEC_ID_HALFLING)
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)//only noc or zizo worshippers can be mages
-
 /datum/outfit/mercenary/sellmage/pre_equip(mob/living/carbon/human/H)
 	..()
 

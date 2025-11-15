@@ -16,12 +16,10 @@
 	allowed_races = RACES_TEMPLAR
 
 
-	allowed_patrons = ALL_TEMPLAR_PATRONS
 
 	outfit = /datum/outfit/templar
 	give_bank_account = 0
 
-	allowed_patrons = ALL_TEMPLAR_PATRONS
 	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/templar

@@ -290,7 +290,6 @@
 	outfit = /datum/outfit/heartfelt_magos
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	blacklisted_species = list(SPEC_ID_HALFLING)
-	allowed_patrons = list(/datum/patron/divine/noc)
 	is_recognized = TRUE
 
 	jobstats = list(
@@ -364,7 +363,6 @@
 	tutorial = "You are a Prior of Heartfelt, a spiritual leader whose faith was tested when your home fell into ruin. Now journeying to Vanderlin, you seek to rebuild not just structures, but the souls of those who follow you."
 	outfit = /datum/outfit/heartfelt_prior
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
-	allowed_patrons = list(/datum/patron/divine/astrata)
 
 	jobstats = list(
 		STATKEY_STR = -1,

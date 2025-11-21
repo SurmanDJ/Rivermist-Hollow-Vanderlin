@@ -449,11 +449,6 @@
 	},
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/town/manor)
-"bZ" = (
-/obj/effect/decal/cleanable/debris/stone,
-/mob/living/simple_animal/hostile/retaliate/minotaur/axe,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/cave/rmh_dwarf_keep/living)
 "ca" = (
 /obj/structure/fluff/walldeco/bigpainting/lake{
 	pixel_x = 0
@@ -1172,11 +1167,6 @@
 /obj/item/key/vampire,
 /turf/open/floor/tile/harem,
 /area/rogue/indoors/town/manor)
-"fe" = (
-/obj/effect/decal/cleanable/debris/stone,
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/cave/rmh_dwarf_keep/living)
 "ff" = (
 /obj/structure/bars/pipe{
 	pixel_y = 7;
@@ -1402,11 +1392,6 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/closed/wall/mineral/decostone/cand,
 /area/rogue/indoors/cave/rmh_dwarf_keep/throne)
-"gd" = (
-/obj/effect/decal/cleanable/debris/stone,
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/cave/rmh_dwarf_keep/living)
 "gf" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l{
 	pixel_y = 32
@@ -2983,7 +2968,8 @@
 /area/rogue/indoors/cave/rmh_dwarf_keep/entrance)
 "mL" = (
 /obj/structure/bars/passage{
-	redstone_id = "vgate"
+	redstone_id = "vgate";
+	damage_deflection = 999
 	},
 /turf/open/floor/metal/barograte,
 /area/rogue/outdoors/exposed/rmh/manorgarri)
@@ -4435,7 +4421,8 @@
 	gid = "mvampire_enter";
 	name = "Tough Gate";
 	redstone_id = "mvampire_enter";
-	max_integrity = 999999
+	max_integrity = 999999;
+	damage_deflection = 99999
 	},
 /turf/open/floor/metal/barograte,
 /area/rogue/outdoors/exposed/rmh/manorgarri)
@@ -5004,7 +4991,8 @@
 /area/rogue/indoors/cave/rmh_cave/to_underdark)
 "vR" = (
 /obj/structure/bars/tough{
-	opacity = 1
+	opacity = 1;
+	damage_deflection = 999
 	},
 /obj/structure/bars/pipe,
 /obj/structure/bars/pipe{
@@ -6609,9 +6597,10 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/rmh_mountains/frozen/forsaken_village)
 "Dj" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/cave/rmh_dwarf_keep/living)
+/turf/closed/wall/mineral/stonebrick{
+	damage_deflection = 9999
+	},
+/area/rogue/outdoors/exposed/rmh/manorgarri)
 "Dl" = (
 /obj/structure/fluff/walldeco/maidendrape{
 	pixel_y = 0;
@@ -7032,10 +7021,7 @@
 /area/rogue/under/town/basement/keep)
 "Fm" = (
 /obj/structure/fermentation_keg/water,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = 0;
-	pixel_y = 20
-	},
+/obj/item/reagent_containers/glass/bucket/wooden,
 /obj/structure/fluff/wallclock,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor)
@@ -8012,11 +7998,6 @@
 /obj/structure/trap/wall_projectile,
 /turf/open/floor/snow,
 /area/rogue/outdoors/mountains/rmh_mountains/frozen)
-"Jo" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/obj/effect/decal/cleanable/debris/stone,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors/cave/rmh_dwarf_keep/throne)
 "Jp" = (
 /obj/structure/door/fancy,
 /obj/structure/door/fancy{
@@ -8189,9 +8170,10 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/vault)
 "Kk" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur/axe,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/cave/rmh_dwarf_keep/living)
+/obj/effect/decal/cleanable/debris/stone,
+/mob/living/simple_animal/hostile/retaliate/minotaur,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/cave/rmh_dwarf_keep/throne)
 "Kl" = (
 /obj/structure/chair/wood{
 	dir = 8
@@ -8202,7 +8184,7 @@
 /obj/structure/flora/grass{
 	color = "#4dc6eb"
 	},
-/obj/structure/flora/grass/bush_meagre,
+/obj/structure/flora/grass/bush_meagre/tundra,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "Kn" = (
@@ -9036,10 +9018,7 @@
 /area/rogue/under/town/basement/keep)
 "NM" = (
 /obj/item/bin/water,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = 11;
-	pixel_y = -2
-	},
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/keep)
 "NN" = (
@@ -9735,7 +9714,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/flora/grass/bush_meagre,
+/obj/structure/flora/grass/bush_meagre/tundra,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/exposed/rmh/manorgarri)
 "QX" = (
@@ -10091,10 +10070,6 @@
 "SK" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town/manor)
-"SL" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/cave/rmh_dwarf_keep/throne)
 "SM" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/tile/masonic/single,
@@ -10764,7 +10739,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "VC" = (
-/obj/structure/flora/grass/bush_meagre,
+/obj/structure/flora/grass/bush_meagre/tundra,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/mountains/rmh_mountains/frozen/lowlands)
 "VD" = (
@@ -11411,10 +11386,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "Ye" = (
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -6;
-	pixel_y = 15
-	},
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "Yf" = (
@@ -11435,10 +11407,6 @@
 /obj/machinery/light/fueled/candle/floorcandle,
 /turf/open/floor/tile/harem2,
 /area/rogue/indoors/town/bath)
-"Yi" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur,
-/turf/open/floor/volcanic,
-/area/rogue/indoors/cave/rmh_dwarf_keep/grand)
 "Yj" = (
 /obj/effect/decal/cleanable/debris/wood,
 /turf/open/floor/volcanic,
@@ -30907,7 +30875,7 @@ iW
 jt
 jt
 jt
-jt
+er
 fy
 fy
 jt
@@ -37852,7 +37820,7 @@ jt
 jt
 Oi
 jt
-Pc
+jt
 iW
 iW
 jt
@@ -37974,7 +37942,7 @@ jt
 jt
 jt
 Oi
-Yi
+Oi
 jt
 Lw
 jt
@@ -39266,7 +39234,7 @@ jt
 iW
 Lw
 Lw
-qz
+Lw
 LV
 LV
 jt
@@ -40311,7 +40279,7 @@ dx
 RV
 RV
 dx
-Jo
+RV
 RV
 RV
 RV
@@ -41208,7 +41176,7 @@ IR
 IR
 bo
 bo
-SL
+bo
 bo
 IR
 IR
@@ -41343,7 +41311,7 @@ bo
 IR
 IR
 IR
-IR
+Kk
 IR
 IR
 IR
@@ -45253,7 +45221,7 @@ bH
 bH
 bH
 bH
-om
+mp
 "}
 (5,1,2) = {"
 bH
@@ -45382,7 +45350,7 @@ bH
 bH
 bH
 bH
-mp
+bH
 "}
 (6,1,2) = {"
 bH
@@ -45723,7 +45691,7 @@ Tq
 Tq
 Rf
 Rf
-Rf
+Dj
 YZ
 hx
 hx
@@ -45852,7 +45820,7 @@ Tq
 bj
 Rf
 Rf
-Rf
+Dj
 YZ
 hx
 YZ
@@ -45981,7 +45949,7 @@ Tq
 Tq
 Rf
 Rf
-Rf
+Dj
 YZ
 fo
 hM
@@ -46110,7 +46078,7 @@ Tq
 Tq
 Rf
 Rf
-Rf
+Dj
 hx
 fo
 hM
@@ -46239,7 +46207,7 @@ cc
 Tq
 Rf
 Rf
-Rf
+Dj
 hx
 li
 li
@@ -46368,7 +46336,7 @@ cc
 Tq
 Rf
 Rf
-Rf
+Dj
 YZ
 li
 li
@@ -46497,7 +46465,7 @@ cc
 Tq
 Rf
 Rf
-Rf
+Dj
 YZ
 li
 li
@@ -46626,7 +46594,7 @@ cc
 Tq
 Rf
 Rf
-Rf
+Dj
 YZ
 YZ
 li
@@ -46755,9 +46723,9 @@ Rf
 Rf
 Rf
 Rf
-Rf
-Rf
-Rf
+Dj
+Dj
+Dj
 YZ
 gZ
 gZ
@@ -46886,7 +46854,7 @@ ga
 ga
 ga
 Rf
-Rf
+Dj
 YZ
 YZ
 gZ
@@ -47015,7 +46983,7 @@ ga
 ga
 ga
 ga
-Rf
+Dj
 Rf
 li
 gZ
@@ -47144,7 +47112,7 @@ ga
 ga
 ga
 Gk
-Rf
+Dj
 Rf
 YZ
 gZ
@@ -47273,7 +47241,7 @@ ga
 ga
 ga
 ga
-Rf
+Dj
 Rf
 hx
 gZ
@@ -47402,7 +47370,7 @@ ga
 wg
 ga
 Rf
-Rf
+Dj
 li
 YZ
 dy
@@ -47529,9 +47497,9 @@ Rf
 Rf
 Rf
 Rf
-Rf
-Rf
-Rf
+Dj
+Dj
+Dj
 li
 gZ
 dy
@@ -47657,8 +47625,8 @@ PN
 PN
 PN
 Rf
-Rf
-Rf
+Dj
+Dj
 hx
 hx
 li
@@ -48431,8 +48399,8 @@ cc
 cc
 cc
 Rf
-Rf
-Rf
+Dj
+Dj
 hx
 hx
 YZ
@@ -48561,9 +48529,9 @@ Rf
 Rf
 Rf
 Rf
-Rf
-Rf
-Rf
+Dj
+Dj
+Dj
 hx
 li
 li
@@ -48691,8 +48659,8 @@ Rf
 ga
 ga
 ga
-Rf
-Rf
+Dj
+Dj
 YZ
 YZ
 li
@@ -48821,7 +48789,7 @@ ga
 ga
 ga
 ga
-Rf
+Dj
 Rf
 YZ
 li
@@ -48950,7 +48918,7 @@ ga
 ga
 ga
 ga
-Rf
+Dj
 Rf
 YZ
 li
@@ -49079,7 +49047,7 @@ ga
 ga
 ga
 ga
-Rf
+Dj
 Rf
 hx
 li
@@ -49208,7 +49176,7 @@ ga
 ga
 ga
 Rf
-Rf
+Dj
 hx
 hx
 li
@@ -49335,9 +49303,9 @@ Rf
 Rf
 Rf
 Rf
-Rf
-Rf
-Rf
+Dj
+Dj
+Dj
 hx
 gZ
 gZ
@@ -49464,7 +49432,7 @@ Ce
 Kq
 Rf
 Rf
-Rf
+Dj
 YZ
 hx
 hx
@@ -49593,7 +49561,7 @@ cc
 Kq
 Rf
 Rf
-Rf
+Dj
 YZ
 hx
 gZ
@@ -49722,7 +49690,7 @@ cc
 cc
 Rf
 Rf
-Rf
+Dj
 YZ
 hx
 gZ
@@ -49851,7 +49819,7 @@ Tq
 cc
 Rf
 Rf
-Rf
+Dj
 Rf
 hx
 gZ
@@ -49980,7 +49948,7 @@ Tq
 cc
 cc
 Rf
-Rf
+Dj
 Rf
 hx
 dy
@@ -50109,7 +50077,7 @@ bj
 Tq
 cc
 Rf
-Rf
+Dj
 Rf
 YZ
 dy
@@ -50238,7 +50206,7 @@ Tq
 Tq
 cc
 Rf
-Rf
+Dj
 Rf
 YZ
 gZ
@@ -50367,7 +50335,7 @@ Tq
 Tq
 yC
 Rf
-Rf
+Dj
 Rf
 hx
 gZ
@@ -50496,7 +50464,7 @@ Io
 Tq
 yC
 Rf
-Rf
+Dj
 Rf
 Rp
 gZ
@@ -50625,7 +50593,7 @@ Io
 cc
 yC
 Rf
-Rf
+Dj
 Rf
 Rp
 gZ
@@ -50754,7 +50722,7 @@ Io
 cc
 yC
 Rf
-Rf
+Dj
 Rf
 YZ
 hx
@@ -50883,7 +50851,7 @@ Io
 yC
 yC
 Rf
-Rf
+Dj
 Rf
 YZ
 hx
@@ -51012,7 +50980,7 @@ Io
 yC
 Um
 Rf
-Rf
+Dj
 Rf
 hx
 YZ
@@ -51141,7 +51109,7 @@ Io
 Um
 yC
 Rf
-Rf
+Dj
 Rf
 li
 YZ
@@ -51270,7 +51238,7 @@ Io
 Um
 Um
 Rf
-Rf
+Dj
 Rf
 li
 gZ
@@ -51399,7 +51367,7 @@ Io
 PN
 Um
 Rf
-Rf
+Dj
 Rf
 li
 gZ
@@ -51528,7 +51496,7 @@ Io
 PN
 yC
 Rf
-Rf
+Dj
 Rf
 li
 gZ
@@ -51657,7 +51625,7 @@ Io
 PN
 Um
 Rf
-Rf
+Dj
 Rf
 li
 li
@@ -51786,7 +51754,7 @@ Io
 yC
 Um
 Rf
-Rf
+Dj
 Rf
 Rf
 YZ
@@ -51915,20 +51883,20 @@ Io
 yC
 Um
 yC
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
 YZ
 dy
 dy
@@ -52057,7 +52025,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 YZ
 gZ
 dy
@@ -52186,7 +52154,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 YZ
 li
 gZ
@@ -52315,7 +52283,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 YZ
 li
 gZ
@@ -52444,7 +52412,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 YZ
 li
@@ -52573,7 +52541,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 li
@@ -52702,10 +52670,10 @@ PN
 yC
 yC
 Rf
-Rf
-Rf
-Rf
-Rf
+Dj
+Dj
+Dj
+Dj
 hx
 YZ
 gZ
@@ -52834,7 +52802,7 @@ PN
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 hx
 hx
@@ -52963,7 +52931,7 @@ PN
 Kq
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 hx
@@ -53092,7 +53060,7 @@ Io
 Tq
 Tq
 Rf
-Rf
+Dj
 Rf
 Rf
 YZ
@@ -57008,7 +56976,7 @@ bH
 bH
 bH
 bH
-QL
+nk
 QL
 LM
 QL
@@ -57158,7 +57126,7 @@ AN
 QL
 QL
 QL
-QL
+qI
 QL
 AN
 AN
@@ -57792,7 +57760,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -57916,7 +57884,7 @@ QL
 QL
 QL
 QL
-QL
+Cc
 QL
 QL
 QL
@@ -58353,7 +58321,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -58434,7 +58402,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -58604,7 +58572,7 @@ QL
 dt
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -58859,7 +58827,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -58994,7 +58962,7 @@ QL
 QL
 QL
 QL
-QL
+GI
 QQ
 QL
 QL
@@ -59113,7 +59081,7 @@ QL
 QL
 dt
 QL
-QL
+LM
 QL
 QL
 QL
@@ -59129,7 +59097,7 @@ QL
 dt
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -59192,7 +59160,7 @@ bH
 bH
 bH
 bH
-QL
+qI
 QL
 dt
 QL
@@ -59499,7 +59467,7 @@ Ad
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -59636,7 +59604,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -60145,6 +60113,7 @@ QL
 QL
 QL
 QL
+LM
 QL
 QL
 QL
@@ -60157,8 +60126,7 @@ QL
 QL
 QL
 QL
-QL
-QL
+nk
 QL
 QL
 QL
@@ -60224,7 +60192,7 @@ bH
 bH
 bH
 bH
-QL
+Cc
 QL
 QL
 QL
@@ -60692,7 +60660,7 @@ QL
 QL
 QL
 QL
-QL
+qI
 QL
 QL
 QL
@@ -60792,12 +60760,12 @@ QL
 QL
 QL
 QL
+LM
 QL
 QL
 QL
 QL
-QL
-QL
+LM
 QL
 QL
 ce
@@ -61176,6 +61144,7 @@ QL
 QL
 QL
 QL
+LM
 QL
 QL
 QL
@@ -61193,8 +61162,7 @@ QL
 QL
 QL
 QL
-QL
-QL
+LM
 QL
 QL
 QL
@@ -61317,7 +61285,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -61705,7 +61673,7 @@ QL
 QQ
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -61780,7 +61748,7 @@ LM
 QL
 QL
 QQ
-QL
+GI
 QL
 QL
 QL
@@ -61827,7 +61795,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -62598,6 +62566,14 @@ QL
 QL
 QL
 QL
+LM
+QL
+QL
+QL
+QL
+QL
+QL
+LM
 QL
 QL
 QL
@@ -62605,15 +62581,7 @@ QL
 QL
 QL
 QL
-QL
-QL
-QL
-QL
-QL
-QL
-QL
-QL
-QL
+Cc
 QL
 QL
 QL
@@ -63111,7 +63079,7 @@ QL
 QL
 QL
 QL
-QL
+GI
 QL
 QL
 QL
@@ -63225,7 +63193,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -63237,7 +63205,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -63372,7 +63340,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -63504,7 +63472,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QQ
@@ -63622,7 +63590,7 @@ QL
 QL
 QL
 QL
-QL
+LM
 QL
 QL
 QL
@@ -63732,7 +63700,7 @@ QL
 QL
 QL
 QL
-QL
+nk
 QL
 QL
 QL
@@ -66034,7 +66002,7 @@ TE
 lx
 pg
 kx
-fe
+lx
 pg
 YK
 cq
@@ -66440,7 +66408,7 @@ TM
 QN
 QN
 QN
-Dj
+QN
 VH
 cq
 pA
@@ -66680,7 +66648,7 @@ zJ
 kT
 uN
 QN
-Kk
+QN
 QN
 QN
 QN
@@ -66971,7 +66939,7 @@ SN
 SN
 SN
 zJ
-Dj
+QN
 QN
 cq
 bH
@@ -67707,7 +67675,7 @@ bH
 bH
 cq
 QN
-bZ
+zJ
 zJ
 SN
 SN
@@ -68003,7 +67971,7 @@ rE
 rE
 QN
 QN
-Kk
+QN
 QN
 cq
 bH
@@ -68128,7 +68096,7 @@ zJ
 QN
 QN
 QN
-gd
+zJ
 QN
 VH
 QN
@@ -78619,7 +78587,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -78748,7 +78716,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -78877,7 +78845,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -79006,7 +78974,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -79135,7 +79103,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -79264,7 +79232,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -79393,7 +79361,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -79522,7 +79490,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -79651,7 +79619,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -79780,7 +79748,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -79909,7 +79877,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 Rf
@@ -80038,7 +80006,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 Rf
@@ -80167,7 +80135,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 Rf
@@ -80296,7 +80264,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -80425,7 +80393,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -80554,7 +80522,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -80683,7 +80651,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -80812,7 +80780,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -80941,7 +80909,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -81070,7 +81038,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -81199,7 +81167,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -81328,7 +81296,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -81457,7 +81425,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -81586,7 +81554,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -81715,7 +81683,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 Rf
@@ -81844,7 +81812,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 Rf
@@ -81973,7 +81941,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 Rf
@@ -82102,7 +82070,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -82231,7 +82199,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -82360,7 +82328,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -82489,7 +82457,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -82618,7 +82586,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -82747,7 +82715,7 @@ ii
 ii
 Rf
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -82876,7 +82844,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -83005,7 +82973,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -83134,7 +83102,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -83263,7 +83231,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -83392,7 +83360,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -83521,7 +83489,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -83650,7 +83618,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -83779,7 +83747,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -83908,7 +83876,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -84037,7 +84005,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -84166,7 +84134,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -84295,7 +84263,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -84424,7 +84392,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -84553,7 +84521,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -84682,7 +84650,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -84811,7 +84779,7 @@ ii
 ii
 ii
 ii
-Rf
+Dj
 Rf
 Rf
 Rf
@@ -84940,20 +84908,20 @@ ii
 ii
 ii
 ii
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
-Rf
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
+Dj
 ii
 ii
 ii
@@ -85082,7 +85050,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -85211,7 +85179,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 ii
 ii
 ii
@@ -85340,7 +85308,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 ii
 ii
@@ -85469,7 +85437,7 @@ Rf
 Rf
 Rf
 Rf
-Rf
+Dj
 Rf
 Rf
 ii
@@ -85598,7 +85566,7 @@ ii
 ii
 ii
 Rf
-Rf
+Dj
 Rf
 Rf
 Rf
@@ -85727,8 +85695,8 @@ ii
 ii
 ii
 ii
-Rf
-Rf
+Dj
+Dj
 Rf
 Rf
 Rf
@@ -85857,8 +85825,8 @@ ii
 ii
 ii
 ii
-Rf
-Rf
+Dj
+Dj
 Rf
 Rf
 Rf
@@ -85987,7 +85955,7 @@ ii
 ii
 ii
 ii
-Rf
+Dj
 Rf
 Rf
 Rf

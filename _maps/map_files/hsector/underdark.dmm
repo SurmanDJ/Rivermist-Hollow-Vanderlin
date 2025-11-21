@@ -421,9 +421,7 @@
 /area/rogue/under/underdark/rmh/deepwastes)
 "ga" = (
 /obj/structure/fermentation_keg/random/water,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -9
-	},
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/tile/brownbrick,
 /area/rogue/under/underdark/rmh/shar)
 "gb" = (
@@ -450,9 +448,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/underdark/rmh/glimmerlakes)
 "gu" = (
-/obj/structure/fluff/railing/wood/east{
-	pixel_x = 8
-	},
+/obj/structure/fluff/railing/wood/east,
 /obj/structure/fluff/railing/border{
 	dir = 4;
 	pixel_x = 0;
@@ -600,9 +596,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/underdark/rmh/shar)
 "jE" = (
-/obj/structure/fluff/railing/wood/east{
-	pixel_x = 8
-	},
+/obj/structure/fluff/railing/wood/east,
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/underdark/rmh/shar)
@@ -1051,7 +1045,7 @@
 /area/rogue/under/underdark/rmh/shar)
 "rA" = (
 /obj/effect/decal/cleanable/debris/stone,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/churchrough,
 /area/rogue/under/underdark/rmh/shar)
 "rE" = (
@@ -2120,9 +2114,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/underdark/rmh/shar)
 "IY" = (
-/obj/structure/fluff/railing/wood/east{
-	pixel_x = 8
-	},
+/obj/structure/fluff/railing/wood/east,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/underdark/rmh/shar)
 "Ja" = (
@@ -2415,12 +2407,6 @@
 	icon_state = "largetable"
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/under/underdark/rmh/shar)
-"NM" = (
-/obj/structure/fluff/railing/wood/west{
-	pixel_x = -8
-	},
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/underdark/rmh/shar)
 "NQ" = (
 /turf/open/floor/cobblerock/alt,
@@ -2940,9 +2926,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/underdark/rmh/shar)
 "VU" = (
-/obj/structure/fluff/railing/wood/east{
-	pixel_x = 8
-	},
+/obj/structure/fluff/railing/wood/east,
 /obj/structure/fluff/railing/wood/north{
 	pixel_y = 8
 	},
@@ -85598,10 +85582,10 @@ DV
 DV
 WK
 WK
-NM
+fE
 DV
-NM
-NM
+fE
+fE
 WK
 WK
 WK
@@ -85620,8 +85604,8 @@ DV
 DV
 WK
 WK
-NM
-NM
+fE
+fE
 DV
 WK
 WK
@@ -87147,13 +87131,13 @@ cA
 WK
 WK
 DV
-NM
-NM
+fE
+fE
 WK
 WK
 WK
-NM
-NM
+fE
+fE
 DV
 WK
 WK
@@ -87401,8 +87385,8 @@ ZQ
 WK
 WK
 DV
-NM
-NM
+fE
+fE
 DV
 qP
 DV
@@ -87412,8 +87396,8 @@ WK
 DV
 qP
 DV
-NM
-NM
+fE
+fE
 DV
 WK
 WK

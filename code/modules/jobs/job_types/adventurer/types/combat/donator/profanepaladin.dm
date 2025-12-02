@@ -6,7 +6,6 @@
 	total_positions = 1
 	roll_chance = 15
 	category_tags = list(CTAG_ADVENTURER)
-	allowed_patrons = ALL_PROFANE_PATRONS
 
 	exp_type = list(EXP_TYPE_ADVENTURER, EXP_TYPE_LIVING, EXP_TYPE_COMBAT, EXP_TYPE_CLERIC)
 	exp_types_granted  = list(EXP_TYPE_ADVENTURER, EXP_TYPE_COMBAT, EXP_TYPE_CLERIC)

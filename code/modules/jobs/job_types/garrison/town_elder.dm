@@ -241,7 +241,6 @@
 
 	category_tags = list(CTAG_TOWN_ELDER)
 
-	allowed_patrons = ALL_TEMPLE_PATRONS
 
 /datum/outfit/town_elder/hearth_acolyte/pre_equip(mob/living/carbon/human/H)
 	. = ..()

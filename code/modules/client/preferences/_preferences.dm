@@ -141,7 +141,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	/// The patron/god/diety this character worships
 	var/datum/patron/selected_patron
 	/// The default patron to use if none is selected
-	var/static/datum/patron/default_patron = /datum/patron/faerun/neutral_gods/ao
+	var/static/datum/patron/default_patron = /datum/patron/faerun/good_gods/Selune
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/list/randomise = list(
 		(RANDOM_BODY) = FALSE,
@@ -412,15 +412,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		dat += "<b>Age:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a><BR>"
 
 	dat += "<b>Flaw:</b> <a href='?_src_=prefs;preference=charflaw;task=input'>[charflaw]</a><BR>"
-<<<<<<< HEAD
 	var/datum/faith/selected_faith = GLOB.faithlist[selected_patron?.associated_faith]
 	dat += "<b>Pantheon:</b> <a href='?_src_=prefs;preference=faith;task=input'>[selected_faith?.name || "FUCK!"]</a><BR>"
 	dat += "<b>Patron:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron?.name || "FUCK!"]</a><BR>"
-=======
-	var/datum/faith/selected_faith = GLOB.faithlist[selected_patron.associated_faith]
-	dat += "<b>Faith:</b> <a href='?_src_=prefs;preference=faith;task=input'>[selected_faith?.name || "FUCK!"]</a><BR>"
-	dat += "<b>Patron:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron.name || "FUCK!"]</a><BR>"
->>>>>>> vanderlin/main
 	dat += "<b>Family:</b> <a href='?_src_=prefs;preference=family'>[family ? family : "None"]</a><BR>"
 	if(family == FAMILY_FULL || family == FAMILY_NEWLYWED)
 		dat += "<b>Preferred Spouse:</b> <a href='?_src_=prefs;preference=setspouse'>[setspouse ? setspouse : "None"]</a><BR>"
@@ -622,33 +616,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				if(job.whitelist_req && (!user.client.whitelisted()))
 					HTML += "<font color=#6183a5>[used_name]</font></td> <td> </td></tr>"
 					continue
-<<<<<<< HEAD
-			#ifdef USES_PQ
-			if(get_playerquality(user.ckey) < job.min_pq)
-				HTML += "<font color=#a36c63>[used_name] (Min PQ: [job.min_pq])</font></td> <td> </td></tr>"
-				continue
-			#endif
-			if(length(job.allowed_ages) && !(user.client.prefs.age in job.allowed_ages))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
-				continue
-			if((length(job.allowed_races) && !(user.client.prefs.pref_species.id in job.allowed_races)) || \
-				(length(job.blacklisted_species) && (user.client.prefs.pref_species.id in job.blacklisted_species)))
-				if(!(user.client.has_triumph_buy(TRIUMPH_BUY_RACE_ALL)))
-					HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
-					continue
-			if(length(job.allowed_patrons) && !(user.client.prefs.selected_patron.type in job.allowed_patrons))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
-				continue
-			if(length(job.allowed_sexes) && !(user.client.prefs.gender in job.allowed_sexes))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
-				continue
-
-=======
 			var/lock_html = get_job_lock_html(job, user, used_name)
 			if(lock_html)
 				HTML += lock_html
 				continue
->>>>>>> vanderlin/main
 			HTML += {"
 				<style>
 					.tutorialhover {

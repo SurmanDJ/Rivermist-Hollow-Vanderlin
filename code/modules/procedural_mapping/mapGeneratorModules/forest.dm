@@ -42,11 +42,7 @@
 	spawnableTurfs = list(
 		/turf/open/floor/dirt/road = 30
 	)
-<<<<<<< HEAD
-	allowed_areas = list(/area/rogue/outdoors/woods/rmh)
-=======
-	allowed_areas = list(/area/outdoors/woods)
->>>>>>> vanderlin/main
+	allowed_areas = list(/area/outdoors/woods/rmh)
 
 /datum/mapGeneratorModule/forestroad
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS

@@ -14,11 +14,9 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_NONHERETICAL
-	allowed_patrons = ALL_TEMPLE_PATRONS
 
 	outfit = /datum/outfit/monk
 	give_bank_account = TRUE
-	allowed_patrons = ALL_TEMPLE_PATRONS
 	job_bitflag = BITFLAG_CHURCH
 
 	exp_types_granted  = list(EXP_TYPE_CHURCH, EXP_TYPE_CLERIC)

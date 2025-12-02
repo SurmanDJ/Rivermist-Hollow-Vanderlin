@@ -11,7 +11,6 @@
 	Sell your product to those who should imbibe - the poor, the downtrodden, the youth. Get them hooked; stay off of your \
 	own supply. You are Baotha's strongest spice-addict."
 	outfit = /datum/outfit/sweetshare
-	allowed_patrons = list(/datum/patron/inhumen/baotha)
 
 	jobstats = list(
 		STATKEY_SPD = 2,

@@ -266,15 +266,7 @@
 	aportalid = "vanderlin-forest_town-forest"
 	},
 /turf/open/floor/cobblerock,
-<<<<<<< HEAD
-/area/rogue/outdoors/woods)
-"dX" = (
-/obj/item/natural/rock,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/woods)
-=======
 /area/outdoors/woods)
->>>>>>> vanderlin/main
 "eb" = (
 /turf/closed/wall/mineral/stone,
 /area/outdoors/mountains)

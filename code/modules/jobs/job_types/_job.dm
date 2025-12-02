@@ -777,11 +777,3 @@
 			outfit = outfit_entry
 
 	return TRUE
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-	return TRUE
-=======
->>>>>>> vanderlin/main
-=======
->>>>>>> vanderlin/main

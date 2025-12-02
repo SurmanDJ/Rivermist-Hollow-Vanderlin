@@ -25,7 +25,6 @@
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 	)
 
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)//see court mage for explaination
 
 	exp_type = list(EXP_TYPE_LIVING, EXP_TYPE_MAGICK)
 	exp_types_granted  = list(EXP_TYPE_MAGICK)

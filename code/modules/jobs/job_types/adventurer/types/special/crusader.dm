@@ -5,14 +5,12 @@
 	Three cults provide knights for the Order: Astrata, Necra and Ravox. \
 	You were sent to Vanderlin by the Order to get any and all assistance from the faithful for the Crusade."
 	allowed_races = RACES_PLAYER_NONHERETICAL
-	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/divine/ravox)
 	outfit = /datum/outfit/adventurer/crusader
 	category_tags = list(CTAG_ADVENTURER)
 	total_positions = 1
 	roll_chance = 30
 	is_recognized = TRUE
 
-	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/divine/ravox)
 
 /datum/outfit/adventurer/crusader/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -23,7 +23,6 @@
 /datum/outfit/job/adept
 	name = "Adept"
 	jobtype = /datum/job/adept
-	allowed_patrons = list(/datum/patron/psydon)
 	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/job/adept // Base outfit for Adepts, before loadouts

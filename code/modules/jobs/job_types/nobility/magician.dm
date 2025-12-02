@@ -28,8 +28,8 @@
 		/datum/action/cooldown/spell/undirected/jaunt/ethereal_jaunt,
 		/datum/action/cooldown/spell/undirected/touch/prestidigitation,
 	)
-	spell_points = 17
-	attunements_max = 6
+	spell_points = 30
+	attunements_max = 8
 	attunements_min = 4
 
 	job_bitflag = BITFLAG_ROYALTY

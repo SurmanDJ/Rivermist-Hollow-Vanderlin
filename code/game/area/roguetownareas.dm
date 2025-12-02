@@ -2,7 +2,6 @@
 	name = "roguetown"
 	icon_state = "rogue"
 
-<<<<<<< HEAD
 
 	var/town_area = FALSE
 	var/keep_area = FALSE
@@ -12,10 +11,7 @@
 	var/cell_area = FALSE
 	var/ceiling_protected = FALSE //Prevents tunneling into these from above
 
-/area/rogue/indoors
-=======
 /area/indoors
->>>>>>> vanderlin/main
 	name = "indoors rt"
 	icon_state = "indoors"
 	droning_index = DRONING_INDOORS

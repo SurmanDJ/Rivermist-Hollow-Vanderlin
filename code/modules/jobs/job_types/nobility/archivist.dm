@@ -24,7 +24,6 @@
 	give_bank_account = 100
 
 	job_bitflag = BITFLAG_ROYALTY
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 	exp_type = list(EXP_TYPE_LIVING)
 	exp_types_granted  = list(EXP_TYPE_MAGICK, EXP_TYPE_NOBLE)

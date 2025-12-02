@@ -9,6 +9,8 @@
 	min_pq = 0
 	total_positions = 4
 
+	exp_types_granted  = list(EXP_TYPE_ADVENTURER, EXP_TYPE_COMBAT, EXP_TYPE_CLERIC)
+
 /datum/outfit/adventurer/inhumencleric/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/ironpot

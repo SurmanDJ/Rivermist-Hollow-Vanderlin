@@ -3,7 +3,7 @@
 
 //ПУСТЫНЯ - DESERT
 
-/area/rogue/outdoors/rmh_desert
+/area/outdoors/rmh_desert
 	name = "Desert"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "desert"
@@ -14,10 +14,10 @@
 	background_track = 'modular_rmh/sound/music/area/desert_day.ogg'
 	background_track_dusk = 'modular_rmh/sound/music/area/desert_dusk.ogg'
 	background_track_night = 'modular_rmh/sound/music/area/desert_night.ogg'
-	converted_type = /area/rogue/indoors/shelter/rmh_desert
+	converted_type = /area/indoors/shelter/rmh_desert
 	//deathsight_message = "somewhere far in sands"
 
-/area/rogue/outdoors/rmh_desert/valley
+/area/outdoors/rmh_desert/valley
 	name = "Desert Valley"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "lowdesert"
@@ -28,11 +28,11 @@
 	background_track = 'modular_rmh/sound/music/area/desert_day.ogg'
 	background_track_dusk = 'modular_rmh/sound/music/area/desert_dusk.ogg'
 	background_track_night = 'modular_rmh/sound/music/area/desert_night.ogg'
-	converted_type = /area/rogue/indoors/shelter/rmh_desert
+	converted_type = /area/indoors/shelter/rmh_desert
 	//deathsight_message = "somewhere far in lowsands"
 
 // УБЕЖИЩЕ - SHELTER
-/area/rogue/indoors/shelter/rmh_desert
+/area/indoors/shelter/rmh_desert
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "shelter"
 	background_track = 'sound/music/area/field.ogg'
@@ -40,24 +40,24 @@
 	background_track_night = 'sound/music/area/sleeping.ogg'
 
 // МОРЕ - SEA
-/area/rogue/outdoors/rmh_desert/sea
+/area/outdoors/rmh_desert/sea
 	name = "Saltsea"
 	first_time_text = "FAR SALTSEA"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "sea"
 
 // ПОРТ - PORT
-/area/rogue/indoors/rmh_desert_phouse
+/area/indoors/rmh_desert_phouse
 	name = "indoors"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "house"
 	background_track = 'sound/music/area/towngen.ogg'
 	background_track_dusk = 'sound/music/area/septimus.ogg'
 	background_track_night = 'sound/music/area/sleeping.ogg'
-	converted_type = /area/rogue/outdoors/rmh_desert/port
+	converted_type = /area/outdoors/rmh_desert/port
 	//deathsight_message = "the port point between sand and salty water"
 
-/area/rogue/outdoors/rmh_desert/roofs
+/area/outdoors/rmh_desert/roofs
 	name = "Seaport Roofs"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "roofs"
@@ -69,9 +69,9 @@
 	background_track_dusk = 'sound/music/area/septimus.ogg'
 	background_track_night = 'sound/music/area/sleeping.ogg'
 	soundenv = 17
-	converted_type = /area/rogue/indoors/shelter/town/rmh/roofs
+	converted_type = /area/indoors/shelter/town/rmh/roofs
 
-/area/rogue/indoors/shelter/rmh_desert/roofs
+/area/indoors/shelter/rmh_desert/roofs
 	name = "Rivermist Hollow Rooftops"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "roofs"
@@ -79,7 +79,7 @@
 	background_track_dusk = 'sound/music/area/septimus.ogg'
 	background_track_night = 'sound/music/area/sleeping.ogg'
 
-/area/rogue/outdoors/rmh_desert/port
+/area/outdoors/rmh_desert/port
 	name = "Sea Port"
 	first_time_text = "SEASIDE PORT"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
@@ -90,7 +90,7 @@
 	background_track_night = 'sound/music/area/sleeping.ogg'
 
 // ДАНЖ И ПЕЩЕРЫ - DUNGEON AND CAVES
-/area/rogue/under/rmh_desert/ziqurat
+/area/under/rmh_desert/ziqurat
 	name = "Ziqurat"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "ziqurat"
@@ -98,10 +98,10 @@
 	background_track = 'sound/music/area/dungeon2.ogg'
 	background_track_dusk = null
 	background_track_night = null
-	converted_type = /area/rogue/outdoors/rmh_desert/dungeon1
+	converted_type = /area/outdoors/rmh_desert/dungeon1
 	ceiling_protected = TRUE
 
-/area/rogue/outdoors/rmh_desert/dungeon1
+/area/outdoors/rmh_desert/dungeon1
 	name = "Outdesertdungeon"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "spidercave"
@@ -110,12 +110,12 @@
 	background_track_night = null
 	ceiling_protected = TRUE
 
-/area/rogue/indoors/cave/rmh_desertcaves
+/area/indoors/cave/rmh_desertcaves
 	name = "Dusted Caves"
 	first_time_text = "DUSTED CAVES"
 
 // ОАЗИС - OASIS
-/area/rogue/outdoors/rmh_desert/oasis
+/area/outdoors/rmh_desert/oasis
 	name = "Oasis"
 	icon = 'modular_rmh/icons/turf/areas.dmi'
 	icon_state = "oasis"
@@ -126,10 +126,10 @@
 	background_track = null
 	background_track_dusk = null
 	background_track_night = null
-	converted_type = /area/rogue/indoors/shelter/rmh_desert
+	converted_type = /area/indoors/shelter/rmh_desert
 
 // ДВОРЦОВЫЙ ПОГРЕБ - PALACE CELLAR
-/area/rogue/under/rmh_desert/palacecellar
+/area/under/rmh_desert/palacecellar
 	name = "Palace Cellar"
 	icon_state = "under"
 	first_time_text = "PALACE CELLAR"
@@ -139,7 +139,7 @@
 	ceiling_protected = TRUE
 
 // ДВОРЦОВЫЕ КАЗЕМАТЫ - PALACE CASEMATES
-/area/rogue/under/rmh_desert/palacecasemates
+/area/under/rmh_desert/palacecasemates
 	name = "Palace Casemates"
 	icon_state = "under"
 	first_time_text = "PALACE CASEMATES"
@@ -149,7 +149,7 @@
 	ceiling_protected = TRUE
 
 // ГАРЕМ - HAREM
-/area/rogue/under/rmh_desert/harem
+/area/under/rmh_desert/harem
 	name = "Harem"
 	icon_state = "under"
 	first_time_text = "HAREM"
@@ -163,7 +163,7 @@
 	ceiling_protected = TRUE
 
 // ГАРЕМ НИЖНИЙ УРОВЕНЬ - LOWER HAREM
-/area/rogue/under/rmh_desert/hareml
+/area/under/rmh_desert/hareml
 	name = "Lower Harem"
 	icon_state = "under"
 	first_time_text = "LOWER HAREM"
@@ -177,7 +177,7 @@
 	ceiling_protected = TRUE
 
 // PYRAMID DUNGEON
-/area/rogue/under/rmh_desert/pyramid
+/area/under/rmh_desert/pyramid
 	name = "Pyramid"
 	icon_state = "under"
 	first_time_text = "PYRAMID"
@@ -187,7 +187,7 @@
 	ceiling_protected = TRUE
 
 // SPIDER DESERT CAVE
-/area/rogue/under/rmh_desert/spider
+/area/under/rmh_desert/spider
 	name = "Desert Spider Caves"
 	icon_state = "spider"
 	first_time_text = "DESERT CAVES"

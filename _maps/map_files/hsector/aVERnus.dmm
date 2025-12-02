@@ -2,71 +2,71 @@
 "ak" = (
 /obj/structure/hotspring/border/six,
 /turf/open/floor/naturalstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "aG" = (
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "aZ" = (
 /obj/structure/chair/wood/alt/fancy/chair5{
 	dir = 1
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "bI" = (
 /obj/structure/stairs/fancy/c{
 	dir = 1
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "bJ" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "bN" = (
 /obj/structure/fluff/statue/knight/r{
 	pixel_x = -32
 	},
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "bV" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "bW" = (
 /obj/structure/chair/wood/alt/fancy/chair5,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "cd" = (
 /obj/structure/fluff/pillow/red{
 	dir = 2
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "cw" = (
 /obj/item/soap/bath,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "cH" = (
 /obj/structure/stairs/fancy/c{
 	dir = 4
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "cR" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "asbath";
 	aportalid = "aslobby2"
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "dg" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "dn" = (
 /obj/structure/hotspring/border/three,
 /turf/open/floor/naturalstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "dr" = (
 /obj/structure/bars/tough{
 	icon = 'icons/effects/effects.dmi';
@@ -81,17 +81,17 @@
 	},
 /obj/structure/gate,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ds" = (
 /obj/structure/fluff/statue/small{
 	pixel_y = 32
 	},
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ed" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "eg" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -99,10 +99,10 @@
 	pixel_x = 8
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ep" = (
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "er" = (
 /obj/structure/fluff/railing/border/north,
 /obj/effect/decal/cobbleedge{
@@ -111,7 +111,7 @@
 	name = "carpet"
 	},
 /turf/open/floor/tile/bath,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "et" = (
 /obj/structure/fluff/pillow/red{
 	dir = 1
@@ -119,7 +119,7 @@
 /turf/open/floor/tile/bfloorz{
 	dir = 2
 	},
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "eP" = (
 /obj/structure/fluff/railing/border/east,
 /obj/effect/decal/cobbleedge{
@@ -132,7 +132,7 @@
 	pixel_y = -8
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "eU" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -146,7 +146,7 @@
 	pixel_x = -8
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "eY" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -154,36 +154,36 @@
 	pixel_y = -8
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "fg" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "fk" = (
 /obj/structure/fluff/wallclock/vampire{
 	pixel_y = -32
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "fs" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "fv" = (
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "fQ" = (
 /obj/structure/stairs/fancy{
 	dir = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "gb" = (
 /obj/structure/window/openclose{
 	dir = 8
 	},
 /turf/closed/wall/mineral/brick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "gg" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -191,75 +191,75 @@
 	pixel_y = 7
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "gs" = (
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "gz" = (
 /obj/effect/decal/carpet/kover_darkred{
 	pixel_y = -11
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "gS" = (
 /obj/structure/window/openclose{
 	dir = 4
 	},
 /turf/closed/wall/mineral/brick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "gW" = (
 /obj/structure/window/openclose{
 	dir = 1
 	},
 /turf/closed/wall/mineral/brick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "he" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "asarchive2";
 	aportalid = "astable"
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "hq" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "hz" = (
 /obj/structure/chair/wood/alt/fancy/chair5{
 	dir = 8
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "hA" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/structure/fluff/statue/femalestatue{
 	pixel_y = 0
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "hM" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "hP" = (
 /obj/structure/hotspring,
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ib" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "id" = (
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "il" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "iI" = (
 /obj/structure/fluff/statue/femalestatue/zizo{
 	desc = "An ancient statue depicting an elven woman.";
@@ -267,18 +267,18 @@
 	pixel_y = -32
 	},
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "iK" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/tile/bath,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "iL" = (
 /obj/structure/stairs/fancy/l{
 	dir = 1
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "iU" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/clothing/shoes/boots/armor/matthios,
@@ -291,28 +291,28 @@
 /obj/item/clothing/shoes/boots,
 /obj/item/clothing/shoes/rare/grenzelhoft,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "iX" = (
 /obj/structure/curtain/red{
 	open = 0;
 	icon_state = "curtain-closed"
 	},
 /turf/closed/wall/mineral/decostone/long,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "jb" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/lava,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "jh" = (
 /obj/structure/stairs/fancy{
 	dir = 8
 	},
 /turf/open/floor/tile/tilerg,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "jp" = (
 /obj/item/soap/bath,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "jK" = (
 /obj/structure/fluff{
 	icon_state = "crystal_spire";
@@ -328,7 +328,7 @@
 	pixel_x = 8
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "jU" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -336,27 +336,27 @@
 	pixel_x = 8
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "jV" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "asout";
 	aportalid = "aslobby3"
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "kf" = (
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "kg" = (
 /turf/open/lava,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "ky" = (
 /obj/structure/fluff/statue/femalestatue1{
 	pixel_y = -32
 	},
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "kz" = (
 /obj/structure/chair/bench/coucha/r,
 /obj/effect/decal/cobbleedge{
@@ -368,11 +368,11 @@
 	pixel_y = 9
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "kJ" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "kN" = (
 /obj/structure/table/wood/large/corner/south_west,
 /obj/item/reagent_containers/glass/bowl/gold{
@@ -388,21 +388,21 @@
 	pixel_y = 8
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "kS" = (
 /obj/structure/dye_bin,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "kZ" = (
 /obj/machinery/light/fueled/candle/floorcandle/pink,
 /obj/machinery/light/fueled/candle/floorcandle/alt/pink{
 	pixel_y = -16
 	},
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "lc" = (
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "lN" = (
 /obj/structure/bars/tough{
 	icon = 'icons/effects/effects.dmi';
@@ -416,7 +416,7 @@
 	alpha = 100
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "lS" = (
 /obj/structure/fluff/railing/corner/south_west,
 /obj/effect/decal/cobbleedge{
@@ -425,16 +425,16 @@
 	pixel_x = 8
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "md" = (
 /obj/structure/hotspring,
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "mk" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "mn" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8;
@@ -443,14 +443,14 @@
 	},
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "mp" = (
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "mx" = (
 /obj/structure/window/openclose,
 /turf/closed/wall/mineral/brick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "mz" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -459,18 +459,18 @@
 	},
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "mI" = (
 /obj/structure/fluff/walldeco/bigpainting/lake{
 	pixel_x = 0
 	},
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "mK" = (
 /obj/structure/fluff/statue/small,
 /obj/machinery/light/fueled/firebowl/church,
 /turf/closed/wall/mineral/decostone/cand,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "mX" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -485,14 +485,14 @@
 /obj/structure/fluff/railing/corner/north_east,
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "mZ" = (
 /turf/closed/wall/mineral/pipe,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "nj" = (
 /obj/structure/bookcase/random_recipes,
 /turf/closed/wall/mineral/decostone/long/east_west,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "nH" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8;
@@ -505,35 +505,35 @@
 	pixel_x = 8
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "nM" = (
 /turf/closed/wall/mineral/decostone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "nT" = (
 /obj/structure/hotspring/border/seven,
 /turf/open/floor/naturalstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "nW" = (
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "oB" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/railing/border/north,
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "oE" = (
 /obj/structure/fluff/statue/gargoyle{
 	pixel_y = -32
 	},
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "oO" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "oT" = (
 /obj/structure/fluff/railing/border/north,
 /obj/effect/decal/cobbleedge{
@@ -542,11 +542,11 @@
 	name = "carpet"
 	},
 /turf/open/floor/tile/bath,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "pg" = (
 /obj/structure/chair/bench/coucha/r,
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "pi" = (
 /turf/closed,
 /area/rogue)
@@ -557,7 +557,7 @@
 	name = "carpet"
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "pC" = (
 /obj/effect/decal/cobbleedge{
 	icon = 'icons/roguetown/misc/tables.dmi';
@@ -565,7 +565,7 @@
 	name = "carpet"
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "pO" = (
 /obj/structure/table/wood/large/corner/middle_west,
 /obj/item/reagent_containers/glass/bowl/gold{
@@ -573,29 +573,29 @@
 	pixel_y = -7
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "qk" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "qn" = (
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "qu" = (
 /obj/structure/hotspring/border/seven,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "qF" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "qH" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
 /turf/open/lava,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "qL" = (
 /obj/structure/hotspring,
 /obj/effect/decal/cobbleedge{
@@ -604,20 +604,20 @@
 	pixel_y = -8
 	},
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "qM" = (
 /obj/structure/chair/wood/alt/fancy/chair5{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "qU" = (
 /obj/structure/curtain/red{
 	open = 0;
 	icon_state = "curtain-closed"
 	},
 /turf/closed/wall/mineral/decostone/long/east_west,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "rc" = (
 /obj/structure/hotspring,
 /obj/effect/decal/cobbleedge{
@@ -626,10 +626,10 @@
 	pixel_y = 7
 	},
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "rf" = (
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "rp" = (
 /obj/structure/stairs/fancy/l{
 	dir = 8
@@ -638,28 +638,28 @@
 	pixel_y = -32
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ss" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "sD" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "sS" = (
 /obj/item/bin/water,
 /obj/item/soap/bath,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "sY" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/tile/bath,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tp" = (
 /obj/structure/bookcase/random/archive,
 /turf/closed/wall/mineral/decostone/long,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tv" = (
 /obj/structure/fluff/railing/border/east,
 /obj/effect/decal/cobbleedge{
@@ -667,10 +667,10 @@
 	icon_state = "borderfall"
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tz" = (
 /turf/closed/wall/mineral/decostone/long,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tB" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -678,26 +678,26 @@
 	pixel_y = 7
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tE" = (
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tS" = (
 /obj/structure/fluff/walldeco/mona{
 	pixel_y = 33
 	},
 /turf/closed/wall/mineral/decostone/cand,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tT" = (
 /obj/structure/chair/wood/alt/fancy/chair5{
 	dir = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tY" = (
 /obj/structure/stairs/fancy,
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "tZ" = (
 /obj/effect/decal/cobbleedge{
 	icon = 'icons/roguetown/misc/tables.dmi';
@@ -705,11 +705,11 @@
 	name = "carpet"
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "uf" = (
 /obj/structure/hotspring/border,
 /turf/open/floor/naturalstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ug" = (
 /obj/structure/hotspring,
 /obj/structure/fake_machine/drugmachine,
@@ -720,7 +720,7 @@
 	pixel_x = -14
 	},
 /turf/closed/wall/mineral/decostone/cand,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ur" = (
 /obj/structure/train/far_travel,
 /obj/machinery/light/fueled/chand{
@@ -730,32 +730,32 @@
 	brightness = 15
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "ut" = (
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "uw" = (
 /obj/structure/window/openclose{
 	dir = 1
 	},
 /turf/closed/wall/mineral/brick,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "uR" = (
 /obj/structure/stairs/fancy/r{
 	dir = 1
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "uY" = (
 /obj/item/bin/water,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "vb" = (
 /turf/open/floor/carpet/lord/right{
 	dir = 1
 	},
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "vu" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -763,7 +763,7 @@
 	pixel_y = -8
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "wT" = (
 /obj/structure/table/wood/large/corner/north_east,
 /obj/item/kitchen/fork/iron{
@@ -777,60 +777,60 @@
 	pixel_y = -5
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "wY" = (
 /obj/structure/chair/bench/coucha,
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "xc" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "xr" = (
 /obj/structure/chair/wood/alt/fancy/chair5,
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "xy" = (
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "xH" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "xL" = (
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "xV" = (
 /turf/open/floor/carpet/lord/center{
 	dir = 2
 	},
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "xW" = (
 /obj/structure/stairs/fancy/r{
 	dir = 2
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "yv" = (
 /obj/item/reagent_containers/glass/cup/golden{
 	pixel_y = 15;
 	pixel_x = -6
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "yJ" = (
 /obj/structure/hotspring/border/four,
 /turf/open/floor/naturalstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "zo" = (
 /obj/structure/window/openclose,
 /turf/closed/wall/mineral/brick,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "zE" = (
 /obj/structure/fluff/statue/small,
 /obj/machinery/light/fueled/firebowl/church,
 /turf/closed/wall/mineral/decostone/cand,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "zF" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -840,17 +840,17 @@
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "zM" = (
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "Ab" = (
 /obj/structure/bookcase/random/archive,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ac" = (
 /turf/open/floor/tile,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "Ad" = (
 /turf/closed/mineral/bedrock,
 /area/rogue)
@@ -860,21 +860,21 @@
 	aportalid = "asbath"
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "An" = (
 /turf/open/floor/carpet/lord/left{
 	dir = 1
 	},
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ap" = (
 /obj/structure/table/wood/large/corner/north,
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "AI" = (
 /obj/structure/hotspring,
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "AZ" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -888,32 +888,32 @@
 	pixel_x = -8
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Bc" = (
 /obj/machinery/light/fueled/candle/floorcandle/pink,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Bu" = (
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ch" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ck" = (
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "CN" = (
 /obj/structure/stairs/fancy,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "CX" = (
 /obj/structure/fluff/statue/knight{
 	pixel_x = 32
 	},
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Dc" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8;
@@ -922,7 +922,7 @@
 	},
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Dg" = (
 /obj/structure/bookcase/random/archive,
 /obj/machinery/light/fueled/chand{
@@ -932,16 +932,16 @@
 	layer = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "DL" = (
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "DP" = (
 /obj/structure/fluff/statue/gargoyle{
 	pixel_y = 32
 	},
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "DR" = (
 /obj/structure/chair/bench/coucha,
 /obj/effect/decal/cobbleedge{
@@ -950,7 +950,7 @@
 	name = "carpet"
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "DX" = (
 /obj/structure/bars/tough{
 	icon = 'icons/effects/effects.dmi';
@@ -963,11 +963,11 @@
 	name = "fog"
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ee" = (
 /obj/structure/table/wood/fancy/red,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ef" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -978,26 +978,26 @@
 	pixel_y = 5
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ei" = (
 /obj/structure/stairs/fancy/l{
 	dir = 4
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Er" = (
 /obj/structure/fluff/statue/femalestatue{
 	pixel_y = -32
 	},
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Eu" = (
 /obj/structure/chair/wood/alt/fancy/chair5{
 	dir = 8
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ED" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -1007,7 +1007,7 @@
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "EU" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -1021,14 +1021,14 @@
 	pixel_x = 8
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "EZ" = (
 /obj/structure/fluff/wallclock/vampire/r,
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Fq" = (
 /turf/open/floor/carpet/lord/left,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "FC" = (
 /obj/structure/fluff{
 	icon_state = "crystal_spire";
@@ -1039,7 +1039,7 @@
 	damage_deflection = 1e+031
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Gp" = (
 /obj/structure/table/wood{
 	dir = 2;
@@ -1051,7 +1051,7 @@
 	pixel_x = -4
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "GC" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -1063,7 +1063,7 @@
 	pixel_x = 3
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "GH" = (
 /obj/structure/table/wood/large/corner,
 /obj/item/reagent_containers/glass/cup/golden{
@@ -1075,7 +1075,7 @@
 	pixel_x = -8
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Hj" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -1089,7 +1089,7 @@
 	pixel_x = 8
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Hq" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8;
@@ -1099,20 +1099,20 @@
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Hz" = (
 /obj/structure/stairs/fancy/r{
 	dir = 8
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "HI" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "HJ" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8;
@@ -1126,21 +1126,21 @@
 	pixel_y = 7
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Id" = (
 /obj/structure/fluff/railing/corner/south_east,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Im" = (
 /obj/structure/stairs/fancy/r{
 	dir = 4
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "IB" = (
 /obj/structure/shisha/hookah,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "IO" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -1149,7 +1149,7 @@
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "IU" = (
 /obj/structure/fluff/railing/corner,
 /obj/effect/decal/cobbleedge{
@@ -1158,19 +1158,19 @@
 	pixel_x = 8
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Jc" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "JY" = (
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "JZ" = (
 /obj/structure/hotspring/border/five,
 /turf/open/floor/naturalstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Kc" = (
 /obj/structure/fluff{
 	icon_state = "crystal_spire_tidal";
@@ -1186,11 +1186,11 @@
 	pixel_x = 8
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ki" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "KE" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8;
@@ -1199,31 +1199,31 @@
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "KG" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "asarchive1";
 	aportalid = "aslobby1"
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "KM" = (
 /obj/structure/stairs/fancy/r{
 	dir = 1
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Lf" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/lava,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "Lo" = (
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "LN" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ma" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -1232,22 +1232,22 @@
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Mn" = (
 /obj/structure/hotspring,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "MH" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/fluff/statue/femalestatue1{
 	pixel_y = 0
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "MR" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Nb" = (
 /obj/machinery/light/fueled/chand{
 	pixel_y = 6;
@@ -1256,7 +1256,7 @@
 	layer = 4
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Nk" = (
 /obj/structure/table/wood/large/corner{
 	dir = 8
@@ -1275,10 +1275,10 @@
 	pixel_y = 5
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ND" = (
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "NF" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -1287,7 +1287,7 @@
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "NN" = (
 /obj/structure/table/wood{
 	dir = 2;
@@ -1299,7 +1299,7 @@
 	pixel_x = -5
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "NQ" = (
 /obj/structure/table/wood/large/corner/south_east,
 /obj/item/plate/gold{
@@ -1316,35 +1316,35 @@
 	pixel_x = -16
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "NU" = (
 /obj/effect/decal/carpet/kover_darkred{
 	pixel_x = 16
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "NZ" = (
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/tile/bath,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Og" = (
 /obj/structure/chair/wood/alt/fancy/chair5{
 	dir = 4
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ow" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "OM" = (
 /obj/structure/hotspring/border/eight,
 /turf/open/floor/naturalstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "OP" = (
 /obj/structure/train/far_travel,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "OT" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2;
@@ -1359,7 +1359,7 @@
 /obj/structure/fluff/railing/corner/south_east,
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "OU" = (
 /obj/structure/hotspring,
 /obj/effect/decal/cobbleedge{
@@ -1368,14 +1368,14 @@
 	pixel_x = -8
 	},
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Pv" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Px" = (
 /turf/open/floor/carpet/lord/right,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Py" = (
 /obj/structure/table/wood/large/corner/middle_east,
 /obj/item/reagent_containers/glass/cup/golden{
@@ -1383,17 +1383,17 @@
 	pixel_x = 1
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "PB" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/lava,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "PH" = (
 /obj/structure/stairs/fancy/c{
 	dir = 8
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "PL" = (
 /obj/structure/fluff{
 	icon_state = "crystal_spire_tidal";
@@ -1404,7 +1404,7 @@
 	damage_deflection = 1e+031
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ql" = (
 /obj/effect/decal/carpet/kover_darkred{
 	pixel_y = -11
@@ -1413,7 +1413,7 @@
 	pixel_y = 15
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "QH" = (
 /obj/structure/stairs/fancy/r{
 	dir = 4
@@ -1422,19 +1422,19 @@
 	pixel_y = -32
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "QZ" = (
 /obj/structure/stairs/fancy/l{
 	dir = 8
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Rf" = (
 /obj/structure/stairs/fancy/r{
 	dir = 8
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ri" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -1444,30 +1444,30 @@
 /obj/structure/fluff/railing/border/east,
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Rn" = (
 /obj/structure/hotspring,
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Rq" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/carpet/inn,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "Rr" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "astable";
 	aportalid = "asarchive2"
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "RF" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "RY" = (
 /turf/closed/wall/mineral/decostone/long/east_west,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "So" = (
 /obj/structure/fluff/railing/border/east,
 /obj/effect/decal/cobbleedge{
@@ -1480,7 +1480,7 @@
 	pixel_y = 7
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Sq" = (
 /obj/structure/table/wood/large/corner/north_west,
 /obj/item/plate/gold,
@@ -1496,11 +1496,11 @@
 	pixel_y = 11
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "SE" = (
 /obj/structure/fluff/railing/corner/south_west,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ST" = (
 /obj/structure/hotspring,
 /obj/effect/decal/cobbleedge{
@@ -1509,32 +1509,32 @@
 	pixel_x = 8
 	},
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ta" = (
 /obj/structure/fluff/statue/aasimar,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "Tb" = (
 /obj/structure/fluff/pillow/red{
 	dir = 8
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Tj" = (
 /obj/structure/fluff/railing/corner,
 /turf/open/floor/tile/brownbrick,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Tu" = (
 /obj/item/soap/bath,
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "TE" = (
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "TS" = (
 /turf/open/floor/carpet/lord/center,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "TZ" = (
 /obj/structure/fluff/pillow/red{
 	dir = 1
@@ -1544,7 +1544,7 @@
 	pixel_x = -6
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ue" = (
 /obj/structure/fluff/statue/femalestatue/zizo{
 	desc = "An ancient statue depicting an elven woman.";
@@ -1552,7 +1552,7 @@
 	pixel_y = 32
 	},
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "UD" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8;
@@ -1566,7 +1566,7 @@
 	pixel_y = -8
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "UW" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_y = 32;
@@ -1575,35 +1575,35 @@
 	pixel_x = -16
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Vl" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "Vm" = (
 /obj/structure/fluff/wallclock/vampire/l,
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Vr" = (
 /obj/structure/hotspring/border/two,
 /turf/open/floor/naturalstone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Vv" = (
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/tile/bath,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Vw" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "aslobby1";
 	aportalid = "asarchive1"
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "VK" = (
 /turf/open/floor/tile/masonic{
 	dir = 8
 	},
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "VO" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8;
@@ -1612,24 +1612,24 @@
 	},
 /obj/structure/fluff/railing/border/west,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "VU" = (
 /obj/structure/stairs/fancy/c,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Wm" = (
 /obj/machinery/light/fueled/candle/floorcandle/alt/pink{
 	pixel_y = -16
 	},
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Wx" = (
 /turf/closed/wall/mineral/decostone/long/east_west,
-/area/rogue/indoors/inq/office)
+/area/indoors/inq/office)
 "WP" = (
 /obj/structure/stairs/fancy/l,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "WQ" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -1638,34 +1638,34 @@
 	},
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Xc" = (
 /turf/open/floor/tile/masonic{
 	dir = 4
 	},
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Xk" = (
 /obj/item/bin/water,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Xx" = (
 /turf/open/floor/tile/masonic,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "XL" = (
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "XW" = (
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ye" = (
 /turf/open/floor/tile/masonic{
 	dir = 1
 	},
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Yk" = (
 /obj/item/reagent_containers/glass/cup/golden,
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Yl" = (
 /obj/structure/fluff/pillow/red{
 	dir = 1
@@ -1675,19 +1675,19 @@
 	pixel_x = -6
 	},
 /turf/open/floor/tile/bfloorz,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "Ys" = (
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "YA" = (
 /obj/structure/hotspring,
 /obj/item/soap/bath,
 /turf/open/floor/ruinedwood/herringbone_clear,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "YM" = (
 /obj/structure/fluff/railing/border/east,
 /turf/open/floor/tile/bath,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "YX" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -1696,32 +1696,32 @@
 	},
 /obj/structure/fluff/railing/border/north,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ZB" = (
 /obj/structure/fluff/railing/border/west,
 /obj/structure/shisha,
 /turf/open/floor/tile/bath,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ZN" = (
 /obj/structure/stairs/fancy/l{
 	dir = 1
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ZO" = (
 /obj/structure/fluff/wallclock/vampire/r,
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ZP" = (
 /obj/structure/stairs/fancy/l{
 	dir = 4
 	},
 /turf/open/floor/concrete,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 "ZY" = (
 /obj/structure/fluff/railing/corner/north_east,
 /turf/open/floor/tile,
-/area/rogue/indoors/inq)
+/area/indoors/inq)
 
 (1,1,1) = {"
 Ad

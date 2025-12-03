@@ -72,7 +72,7 @@
 //............... Great Helm ............... //
 /obj/item/clothing/head/helmet/heavy/bucket
 	name = "great helm"
-	desc = "An immovable bulkwark of protection for the head of the faithful. Antiquated and impractical, but offering incredible defense."
+	desc = "An immovable bulwark of protection for the head of the faithful. Antiquated and impractical, but offering incredible defense."
 	icon_state = "topfhelm"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
@@ -275,7 +275,7 @@
 
 /obj/item/clothing/head/helmet/heavy/necked/ravox
 	name = "ravoxian helmet"
-	desc = "Headwear commonly worn by Templars in service to Ravox. It resembles an heavily adorned visored sallet."
+	desc = "Headwear commonly worn by Templars in service to Ravox. It resembles a heavily-adorned visored sallet."
 	icon_state = "ravoxhelm"
 	item_state = "ravoxhelm"
 	item_weight = 6 * IRON_MULTIPLIER

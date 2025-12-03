@@ -26,6 +26,9 @@
 	)
 
 
+	exp_type = list(EXP_TYPE_LIVING, EXP_TYPE_MAGICK)
+	exp_types_granted  = list(EXP_TYPE_MAGICK)
+
 /datum/outfit/mageapprentice/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.gender == MALE)

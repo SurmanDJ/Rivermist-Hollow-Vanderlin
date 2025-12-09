@@ -957,7 +957,8 @@
 	cure_nearsighted()
 	cure_blind()
 	cure_husk()
-	heal_overall_damage(INFINITY, INFINITY, null, TRUE) //heal brute and burn dmg on both organic and robotic limbs, and update health right away.
+	heal_overall_damage(INFINITY, INFINITY, null, FALSE) //heal brute and burn dmg on both organic and robotic limbs,
+	updatehealth()										 //and update health right away.
 	for(var/datum/wound/wound as anything in get_wounds())
 		if(admin_revive)
 			qdel(wound)
@@ -1962,7 +1963,8 @@
 		return TRUE
 	return FALSE
 
-/mob/living/proc/SoakMob(locations)
+
+/mob/living/proc/SoakMob(locations, dirty_water = FALSE, rain = FALSE)
 	if(locations & CHEST)
 		ExtinguishMob()
 		if(locations & HEAD)

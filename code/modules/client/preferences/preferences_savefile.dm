@@ -268,11 +268,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	validate_loadouts()
 
 /datum/preferences/proc/validate_loadouts()
-	if(!parent.patreon.has_access(ACCESS_ASSISTANT_RANK))
+	/*if(!parent.patreon.has_access(ACCESS_ASSISTANT_RANK))
 		loadout1 = null
 		loadout2 = null
 		loadout3 = null
-		return FALSE
+		return FALSE*/
 
 	for(var/i in 1 to 3)
 		if(!(vars["loadout[i]"] in GLOB.loadout_items)) // bite me

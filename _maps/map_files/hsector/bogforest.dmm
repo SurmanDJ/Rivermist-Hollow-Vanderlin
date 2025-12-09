@@ -3218,6 +3218,11 @@
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/outdoors)
+"CO" = (
+/turf/open/floor/twig{
+	baseturfs = /turf/open/water/swamp/deep
+	},
+/area/outdoors/rmh_air)
 "CQ" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood,
@@ -3723,7 +3728,9 @@
 /turf/open/floor/naturalstone,
 /area/outdoors/bog/rmh/travel/underdark)
 "GF" = (
-/turf/open/floor/twig,
+/turf/open/floor/twig{
+	baseturfs = /turf/open/water/swamp/deep
+	},
 /area/outdoors/bog/rmh/north)
 "GG" = (
 /obj/machinery/light/fueled/smelter,
@@ -4503,7 +4510,9 @@
 /turf/open/floor/dirt,
 /area/under/cave/rmh/goblindungeon)
 "Ni" = (
-/turf/open/floor/twig,
+/turf/open/floor/twig{
+	baseturfs = /turf/open/water/swamp/deep
+	},
 /area/outdoors/bog/rmh/south)
 "Nj" = (
 /obj/structure/fluff/railing/wood/west,
@@ -5705,7 +5714,9 @@
 /turf/open/floor/cobblerock,
 /area/under/cave/rmh/goblindungeon)
 "Xz" = (
-/turf/open/floor/twig,
+/turf/open/floor/twig{
+	baseturfs = /turf/open/water/swamp/deep
+	},
 /area/indoors/shelter/bog/rmh/fort)
 "XC" = (
 /obj/effect/decal/cobblerockedge/alt{
@@ -127399,7 +127410,7 @@ Pe
 fr
 GH
 fr
-aA
+CO
 nY
 nY
 Pe
@@ -127616,7 +127627,7 @@ Pe
 fr
 GH
 fr
-aA
+CO
 nY
 nY
 nY
@@ -127843,7 +127854,7 @@ nY
 nY
 nY
 nY
-aA
+CO
 fr
 fr
 fr
@@ -128060,7 +128071,7 @@ nY
 nY
 nY
 nY
-aA
+CO
 fr
 GH
 GH

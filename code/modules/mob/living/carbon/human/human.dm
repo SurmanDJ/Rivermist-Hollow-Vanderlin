@@ -45,50 +45,6 @@
 								V.add_stress(/datum/stress_event/dwarfshaved)
 					else
 						held_item.melee_attack_chain(user, src, params)
-<<<<<<< HEAD
-	if(user == src)
-		if(get_num_arms(FALSE) < 1)
-			return
-		if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
-			if(!underwear)
-				return
-			var/under_clothes = get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE)
-			src.visible_message(span_notice("[src] begins to take off [underwear][under_clothes ? " from under their clothes" : ""]..."))
-			var/delay = under_clothes ? 20 : 40
-			if(do_after(user, delay, target = src))
-				var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
-				chest.remove_bodypart_feature(underwear.undies_feature)
-				underwear.forceMove(get_turf(src))
-				src.put_in_hands(underwear)
-				underwear = null
-				regenerate_icons()
-		if((user.zone_selected == BODY_ZONE_L_LEG) || (user.zone_selected == BODY_ZONE_R_LEG))
-			if(!legwear_socks)
-				return
-			var/under_clothes = get_location_accessible(src, BODY_ZONE_PRECISE_R_FOOT, skipundies = TRUE) || get_location_accessible(src, BODY_ZONE_PRECISE_L_FOOT, skipundies = TRUE)
-			src.visible_message(span_notice("[src] begins to take off [legwear_socks][under_clothes ? " from under their clothes" : ""]..."))
-			var/delay = under_clothes ? 25 : 50
-			if(do_after(user, delay, target = src))
-				var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
-				chest.remove_bodypart_feature(legwear_socks.legwears_feature)
-				legwear_socks.forceMove(get_turf(src))
-				src.put_in_hands(legwear_socks)
-				legwear_socks = null
-				regenerate_icons()
-		if(user.zone_selected == BODY_ZONE_CHEST)
-			if(!piercings_item)
-				return
-			var/under_clothes = get_location_accessible(src, BODY_ZONE_CHEST, skipundies = TRUE)
-			src.visible_message(span_notice("[src] begins to take off [piercings_item][under_clothes ? " from under their clothes" : ""]..."))
-			var/delay = under_clothes ? 25 : 40
-			if(do_after(user, delay, target = src))
-				var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
-				chest.remove_bodypart_feature(piercings_item.piercings_feature)
-				piercings_item.forceMove(get_turf(src))
-				src.put_in_hands(piercings_item)
-				piercings_item = null
-				regenerate_icons()
-=======
 		else if(held_item && (user.zone_selected == BODY_ZONE_PRECISE_R_FOOT || user.zone_selected == BODY_ZONE_PRECISE_L_FOOT))
 			var/obj/item/clothing/shoes/shoes_check
 			var/mob/living/carbon/target
@@ -139,7 +95,48 @@
 					return
 				if(istype(held_item, /obj/item/reagent_containers/food/snacks/fat) && user?.used_intent?.type == INTENT_USE && shoes_check.polished == 2)
 					to_chat(user, ("You can't possibily make it shine more."))
->>>>>>> vanderlin/main
+	if(user == src)
+		if(get_num_arms(FALSE) < 1)
+			return
+		if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
+			if(!underwear)
+				return
+			var/under_clothes = get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE)
+			src.visible_message(span_notice("[src] begins to take off [underwear][under_clothes ? " from under their clothes" : ""]..."))
+			var/delay = under_clothes ? 20 : 40
+			if(do_after(user, delay, target = src))
+				var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
+				chest.remove_bodypart_feature(underwear.undies_feature)
+				underwear.forceMove(get_turf(src))
+				src.put_in_hands(underwear)
+				underwear = null
+				regenerate_icons()
+		if((user.zone_selected == BODY_ZONE_L_LEG) || (user.zone_selected == BODY_ZONE_R_LEG))
+			if(!legwear_socks)
+				return
+			var/under_clothes = get_location_accessible(src, BODY_ZONE_PRECISE_R_FOOT, skipundies = TRUE) || get_location_accessible(src, BODY_ZONE_PRECISE_L_FOOT, skipundies = TRUE)
+			src.visible_message(span_notice("[src] begins to take off [legwear_socks][under_clothes ? " from under their clothes" : ""]..."))
+			var/delay = under_clothes ? 25 : 50
+			if(do_after(user, delay, target = src))
+				var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
+				chest.remove_bodypart_feature(legwear_socks.legwears_feature)
+				legwear_socks.forceMove(get_turf(src))
+				src.put_in_hands(legwear_socks)
+				legwear_socks = null
+				regenerate_icons()
+		if(user.zone_selected == BODY_ZONE_CHEST)
+			if(!piercings_item)
+				return
+			var/under_clothes = get_location_accessible(src, BODY_ZONE_CHEST, skipundies = TRUE)
+			src.visible_message(span_notice("[src] begins to take off [piercings_item][under_clothes ? " from under their clothes" : ""]..."))
+			var/delay = under_clothes ? 25 : 40
+			if(do_after(user, delay, target = src))
+				var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
+				chest.remove_bodypart_feature(piercings_item.piercings_feature)
+				piercings_item.forceMove(get_turf(src))
+				src.put_in_hands(piercings_item)
+				piercings_item = null
+				regenerate_icons()
 
 /mob/living/carbon/human/Initialize()
 	// verbs += /mob/living/proc/mob_sleep

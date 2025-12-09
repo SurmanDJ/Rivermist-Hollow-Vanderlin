@@ -1963,7 +1963,8 @@
 		return TRUE
 	return FALSE
 
-/mob/living/proc/SoakMob(locations)
+
+/mob/living/proc/SoakMob(locations, dirty_water = FALSE, rain = FALSE)
 	if(locations & CHEST)
 		ExtinguishMob()
 		if(locations & HEAD)

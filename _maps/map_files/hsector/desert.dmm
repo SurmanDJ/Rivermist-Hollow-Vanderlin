@@ -6563,7 +6563,7 @@
 	color = "#3b3b3b"
 	},
 /obj/structure/table/wood,
-/obj/item/storage/bag/tray,
+/obj/item/tray,
 /turf/open/floor/tile/kitchen,
 /area/indoors/rmh_desert_phouse)
 "tf" = (

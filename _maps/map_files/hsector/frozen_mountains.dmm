@@ -6451,10 +6451,10 @@
 /area/under/town/basement/keep)
 "Cy" = (
 /obj/structure/table/wood/cooling,
-/obj/item/storage/bag/tray{
+/obj/item/tray{
 	pixel_x = -3
 	},
-/obj/item/storage/bag/tray{
+/obj/item/tray{
 	pixel_y = 7;
 	pixel_x = 3
 	},

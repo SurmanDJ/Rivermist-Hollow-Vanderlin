@@ -267,8 +267,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			unlock_content = C.IsByondMember()
 			if(unlock_content)
 				max_save_slots += 5
-		if(patreon)
-			max_save_slots += 30
+		max_save_slots += 30
+		//if(patreon)
+		//	max_save_slots += 30
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
 		if(load_character())
@@ -1524,9 +1525,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					popup.set_content(dat.Join())
 					popup.open(FALSE)
 				if("ooc_extra")
-					if(!patreon)
-						to_chat(user, "This is a patreon exclusive feature, your OOC Extra link will be applied but others will only be able to view it if you are a patreon supporter.")
-
 					to_chat(user, span_notice("Add a link from a suitable host (catbox, etc) to an mp3, mp4, or jpg / png file to have it embed at the bottom of your OOC notes."))
 					to_chat(user, span_notice("If the link doesn't show up properly in-game, ensure that it's a direct link that opens properly in a browser."))
 					to_chat(user, span_notice("Videos will be shrunk to a ~300x300 square. Keep this in mind."))
@@ -1646,16 +1644,14 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						print_special_text(user, next_special_trait)
 						return
 					to_chat(user, span_boldwarning("You will become special for one round, this could be something negative, positive or neutral and could have a high impact on your character and your experience. You cannot back out from or reroll this, and it will not carry over to other rounds."))
-					if(!patreon)
-						to_chat(user, span_boldwarning("THIS COSTS 1 TRIUMPH"))
-						if(user.get_triumphs() < 1)
-							to_chat(user, span_bignotice("YOU DON'T HAVE ENOUGH TRIUMPHS."))
-							return
+					to_chat(user, span_boldwarning("THIS COSTS 1 TRIUMPH"))
+					if(user.get_triumphs() < 1)
+						to_chat(user, span_bignotice("YOU DON'T HAVE ENOUGH TRIUMPHS."))
+						return
 					var/result = alert(user, "You'll receive a unique trait for one round\n You cannot back out from or reroll this\nDo you really want to spend 1 triumph for it?", "Be Special", "Yes", "No")
 					if(result != "Yes")
 						return
-					if(!patreon)
-						user.adjust_triumphs(-1)
+					user.adjust_triumphs(-1)
 					if(next_special_trait)
 						return
 					next_special_trait = roll_random_special(user.client)
